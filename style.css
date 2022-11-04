@@ -1,0 +1,65 @@
+.body {
+    background-color: mediumpurple;
+}
+
+.h1   
+{
+    color: black;
+    font-family: verdana;
+    font-size: 150%;
+}
+.p{
+    color: Azure;
+    font-family: verdana;
+    font-size: 110%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+    
+    
+.a{
+color: #E67E22	;
+background-color: transparent;
+text-decoration: none;
+font-size: 30px;
+font-family: verdana;
+}
+          
+.a:hover{
+    color: Azure;
+}
+
+
+
+
+
+.container-anisio {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.moldura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+    width: 237px;
+    border: dashed 3px black;
+}
+#carouselExampleControls {
+    width: 70%;
+}
+
+.akali-slider{
+    max-height: 100%;
+
+}
+
+.icon-size{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+}
