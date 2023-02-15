@@ -31,6 +31,9 @@ color: #ccffdd	;
 font-size: 50px;
 font-family: Monaco;
 }
+
+
+p.solid {border-style: solid;}
           
 .a:hover{
     color: Azure;
