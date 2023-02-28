@@ -89,11 +89,24 @@ p.solid {border-style: solid;}
   }
   
   .img2 {
-    width: 400%;
-    height: 400%;
+    width: 150%;
+    height: 150%;
   }
 
   .img {
     width: 100%;
     height: 100%;
+  }
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
   }
