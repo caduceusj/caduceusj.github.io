@@ -6,6 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>João Anisio Marinho da Nobrega</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+  />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+</head>
   <link rel="stylesheet" href="style.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,14 +26,16 @@
       <h1 style="text-align:center"><br> <br> Welcome to my Webpage Stranger :D. <br> <br></h1>
     </div>
     <div class="p">
-      <p> My name is Joao Anisio and I like to develop games, i was born in Brazil and always had a passion about it.
-        <br> <br> At the moment I'm focusing on Baroneza developed during the Game Jam Plus period,
-        in which we were champions among the people of our region, in the game i'm being responsible for developing the
+      <p> My name is Joao Anisio and I love game developing, and i dream of working with it in the near future!.
+        <br><br>
+        I am a Brazillian, and i currently live in Natal/RN, My passion for video games started when my father gave me a Playstation 2 when i was a kid, i would spend hours and hours playing multiple different video games and developing a giant passion for it.
+        <br> <br> At the moment I'm focusing on Baroneza developed during the Game Jam Plus period together with my developing team Caranguedev,
+        and thanks to our efforts and our group work, we were champions among the people of our region, in the game i'm being responsible for developing the
         mechanics and programming it, I admit that as it is the first time that I perform this function I am in a
         constant and emerging learning process, the engine I am using for the development of the game is Godot Version
         3.5, i've learned a lot from this project, specially in the three month period of Incubation, which i was the leading programmer of the project and took part too in the Game Design, the rest i have to thank to all my friends at Caranguedev for the help in the project
         <br> <br> The version developed during Game Jam Plus is already published on itch.io, with the download link
-        below!, if you can leave a constructive comment about the game our team would be very grateful! <br>
+        below!, if you can leave a constructive comment about the game our team would be very grateful!, i ve been focusing on learning the Unity Engine, one of the most used in the current video game marketing <br>
         <br>
         <br>
         <br>
@@ -36,14 +45,56 @@
   <body>
 
     <div class="frame">
-      <img class="img2" src="assets/PorDoSolMenu.png" alt="Baroneza Cover Picture">
+      <div id="carouselExampleIndicators" class="carousel slide" data-mdb-ride="carousel">
+        <div class="carousel-indicators">
+          
+          <button
+            type="button"
+            data-mdb-target="#carouselExampleIndicators"
+            data-mdb-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-mdb-target="#carouselExampleIndicators"
+            data-mdb-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-mdb-target="#carouselExampleIndicators"
+            data-mdb-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets\Baroneza_arte_grande_01.png" class="d-block w-100" alt="Wild Landscape"/>
+          </div>
+          <div class="carousel-item">
+            <img src="assets\PorDoSolMenu.png" class="d-block w-100" alt="Camera"/>
+          </div>
+          <div class="carousel-item">
+            <img src="assets\Arte_grande_02.png" class="d-block w-100" alt="Exotic Fruits"/>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
       <br>
-
     </div>
   </body>
 
   <div class=" h1">
-    <center>Baroneza cover picture</center>
+    <center>Some of the arts made for our game</center>
     <br>
 </div>
 
@@ -118,8 +169,20 @@
   </center>
 
 
-
+ 
 
   </div>
 </div>
+
+
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+
+    </div>
+  </body>
 </html>
+

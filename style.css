@@ -1,5 +1,5 @@
 #grad {
-    background-image: linear-gradient( to bottom, black, rgb(50, 16, 117), black);
+    background-image: linear-gradient( to bottom, black, rgb(14, 48, 16), black);
     height: 5000px;
 }
 
@@ -12,7 +12,7 @@
 
 .h1   
 {
-    color: rgb(255, 251, 34);
+    color: rgb(255, 217, 93);
     font-family: Monaco;
     font-size: 225%
 
@@ -81,10 +81,10 @@ p.solid {border-style: solid;}
 
 .frame {
     width: 1025px;
-    height: 625px;
+    height: 600px;
     border-style: dashed;
     border: 3px solid #a36200;
-    background: #000000;
+    background-image: linear-gradient( to bottom, black, rgb(255, 217, 93), black);
     margin: auto;
     padding: 15px 10px;
   }
@@ -94,19 +94,22 @@ p.solid {border-style: solid;}
     height: 625px;
     border-style: dashed;
     border: 3px solid #a36200;
-    background: #000000;
+    background-image: linear-gradient( to bottom, black, rgb(149, 223, 149), black);
     margin: auto;
     padding: 15px 10px;
+    display: flex
   }
   
   .img2 {
     width: 100%;
     height: 100%;
+    display: flex
   }
 
   .img {
     width: 100%;
     height: 100%;
+    display: flex
   }
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
@@ -117,4 +120,11 @@ p.solid {border-style: solid;}
   /* Clear floats after image containers */
   .row {
     display: flex;
+  }
+
+  .carousel_slide {
+    width: 50%;
+    height: 50%;
+    display: flex
+
   }
