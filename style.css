@@ -1,12 +1,13 @@
 #grad {
-    background-image: linear-gradient( to bottom, black, rgb(14, 48, 16), black);
+    background-image: linear-gradient( to bottom,#004432
+    , black, rgb(14, 48, 16), black);
     height: 8000px;
 }
 
 .hero-image {
-  background-image: url("assets\PorDoSolMenu.png");
-  background-color: #cccccc;
-  height: 500px;
+  background-image: url("https://i.ibb.co/b2Hb8Yf/Por-Do-Sol-Menu.png");
+  background-color: #0dff00;
+  height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,10 +17,11 @@
 .hero-text {
   text-align: center;
   position: absolute;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 @font-face {
@@ -117,11 +119,29 @@ p.solid {border-style: solid;}
     padding: 15px 10px;
     display: flex
   }
+  .frame3 {
+    width: 350px;
+    border-radius: 25px;
+    height: 466px;
+    border-style: dashed;
+    border: 3px solid #000000;
+    background-image: linear-gradient( to bottom, black, rgb(0, 0, 0), black);
+    margin: auto;
+    padding: 15px 10px;
+    display: flex
+  }
   
   .img2 {
     width: 100%;
     height: 100%;
     display: flex
+  }
+
+  .img3 {
+    width: 100%;
+    height: 100%;
+    display: flex
+    
   }
 
   .img {
