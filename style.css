@@ -1,12 +1,12 @@
 #grad {
-    background-image: linear-gradient( to bottom,#004432
-    , black, rgb(14, 48, 16), black);
+    background-image: linear-gradient( to bottom,#3f1f5a
+    , black,#3f1f5a, black);
     height: 8000px;
 }
 
 .hero-image {
-  background-image: url("https://i.ibb.co/b2Hb8Yf/Por-Do-Sol-Menu.png");
-  background-color: #0dff00;
+  background-image: url("https://ormuco.com/wp-content/uploads/2019/01/Ormuco-Designs-8.png");
+  background-color: #00f7ff;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 
 .h1   
 {
-    color: rgb(255, 217, 93);
+    color: rgb(93, 255, 247);
     font-family: Monaco;
     font-size: 225%
 
@@ -47,7 +47,7 @@
     
     
 .a{
-color: rgb(255, 251, 34);
+color:#00f7ff;
 font-size: 50px;
 font-family: Monaco;
 }
@@ -104,7 +104,7 @@ p.solid {border-style: solid;}
     height: 600px;
     border-style: dashed;
     border: 3px solid #a36200;
-    background-image: linear-gradient( to bottom, black, rgb(255, 217, 93), black);
+    background-image: linear-gradient( to bottom, black, rgb(142, 70, 175), black);
     margin: auto;
     padding: 15px 10px;
   }
@@ -114,7 +114,7 @@ p.solid {border-style: solid;}
     height: 625px;
     border-style: dashed;
     border: 3px solid #a36200;
-    background-image: linear-gradient( to bottom, black, rgb(149, 223, 149), black);
+    background-image: linear-gradient( to bottom, black, rgb(142, 70, 175), black);
     margin: auto;
     padding: 15px 10px;
     display: flex
