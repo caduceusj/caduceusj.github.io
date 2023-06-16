@@ -40,7 +40,7 @@
 .p{
     color: Azure;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 100%;
+    font-size: 150%;
     margin-left: 100px;
     margin-right: 100px;
 }
@@ -48,7 +48,7 @@
     
 .a{
 color:#00f7ff;
-font-size: 50px;
+font-size: 25px;
 font-family: 'Times New Roman', Times, serif;
 }
 
@@ -79,7 +79,7 @@ p.solid {border-style: solid;}
     align-items: center;
     height: 230px;
     width: 237px;
-    border: dashed 9px  rgb(255, 251, 34);
+    border: dashed 9px  rgb(255, 255, 255);
 }
 #carouselExampleControls {
     width: 70%;
