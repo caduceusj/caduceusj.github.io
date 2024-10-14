@@ -75,3 +75,10 @@ section#contato img:hover {
   background-color: #29153d;
   border-color: #29153d;
 }
+
+/* Estilo para a imagem de perfil */
+.perfil-img {
+  max-width: 250px; /* Ajuste este valor conforme necessário */
+  width: 100%;
+  height: auto;
+}
