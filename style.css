@@ -54,7 +54,7 @@ section#contato img:hover {
 /* Destaque para o projeto principal */
 #projetos .card.mb-4.shadow-lg {
   border: none;
-  background-color: #fff3e0;
+  background-color: #007104;
 }
 
 #projetos .card.mb-4.shadow-lg .card-title {
