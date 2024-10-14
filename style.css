@@ -54,7 +54,7 @@ section#contato img:hover {
 /* Destaque para o projeto principal */
 #projetos .card.mb-4.shadow-lg {
   border: none;
-  background-color: #007104;
+  background-color: #91ff94;
 }
 
 #projetos .card.mb-4.shadow-lg .card-title {
@@ -139,4 +139,51 @@ section#contato img:hover {
 
 .d-flex.gap-3 a:hover {
   transform: scale(1.1); /* Aumenta um pouco o tamanho ao passar o mouse para dar destaque */
+}
+/* Estilo para a seção "Almas da Floresta" */
+#almasdafloresta {
+  background-color: #004d00; /* Fundo verde escuro para combinar com o tema da floresta */
+  color: #f8f9fa; /* Texto em cor clara para contraste */
+  padding: 60px 0; /* Mais espaçamento para deixar a seção mais equilibrada */
+}
+
+/* Estilo para a logo do projeto */
+.logo-projeto {
+  max-width: 80%; /* Limita o tamanho da logo para não ocupar muito espaço */
+  height: auto;
+  border-radius: 10px; /* Cantos levemente arredondados para um visual mais agradável */
+}
+
+/* Estilo para o título do projeto */
+.titulo-projeto {
+  font-family: 'Roboto', sans-serif; /* Fonte mais elegante e legível */
+  font-weight: 700; /* Título em negrito para destaque */
+  color: #ffdd57; /* Cor amarela para dar contraste e chamar atenção */
+  font-size: 2rem; /* Tamanho do título */
+}
+
+/* Estilo para a descrição do projeto */
+.descricao-projeto {
+  font-family: 'Roboto', sans-serif; /* Fonte legível e consistente */
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ffffff; /* Texto branco para legibilidade */
+}
+
+/* Estilo para o botão */
+.btn-primary {
+  background-color: #6f42c1; /* Tom roxo para destacar o botão */
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #563d7c; /* Efeito de hover mais escuro */
+}
+
+/* Estilo para a coluna da logo para centralizar */
+#almasdafloresta .col-md-6.text-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
