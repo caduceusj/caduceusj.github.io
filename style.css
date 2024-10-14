@@ -116,7 +116,7 @@ section#contato img:hover {
 /* Seção de Contato */
 #contato .container {
   max-width: 200%; /* Garante que o container ocupe toda a largura possível */
-  padding: 0; /* Remove qualquer padding extra */
+  padding: 10; /* Remove qualquer padding extra */
 }
 
 #contato .row {
