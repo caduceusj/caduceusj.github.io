@@ -80,5 +80,6 @@ section#contato img:hover {
 .perfil-img {
   max-width: 250px; /* Ajuste este valor conforme necessário */
   width: 50%;
+  border-radius: 10px; /* Ajuste este valor conforme desejado */
   height: auto;
 }
