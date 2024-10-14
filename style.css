@@ -107,3 +107,36 @@ section#contato img:hover {
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* Seção de Contato */
+#contato .container {
+  max-width: 100%; /* Garante que o container ocupe toda a largura possível */
+  padding: 0; /* Remove qualquer padding extra */
+}
+
+#contato .row {
+  margin: 0; /* Remove as margens horizontais para garantir que todo o conteúdo encoste nas bordas */
+}
+
+#contato .form-control {
+  background-color: #333; /* Ajuste para um fundo mais escuro, se necessário */
+  color: #fff;
+}
+
+#contato .btn-primary {
+  background-color: #6f42c1; /* Ajuste da cor para combinar com o tema */
+  border: none;
+}
+
+#contato .btn-primary:hover {
+  background-color: #563d7c; /* Ajuste da cor do botão ao passar o mouse */
+}
+
+/* Espaçamento dos ícones das redes sociais */
+.d-flex.gap-3 a {
+  transition: transform 0.3s;
+}
+
+.d-flex.gap-3 a:hover {
+  transform: scale(1.1); /* Aumenta um pouco o tamanho ao passar o mouse para dar destaque */
+}
