@@ -79,6 +79,6 @@ section#contato img:hover {
 /* Estilo para a imagem de perfil */
 .perfil-img {
   max-width: 250px; /* Ajuste este valor conforme necessário */
-  width: 100%;
+  width: 50%;
   height: auto;
 }
