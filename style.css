@@ -198,7 +198,7 @@ section#contato img:hover {
 
 /* Estilo da imagem de perfil */
 .perfil-img {
-  max-width: 150px; /* Limitar tamanho da imagem */
+  max-width: 200px; /* Limitar tamanho da imagem */
   border-radius: 10px; /* Cantos levemente arredondados */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para um efeito flutuante */
 }
