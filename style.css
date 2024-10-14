@@ -114,13 +114,19 @@ section#contato img:hover {
 }
 
 /* Seção de Contato */
+#contato{
+  margin-bottom: 0; /* Remove a margem inferior */
+  padding-bottom: 0; /* Remove o padding inferior, se existir */
+}
+
 #contato .container {
   max-width: 200%; /* Garante que o container ocupe toda a largura possível */
   padding: 10; /* Remove qualquer padding extra */
 }
 
 #contato .row {
-  margin: 0; /* Remove as margens horizontais para garantir que todo o conteúdo encoste nas bordas */
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #contato .form-control {
