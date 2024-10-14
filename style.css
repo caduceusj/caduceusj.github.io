@@ -197,11 +197,15 @@ section#contato img:hover {
 }
 
 /* Estilo da imagem de perfil */
+
 .perfil-img {
-  max-width: 200px; /* Limitar tamanho da imagem */
+  max-width: 200px; /* Aumentar o tamanho máximo da imagem */
+  width: 100%; /* Garante que a imagem se ajuste à largura máxima */
+  height: auto;
   border-radius: 10px; /* Cantos levemente arredondados */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para um efeito flutuante */
 }
+
 
 /* Estilo do título de apresentação */
 .titulo-apresentacao {
