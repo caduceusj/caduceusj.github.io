@@ -115,7 +115,7 @@ section#contato img:hover {
 
 /* Seção de Contato */
 #contato .container {
-  max-width: 100%; /* Garante que o container ocupe toda a largura possível */
+  max-width: 200%; /* Garante que o container ocupe toda a largura possível */
   padding: 0; /* Remove qualquer padding extra */
 }
 
@@ -231,4 +231,34 @@ section#contato img:hover {
   .apresentacao-card {
     text-align: center;
   }
+}
+
+/* Estilo para o formulário de contato - Fonte branca */
+.col-md-6 form {
+  color: #ffffff; /* Define a cor da fonte como branco */
+}
+
+/* Garantir que os textos dentro dos inputs e textarea também fiquem brancos */
+.form-control {
+  background-color: #333; /* Cor de fundo mais escura para contraste */
+  color: #ffffff; /* Fonte branca */
+  border: 1px solid #555; /* Ajustar a cor da borda para melhor contraste */
+}
+
+.form-control::placeholder {
+  color: #cccccc; /* Deixa o placeholder em um tom mais claro para diferenciá-lo do texto normal */
+}
+
+.form-label {
+  color: #ffffff; /* Torna os rótulos (labels) brancos */
+}
+
+/* Estilo do botão para melhorar a integração visual */
+.btn-primary {
+  background-color: #6f42c1;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #563d7c; /* Cor mais escura no hover */
 }
