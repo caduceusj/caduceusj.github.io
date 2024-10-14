@@ -113,10 +113,7 @@ section#contato img:hover {
   max-width: 100%; /* Garante que o container ocupe toda a largura possível */
   padding: 0; /* Remove qualquer padding extra */
 }
-#contato {
-  margin: 0;
-  padding: 0 15px; /* Deixe um padding pequeno nas laterais, se necessário, para evitar que o conteúdo encoste diretamente na borda */
-}
+
 #contato .row {
   margin: 0; /* Remove as margens horizontais para garantir que todo o conteúdo encoste nas bordas */
 }
