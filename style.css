@@ -119,16 +119,22 @@ section#contato img:hover {
   padding-bottom: 0; /* Remove o padding inferior, se existir */
 }
 
-#contato .container {
-  max-width: 200%; /* Garante que o container ocupe toda a largura possível */
-  padding: 10; /* Remove qualquer padding extra */
+#contato {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
+/* Remover margem e padding extras da row e do container */
+#contato .container-fluid,
 #contato .row {
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
+footer {
+  margin-top: 0;
+  padding-top: 0;
+}
 #contato .form-control {
   background-color: #333; /* Ajuste para um fundo mais escuro, se necessário */
   color: #fff;
