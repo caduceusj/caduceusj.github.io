@@ -51,3 +51,27 @@ section#contato img:hover {
   background-color: #29153d;
   border-color: #29153d;
 }
+/* Destaque para o projeto principal */
+#projetos .card.mb-4.shadow-lg {
+  border: none;
+  background-color: #fff3e0;
+}
+
+#projetos .card.mb-4.shadow-lg .card-title {
+  font-size: 2rem;
+  color: #3f1f5a;
+}
+
+#projetos .card.mb-4.shadow-lg .card-text {
+  font-size: 1.1rem;
+}
+
+#projetos .card.mb-4.shadow-lg .btn-primary {
+  background-color: #3f1f5a;
+  border-color: #3f1f5a;
+}
+
+#projetos .card.mb-4.shadow-lg .btn-primary:hover {
+  background-color: #29153d;
+  border-color: #29153d;
+}
