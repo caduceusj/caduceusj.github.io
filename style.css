@@ -199,7 +199,7 @@ section#contato img:hover {
 /* Estilo da imagem de perfil */
 
 .perfil-img {
-  max-width: 200px; /* Aumentar o tamanho máximo da imagem */
+  max-width: 400px; /* Aumentar o tamanho máximo da imagem */
   width: 100%; /* Garante que a imagem se ajuste à largura máxima */
   height: auto;
   border-radius: 10px; /* Cantos levemente arredondados */
