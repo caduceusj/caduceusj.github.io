@@ -187,3 +187,39 @@ section#contato img:hover {
   justify-content: center;
   align-items: center;
 }
+
+/* Estilo do card de apresentação */
+.apresentacao-card {
+  max-width: 900px;
+  border-radius: 10px;
+  background-color: #f8f9fa; /* Fundo suave para destaque */
+  color: #333;
+}
+
+/* Estilo da imagem de perfil */
+.perfil-img {
+  max-width: 150px; /* Limitar tamanho da imagem */
+  border-radius: 10px; /* Cantos levemente arredondados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para um efeito flutuante */
+}
+
+/* Estilo do título de apresentação */
+.titulo-apresentacao {
+  font-family: 'Roboto', sans-serif; /* Fonte mais moderna e legível */
+  font-weight: bold;
+  color: #004d00; /* Tom verde escuro que remete à natureza e destaca bem */
+}
+
+/* Estilo do texto de apresentação */
+.texto-apresentacao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Ajuste responsivo para centralizar texto em telas menores */
+@media (max-width: 768px) {
+  .apresentacao-card {
+    text-align: center;
+  }
+}
