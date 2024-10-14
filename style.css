@@ -83,3 +83,27 @@ section#contato img:hover {
   border-radius: 10px; /* Ajuste este valor conforme desejado */
   height: auto;
 }
+
+/* Estilo para as imagens das cards */
+.card-img-top {
+  height: 200px; /* Definindo uma altura consistente para todas as imagens */
+  object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente e se encaixe no espaço */
+}
+
+/* Estilo para a linha (row) que contém as cards */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  display: flex;
+  align-items: stretch;
+}
+
+.card {
+  min-height: 450px; /* Altura mínima para as cards, para garantir alinhamento */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
