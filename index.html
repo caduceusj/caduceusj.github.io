@@ -1,3 +1,12 @@
+Okay, I've processed your HTML and JavaScript. I've removed all standard HTML (``), CSS (`/* */`), and JavaScript (`//`, `/* */`) comments. I've also removed the specific placeholder comment `"{/* This div is intentionally empty. Content is populated by JavaScript. */}"` you mentioned.
+
+Regarding the colors for the GitHub.io version, the existing color palette and Tailwind CSS utility classes are well-defined and should work correctly when deployed (assuming the Tailwind CDN link remains active and accessible). The colors are thematic for a medieval style. The `@apply` directives within your `<style>` tags are supported by the Tailwind Play CDN.
+
+I've also taken the liberty to suggest a few alternative subtle background textures from `transparenttextures.com` to enhance the medieval theme, as you requested. You can easily revert these if you prefer your original choices.
+
+Here's the cleaned and slightly updated script:
+
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -13,13 +22,13 @@
     <style>
         body {
             font-family: 'Lora', serif;
-            background-color: #3a302b; /* Dark, earthy brown */
-            color: #e0dcd3; /* Parchment off-white */
-            background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png'); /* Subtle texture */
+            background-color: #3a302b;
+            color: #e0dcd3;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
         .hero-gradient {
-            background: linear-gradient(135deg, #2a1f1b 0%, #4a3b36 50%, #2a1f1b 100%); /* Darker gradient for hero */
-            border-bottom: 4px solid #8c6d46; /* Old gold border */
+            background: linear-gradient(135deg, #2a1f1b 0%, #4a3b36 50%, #2a1f1b 100%);
+            border-bottom: 4px solid #8c6d46;
         }
         .section-title {
             font-family: 'MedievalSharp', cursive;
@@ -28,18 +37,18 @@
         }
         .nav-link {
             font-family: 'Lora', serif;
-            @apply px-2 py-2 rounded-md text-xs sm:text-sm font-medium text-amber-100 hover:bg-amber-700/30 hover:text-amber-300 transition-colors whitespace-nowrap; 
+            @apply px-2 py-2 rounded-md text-xs sm:text-sm font-medium text-amber-100 hover:bg-amber-700/30 hover:text-amber-300 transition-colors whitespace-nowrap;
         }
         .nav-bg {
-            background-color: rgba(42, 31, 27, 0.9); /* Semi-transparent dark brown */
-            backdrop-filter: blur(8px); /* Frosted glass effect */
-            border-bottom: 2px solid #8c6d46; /* Old gold border */
-            @apply shadow-xl; /* Tailwind shadow */
+            background-color: rgba(42, 31, 27, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid #8c6d46;
+            @apply shadow-xl;
         }
         .card-bg {
-            background-color: #f3e9dc; /* Light parchment for cards */
-            color: #3a302b; /* Dark brown text on cards */
-            border: 2px solid #8c6d46; /* Old gold border for cards */
+            background-color: #f3e9dc;
+            color: #3a302b;
+            border: 2px solid #8c6d46;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
             @apply rounded-lg;
         }
@@ -54,10 +63,10 @@
         }
         .tag {
             font-family: 'Lora', serif;
-            @apply text-xs bg-amber-700/50 text-amber-100 px-3 py-1 rounded-md border border-amber-600; 
+            @apply text-xs bg-amber-700/50 text-amber-100 px-3 py-1 rounded-md border border-amber-600;
         }
         .tag-separator {
-            @apply mx-1 text-amber-600; /* Separator for tags */
+            @apply mx-1 text-amber-600;
         }
         .button-primary {
             font-family: 'MedievalSharp', cursive;
@@ -70,11 +79,9 @@
         .timeline-border { @apply border-l-2 border-amber-500; }
         .timeline-dot { @apply absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-amber-600 ring-4 ring-[#3a302b]; }
 
-        /* Fade-in animation for sections */
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-visible { opacity: 1; transform: translateY(0); }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #4a3b36; }
         ::-webkit-scrollbar-thumb { background: #8c6d46; border-radius: 5px; border: 1px solid #3a302b; }
@@ -85,8 +92,8 @@
 
     <nav id="navbar" class="nav-bg fixed w-full z-50 top-0 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20"> 
-                <div class="hidden md:flex flex-1 items-center justify-center sm:justify-around"> 
+            <div class="flex items-center justify-between h-20">
+                <div class="hidden md:flex flex-1 items-center justify-center sm:justify-around">
                     <a href="#about" class="nav-link">The Chronicle</a>
                     <a href="#skills" class="nav-link">Masteries</a>
                     <a href="#featured-project" class="nav-link">Grand Quest</a>
@@ -120,7 +127,7 @@
     </nav>
 
     <header class="hero-gradient pt-20 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-        <div class="py-24"> 
+        <div class="py-24">
             <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight" style="font-family: 'Cinzel Decorative', cursive;">
                 <span class="block text-gray-100">João Anisio</span>
                 <span class="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600 mt-2">Marinho da Nobrega</span>
@@ -151,7 +158,7 @@
         </div>
     </header>
 
-    <section id="about" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+    <section id="about" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
             <div class="text-center">
                 <h2 class="section-title">The Chronicle of a Game Smith</h2>
@@ -170,17 +177,17 @@
         </div>
     </section>
 
-    <section id="skills" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+    <section id="skills" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">My Masteries</h2>
             </div>
             <div id="skills-grid" class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 text-center">
-                </div>
+            </div>
         </div>
     </section>
 
-    <section id="featured-project" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+    <section id="featured-project" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                  <h2 class="section-title">My Grand Quest</h2>
@@ -198,8 +205,7 @@
                     <p class="mt-3 text-base">
                         As Lead Programmer, I channel my 3+ years of arcane knowledge to weave intricate mechanics, summon diverse foes, and ensure a gameplay experience as smooth as a polished blade, all with our own unique sigil.
                     </p>
-                    <div class="tag-container mt-4"> 
-                        {/* This div is intentionally empty. Content is populated by JavaScript. */}
+                    <div class="tag-container mt-4">
                     </div>
                     <p class="mt-3 text-xs text-stone-600">Fellowship (Rebuild): Marcos Arthur, Luis Eduardo Sales, Gabriel Henrique Bessa, Guilherme Santos Rosas.</p>
                     <div class="mt-6">
@@ -212,17 +218,17 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+    <section id="portfolio" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">My Treasure Hoard</h2>
             </div>
             <div id="projects-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-                </div>
+            </div>
         </div>
     </section>
 
-    <section id="experience" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+    <section id="experience" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
             <div class="text-center">
                 <h2 class="section-title">Sagas of My Journey</h2>
@@ -260,7 +266,7 @@
         </div>
     </section>
 
-    <section id="education" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+    <section id="education" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">Ancient Lore & Scrolls of Achievement</h2>
@@ -305,7 +311,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+    <section id="contact" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10 text-center">
             <h2 class="section-title">Send a Raven</h2>
             <p class="mt-4 max-w-2xl mx-auto text-lg">
@@ -337,14 +343,12 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                // Handle cases where URL might have query parameters (like for skill filtering)
                 if (targetId.includes('?skill=')) {
-                    const mainTargetId = targetId.split('?')[0]; // Get the ID part before '?'
+                    const mainTargetId = targetId.split('?')[0];
                     const targetElement = document.querySelector(mainTargetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -355,46 +359,42 @@
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
-                // Close mobile menu if open after clicking a link
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                     const menuButton = document.getElementById('mobile-menu-button');
-                    menuButton.children[0].classList.remove('hidden'); // Show hamburger
-                    menuButton.children[1].classList.add('hidden');    // Hide close icon
+                    menuButton.children[0].classList.remove('hidden');
+                    menuButton.children[1].classList.add('hidden');
                 }
             });
         });
 
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.children[0].classList.toggle('hidden'); // Toggle hamburger icon
-            mobileMenuButton.children[1].classList.toggle('hidden'); // Toggle close icon
+            mobileMenuButton.children[0].classList.toggle('hidden');
+            mobileMenuButton.children[1].classList.toggle('hidden');
         });
         
-        // Navbar hide/show on scroll
         const navbar = document.getElementById('navbar');
         let lastScrollTop = 0;
         window.onscroll = () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop && scrollTop > 80) { // If scrolling down and past 80px
-                navbar.style.top = "-100px"; // Hide navbar
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                navbar.style.top = "-100px";
             } else {
-                navbar.style.top = "0"; // Show navbar
+                navbar.style.top = "0";
             }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         };
 
-        // Skills data and rendering
         const skillIcons = {
-            "Godot Engine": '<i class="fas fa-cube"></i>', // Generic cube for Godot
+            "Godot Engine": '<i class="fas fa-cube"></i>',
             "Unity": '<i class="fab fa-unity"></i>',
-            "GDScript": '📜', // Scroll for GDScript
-            "C#": '✨', // Sparkles for C#
-            "C++": '<i class="fas fa-cog"></i>', // Cog for C++
+            "GDScript": '📜',
+            "C#": '✨',
+            "C++": '<i class="fas fa-cog"></i>',
             "Python": '<i class="fab fa-python"></i>',
             "HTML5": '<i class="fab fa-html5"></i>',
             "CSS3": '<i class="fab fa-css3-alt"></i>',
@@ -403,7 +403,7 @@
             "AI Programming": '<i class="fas fa-brain"></i>',
             "UI/UX Design": '<i class="fas fa-drafting-compass"></i>',
             "Level Design": '<i class="fas fa-map-marked-alt"></i>',
-            "Adobe Suite": '<i class="fas fa-palette"></i>', // Palette for Adobe Suite
+            "Adobe Suite": '<i class="fas fa-palette"></i>',
             "Git & GitHub": '<i class="fab fa-git-alt"></i>',
         };
 
@@ -426,12 +426,12 @@
         ];
 
         const skillsGrid = document.getElementById('skills-grid');
-        if (skillsGrid) { // Check if the element exists before trying to modify it
+        if (skillsGrid) {
             skills.forEach(skill => {
-                const skillLink = `#portfolio?skill=${encodeURIComponent(skill.name)}`; // Link to portfolio, potentially filtering by skill
+                const skillLink = `#portfolio?skill=${encodeURIComponent(skill.name)}`;
                 const skillElement = `
                     <a href="${skillLink}" data-skill="${skill.name}" class="skill-card no-underline">
-                        <div class="text-4xl mb-3 text-amber-700">${skillIcons[skill.name] || '🛡️'}</div> {/* Default icon if not found */}
+                        <div class="text-4xl mb-3 text-amber-700">${skillIcons[skill.name] || '🛡️'}</div>
                         <h3 class="text-lg font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3>
                         <p class="text-sm text-stone-600">${skill.level}</p>
                     </a>
@@ -440,14 +440,12 @@
             });
         }
 
-
-        // Projects data and rendering
         const projects = [
              {
                 title: "As Almas da Floresta",
                 description: "Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.",
                 engine: "Godot Engine",
-                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=As+Almas+da+Floresta", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=As+Almas+da+Floresta",
                 tags: ["Godot", "Gameplay Programming", "AI", "UI"],
                 projectUrl: "https://caduceusj.itch.io/as-almas-da-floresta",
             },
@@ -455,15 +453,15 @@
                 title: "Serious Game: PICC Line Training",
                 description: "Developing a simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.",
                 engine: "Unity / Godot (TBD)",
-                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Serious+Game", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Serious+Game",
                 tags: ["Serious Game", "Simulation", "Medical Training", "Unity"],
-                projectUrl: null, // No URL available yet
+                projectUrl: null,
             },
             {
                 title: "Gargantua",
                 description: "3D retro-style horror game in development. Working on graphics, item inspection, UI, and main antagonist AI.",
                 engine: "Unity",
-                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Gargantua", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Gargantua",
                 tags: ["Unity", "3D Horror", "AI", "Retro Graphics"],
                 projectUrl: "https://caduceusj.itch.io/gargantua",
             },
@@ -471,7 +469,7 @@
                 title: "Fofoca (Gossip)",
                 description: "Sole programmer for this GMTK Game Jam 2024 entry. Implemented character AI, day/night cycle, UI, and objective generation.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Fofoca", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Fofoca",
                 tags: ["Game Jam", "AI", "Solo Dev", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/fofoca",
             },
@@ -479,23 +477,23 @@
                 title: "E.L.P.H.",
                 description: "Sole programmer. Implemented unique game mechanics and assisted with game design, including elevator systems.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=E.L.P.H.", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=E.L.P.H.",
                 tags: ["Solo Dev", "Mechanics", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/elph",
             },
             {
                 title: "Breaking Bastille",
                 description: "First 3D project. Contributed to Level Design, Game Design, dynamic UI, and combat mechanics.",
-                engine: "Unity", 
-                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Breaking+Bastille", // Placeholder image
+                engine: "Unity",
+                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Breaking+Bastille",
                 tags: ["3D Project", "Level Design", "Combat Mechanics", "Unity"],
                 projectUrl: "https://caduceusj.itch.io/breaking-bastille",
             },
             {
                 title: "Baroneza",
                 description: "First major programming project. Implemented mechanics, cutscenes, enemies, and UI. Game Jam Plus Finalist.",
-                engine: "Godot", 
-                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Baroneza", // Placeholder image
+                engine: "Godot",
+                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Baroneza",
                 tags: ["Game Jam", "Finalist", "Programming", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/baroneza",
             },
@@ -503,7 +501,7 @@
                 title: "Quentura",
                 description: "Keep students cool in this arcade game! Programming and Game Design.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Quentura", // Placeholder image
+                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Quentura",
                 tags: ["Godot", "Arcade", "Game Jam"],
                 projectUrl: "https://caduceusj.itch.io/quentura",
             }
@@ -512,27 +510,24 @@
         const projectsGrid = document.getElementById('projects-grid');
         const featuredProjectTagsContainer = document.querySelector('#featured-project .tag-container');
 
-        // Function to generate HTML for tags
         function generateTagsHTML(tagsArray) {
             return tagsArray.map((tag, index) => {
                 let tagHTML = `<span class="tag">${tag}</span>`;
-                if (index < tagsArray.length - 1) { // Add separator if not the last tag
+                if (index < tagsArray.length - 1) {
                     tagHTML += `<span class="tag-separator">/</span>`;
                 }
                 return tagHTML;
             }).join('');
         }
         
-        // Populate tags for the featured project
-        if (featuredProjectTagsContainer) { 
-            const featuredProjectTags = ["Godot 4.4", "Metroidvania", "Lead Programmer", "2D Platformer", "Dark Fantasy"]; 
+        if (featuredProjectTagsContainer) {
+            const featuredProjectTags = ["Godot 4.4", "Metroidvania", "Lead Programmer", "2D Platformer", "Dark Fantasy"];
             featuredProjectTagsContainer.innerHTML = generateTagsHTML(featuredProjectTags);
         }
 
-        // Populate project cards in the portfolio grid
-        if (projectsGrid) { // Check if the element exists
+        if (projectsGrid) {
             projects.forEach(project => {
-                const projectTagsString = project.tags.join(','); // For data attribute filtering
+                const projectTagsString = project.tags.join(',');
                 const projectCard = `
                     <div class="project-card fade-in-section" data-tags="${projectTagsString.toLowerCase()}">
                         <img src="${project.imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3a302b/e0dcd3?text=Image+Not+Found';" class="w-full h-56 object-cover border-b-2 border-amber-600">
@@ -540,7 +535,7 @@
                             <h3 class="text-xl font-semibold text-red-700 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3>
                             <p class="text-sm text-stone-700 mb-3 h-20 overflow-y-auto">${project.description}</p>
                             <p class="text-xs text-amber-700 font-medium mb-3">Engine: ${project.engine}</p>
-                            <div class="tag-container"> 
+                            <div class="tag-container">
                                 ${generateTagsHTML(project.tags)}
                             </div>
                             ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-stone-500">Sealed Scroll (Details on request)</span>'}
@@ -551,23 +546,21 @@
             });
         }
 
-
-        // Intersection Observer for fade-in sections
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in-section').forEach(section => {
             observer.observe(section);
         });
         
-        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
+```
