@@ -1,276 +1,573 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>João Anisio Marinho da Nobrega - Portfólio</title>
-  <!-- Links de CSS -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-  />
-  <link rel="stylesheet" href="css/mdb.min.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Anisio Marinho da Nobrega - Game Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #3a302b; /* Dark, earthy brown */
+            color: #e0dcd3; /* Parchment off-white */
+            background-image: url('https://www.transparenttextures.com/patterns/crissxcross.png'); /* Subtle texture */
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #2a1f1b 0%, #4a3b36 50%, #2a1f1b 100%); /* Darker gradient for hero */
+            border-bottom: 4px solid #8c6d46; /* Old gold border */
+        }
+        .section-title {
+            font-family: 'MedievalSharp', cursive;
+            @apply text-4xl sm:text-5xl font-bold mb-10 sm:mb-14 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .nav-link {
+            font-family: 'Lora', serif;
+            @apply px-2 py-2 rounded-md text-xs sm:text-sm font-medium text-amber-100 hover:bg-amber-700/30 hover:text-amber-300 transition-colors whitespace-nowrap; 
+        }
+        .nav-bg {
+            background-color: rgba(42, 31, 27, 0.9); /* Semi-transparent dark brown */
+            backdrop-filter: blur(8px); /* Frosted glass effect */
+            border-bottom: 2px solid #8c6d46; /* Old gold border */
+            @apply shadow-xl; /* Tailwind shadow */
+        }
+        .card-bg {
+            background-color: #f3e9dc; /* Light parchment for cards */
+            color: #3a302b; /* Dark brown text on cards */
+            border: 2px solid #8c6d46; /* Old gold border for cards */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            @apply rounded-lg;
+        }
+        .project-card {
+            @apply card-bg transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-600/40;
+        }
+        .skill-card {
+             @apply card-bg p-5 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-600/40;
+        }
+        .tag-container {
+            @apply flex flex-wrap items-center mb-4;
+        }
+        .tag {
+            font-family: 'Lora', serif;
+            @apply text-xs bg-amber-700/50 text-amber-100 px-3 py-1 rounded-md border border-amber-600; 
+        }
+        .tag-separator {
+            @apply mx-1 text-amber-600; /* Separator for tags */
+        }
+        .button-primary {
+            font-family: 'MedievalSharp', cursive;
+            @apply inline-block px-8 py-3 border-2 border-amber-500 text-base font-bold rounded-md text-amber-100 bg-gradient-to-br from-red-800 to-orange-700 hover:from-red-700 hover:to-orange-600 transition-all shadow-lg hover:shadow-amber-500/30 transform hover:scale-105;
+        }
+        .button-secondary {
+            font-family: 'MedievalSharp', cursive;
+            @apply inline-block px-8 py-3 border-2 border-amber-600 text-base font-bold rounded-md text-amber-200 bg-stone-700 hover:bg-stone-600 transition-all shadow-md hover:shadow-amber-500/20 transform hover:scale-105;
+        }
+        .timeline-border { @apply border-l-2 border-amber-500; }
+        .timeline-dot { @apply absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-amber-600 ring-4 ring-[#3a302b]; }
+
+        /* Fade-in animation for sections */
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-visible { opacity: 1; transform: translateY(0); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #4a3b36; }
+        ::-webkit-scrollbar-thumb { background: #8c6d46; border-radius: 5px; border: 1px solid #3a302b; }
+        ::-webkit-scrollbar-thumb:hover { background: #a07e3e; }
+    </style>
 </head>
-<body>
-  <!-- Cabeçalho -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">João Anisio - Game Programmer - Godot & Unity</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-          </ul>
+<body class="antialiased">
+
+    <nav id="navbar" class="nav-bg fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20"> 
+                <div class="hidden md:flex flex-1 items-center justify-center sm:justify-around"> 
+                    <a href="#about" class="nav-link">The Chronicle</a>
+                    <a href="#skills" class="nav-link">Masteries</a>
+                    <a href="#featured-project" class="nav-link">Grand Quest</a>
+                    <a href="#portfolio" class="nav-link">Treasures</a>
+                    <a href="#experience" class="nav-link">Sagas</a>
+                    <a href="#education" class="nav-link">Lore & Scrolls</a>
+                    <a href="#contact" class="nav-link">Send a Raven</a>
+                </div>
+
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="bg-stone-700/50 inline-flex items-center justify-center p-2 rounded-md text-amber-200 hover:text-amber-100 hover:bg-stone-600/70 focus:outline-none focus:ring-2 focus:ring-amber-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block nav-link text-base">The Chronicle</a>
+                <a href="#skills" class="block nav-link text-base">Masteries</a>
+                <a href="#featured-project" class="block nav-link text-base">Grand Quest</a>
+                <a href="#portfolio" class="block nav-link text-base">Treasures</a>
+                <a href="#experience" class="block nav-link text-base">Sagas</a>
+                <a href="#education" class="block nav-link text-base">Lore & Scrolls</a>
+                <a href="#contact" class="block nav-link text-base">Send a Raven</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- Seção Sobre -->
-  <section id="sobre" class="py-5">
-    <div class="container d-flex justify-content-center">
-      <div class="card p-4 shadow-lg apresentacao-card">
-        <div class="row align-items-center">
-          <!-- Imagem -->
-          <div class="col-md-4 text-center">
-            <center><img src="assets/pfp.jpg" alt="João Anisio" class="img-fluid perfil-img mb-3"></center>
-          </div>
-          <!-- Texto de Apresentação -->
-          <div class="col-md-8">
-            <center><h2 class="titulo-apresentacao text-center text-md-start">Welcome to my Portfolio Website!</h2></center>
-            <p class="texto-apresentacao mt-3">
-              I'm a passionate game programmer fueled by challenges (and coffee), always aiming to create experiences that make players say, 'Just one more round!' Video games have been a part of my life for as long as I can remember, and my love for them has only grown over time. I'm constantly on the lookout for new learning opportunities and ways to push my limits, because the game never ends when it comes to expanding my knowledge.
+    <header class="hero-gradient pt-20 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+        <div class="py-24"> 
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight" style="font-family: 'Cinzel Decorative', cursive;">
+                <span class="block text-gray-100">João Anisio</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600 mt-2">Marinho da Nobrega</span>
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl text-amber-100 sm:max-w-xl md:mt-8 md:max-w-2xl" style="font-family: 'Lora', serif;">
+                Game Smith & Quest Designer | Godot & Unity Artisan
             </p>
-          </div>
+            <p class="mt-4 max-w-md mx-auto text-md text-amber-200/80 sm:max-w-lg md:mt-5 md:max-w-xl" style="font-family: 'Lora', serif;">
+                Forging immersive worlds and engaging adventures from lines of code and pixels.
+            </p>
+            <div class="mt-10 max-w-md mx-auto sm:flex sm:justify-center md:mt-12">
+                <div class="rounded-md shadow">
+                    <a href="#portfolio" class="button-primary md:py-4 md:text-lg md:px-10">
+                        View My Treasures
+                    </a>
+                </div>
+                <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                    <a href="#contact" class="button-secondary md:py-4 md:text-lg md:px-10">
+                        Send a Raven
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-500 transition-colors"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/caduceusj" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-500 transition-colors"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://caduceusj.itch.io/" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-500 transition-colors"><i class="fab fa-itch-io fa-2x"></i></a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
- <!-- Seção Projetos -->
-<section id="projetos" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Featured</h2>
+    </header>
 
-<!-- Seção Almas da Floresta -->
-<section id="almasdafloresta" class="py-5 bg-dark text-white">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Logo do Projeto -->
-      <div class="col-md-6 text-center mb-4">
-        <img src="assets/As_almas_da_floresta.png" class="img-fluid logo-projeto" alt="As Almas da Floresta">
-      </div>
-      <!-- Descrição do Projeto -->
-      <div class="col-md-6">
-        <h2 class="titulo-projeto">Almas da Floresta</h2>
-        <p class="descricao-projeto">
-          An action-adventure game where you explore a mysterious forest being consumed by corruption and wield powerful magic to cleanse and restore it!
-        </p>
-        <a href="#" class="btn btn-primary mt-3">Read More</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="about" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
+            <div class="text-center">
+                <h2 class="section-title">The Chronicle of a Game Smith</h2>
+            </div>
+            <div class="mt-8 max-w-3xl mx-auto text-lg space-y-6 text-justify">
+                <p>
+                    Hail, traveler! I am João Anisio, a Game Smith and Quest Designer from the realms of Natal, Brazil. My passion lies in forging creative concepts into captivating digital adventures. My anvils of choice are the mighty <strong class="text-yellow-700">Godot Engine</strong> and the versatile <strong class="text-amber-600">Unity</strong>, where I craft both grand solo sagas and collaborative expeditions.
+                </p>
+                <p>
+                    I am a perpetual apprentice, ever seeking new scrolls of knowledge and challenging quests to hone my craft. My skills extend to the arcane arts of Virtual Reality and Projection Mapping using Cave Automated Systems in Unity. Beyond the forge of game development, my grimoire includes spells in C#, C++, Python, the ancient runes of HTML5 & CSS3, and mastery over the Alchemist's tools (Adobe Suite).
+                </p>
+                <p>
+                    My ultimate quest is to continue evolving, crafting unique artifacts (games) that etch themselves into the legends of players. Should our paths align, let us convene and weave new tales together!
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <section id="skills" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="section-title">My Masteries</h2>
+            </div>
+            <div id="skills-grid" class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 text-center">
+                </div>
+        </div>
+    </section>
 
-<!-- Outros Projetos -->
-<section id="projetos" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">My Projects</h2>
-    <div class="row">
-      <!-- Projeto 2: Separatio - VR -->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/Separatio.png" class="card-img-top" alt="Projeto Separatio - VR">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">SEPARATIO - VR</h5>
-            <p class="card-text">I'm currently developing a VR project using Godot 4.3, and it's my first full dive into virtual reality development!</p>
-            <a href="#projeto157" class="btn btn-primary mt-auto">Read More</a>
-          </div>
+    <section id="featured-project" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                 <h2 class="section-title">My Grand Quest</h2>
+            </div>
+            <div class="card-bg lg:grid lg:grid-cols-2 lg:gap-6 items-center p-6 md:p-8">
+                <div class="lg:pr-8">
+                    <img src="https://placehold.co/800x600/8c6d46/f3e9dc?text=Malleus+Maleficarum+Artwork" alt="Malleus Maleficarum" class="rounded-md shadow-lg w-full h-auto object-cover border-2 border-amber-600">
+                </div>
+                <div class="mt-6 lg:mt-0">
+                    <h3 class="text-3xl font-bold text-red-800" style="font-family: 'MedievalSharp', cursive;">Malleus Maleficarum (Rebuild)</h3>
+                    <p class="text-sm text-amber-700 font-medium mt-1">Engine: Godot 4.4 | Role: Lead Programmer</p>
+                    <p class="mt-4 text-lg">
+                        A dark metroidvania, born from the embers of a 2023 game jam, now being reforged with greater ambition.
+                    </p>
+                    <p class="mt-3 text-base">
+                        As Lead Programmer, I channel my 3+ years of arcane knowledge to weave intricate mechanics, summon diverse foes, and ensure a gameplay experience as smooth as a polished blade, all with our own unique sigil.
+                    </p>
+                    <div class="tag-container mt-4"> 
+                        {/* This div is intentionally empty. Content is populated by JavaScript. */}
+                    </div>
+                    <p class="mt-3 text-xs text-stone-600">Fellowship (Rebuild): Marcos Arthur, Luis Eduardo Sales, Gabriel Henrique Bessa, Guilherme Santos Rosas.</p>
+                    <div class="mt-6">
+                        <a href="https://caduceusj.itch.io/malleus-maleficarum" target="_blank" rel="noopener noreferrer" class="button-primary text-sm py-2 px-4">
+                            Behold on Itch.io (Coming Soon)
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <!--Malleus Maleficarum-->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/malleusmale.png" class="card-img-top" alt="malleus">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">Malleus Maleficarum</h5>
-            <p class="card-text"> Winner of HallowJam 2023, this Metroidvania tells the story of Mirabel, a witch hunter seeking revenge, with plans for an expanded version coming soon</p>
-            <a href="#malleus" class="btn btn-primary mt-auto">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!--Fofoca-->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/fofocaLogo.png" class="card-img-top" alt="FOFOCA">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">Fofoca</h5>
-            <p class="card-text">Developed during the GMTK Game Jam in Godot 4.3, Fofoca is my first 3D project in Godot, where you spread rumors around town while avoiding gossiping to the person the rumor is about, featuring pathfinding, state machines, and a built-in tutorial.</p>
-            <a href="#fofoca" class="btn btn-primary mt-auto">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!--ELPH-->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/elph.png" class="card-img-top" alt="E.L.P.H">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">E.L.P.H</h5>
-            <p class="card-text"> Developed in Godot 4.3 during a 3-week game jam, this arcade game challenges you to reach the highest floor in an endless building within 24.1 seconds, using elevators with unique mechanics to climb as high as possible.</p>
-            <a href="#elph" class="btn btn-primary mt-auto">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!-- Projeto 3: Baroneza -->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/PorDoSolMenu.png" class="card-img-top" alt="Baroneza">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">Baroneza</h5>
-            <p class="card-text">My first full project as a programmer, built with Godot 3.5, involved creating enemies, stages, and a unique bow-and-arrow shooting mechanic, and was a finalist in Game Jam Plus 2022.</p>
-            <a href="#baroneza" class="btn btn-primary mt-auto">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!-- Projeto 4: The Supervisor -->
-      <div class="col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card h-100 w-100">
-          <img src="assets/Tutorial ScreenShot.png" class="card-img-top" alt="The Supervisor">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">The Supervisor</h5>
-            <p class="card-text">This was my first project using Unity, where I took on the role of Game Designer for the IP Challenge Game Jam. I also developed one of the minigames featured in the game.</p>
-            <a href="#thesupervisor" class="btn btn-primary mt-auto">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!-- Outros projetos podem ser adicionados aqui -->
-    </div>
-  </div>
-</section>
+    </section>
 
+    <section id="portfolio" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="section-title">My Treasure Hoard</h2>
+            </div>
+            <div id="projects-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+                </div>
+        </div>
+    </section>
 
-  <!-- Detalhes dos Projetos -->
-  <!-- Projeto 157 -->
-  <section id="projeto157" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">SEPARATIO - VR</h2>
-      <p>This project explores the theme of isolation in various forms, offering immersive experiences that challenge perspectives on solitude and separation. I'm excited to bring this unique vision to life and can't wait to see it completed.</p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
-  <!--Malleus Maleficarum-->
-  <section id="malleus" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">Malleus Maleficarum</h2>
-      <p>Winner of HallowJam 2023 in Natal, RN, this Metroidvania, inspired by classic titles and developed in Godot 4.2, tells the gripping story of Mirabel. She hails from a small village plagued for generations by witch attacks, led by the malevolent Ursula and her faction, the 'Dames of the Night.' These witches, humanoid creatures from lower dimensions, kidnap young girls to mark them with a seal of hatred, granting them dark powers.
+    <section id="experience" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
+            <div class="text-center">
+                <h2 class="section-title">Sagas of My Journey</h2>
+            </div>
+            <div class="mt-12 max-w-3xl mx-auto space-y-12">
+                <div class="relative pl-8 sm:pl-10 timeline-border">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">Game Programmer</h3>
+                    <p class="text-md text-amber-700">Melted Peanut Studio | Natal, Brazil</p>
+                    <p class="text-sm text-stone-600">Jan 2024 – Present</p>
+                    <p class="mt-2">Forging gameplay for "Almas da Floresta" with the Godot Engine.</p>
+                </div>
+                <div class="relative pl-8 sm:pl-10 timeline-border">
+                     <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">Game Lab Warden</h3>
+                    <p class="text-md text-amber-700">Metrópole Digital - IMD/UFRN | Natal, Brazil</p>
+                    <p class="text-sm text-stone-600">Nov 2023 – Present</p>
+                    <p class="mt-2">Guiding young squires in the game lab, mending tools, and keeping the sanctum in order.</p>
+                </div>
+                <div class="relative pl-8 sm:pl-10 timeline-border">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">Artisan of Serious Games</h3>
+                    <p class="text-md text-amber-700">Universidade Federal do Rio Grande do Norte (UFRN)</p>
+                    <p class="text-sm text-stone-600">Oct 2023 – Present</p>
+                    <p class="mt-2">Crafting a training simulation for the delicate art of PICC line placement in neonates.</p>
+                </div>
+                <div class="relative pl-8 sm:pl-10 timeline-border">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-xl font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">Independent Adventurer & Game Smith</h3>
+                    <p class="text-md text-amber-700">Realms of Natal, Brazil</p>
+                    <p class="text-sm text-stone-600">2021 – Dec 2023</p>
+                    <p class="mt-2">Ventured through numerous game jams, often as lead programmer or quest designer. Many artifacts from these journeys are chronicled on Itch.io.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        Mirabel herself was captured during a witch attack that claimed her family. She was marked with the seal but later rescued by the 'Order of the Fire Cross,' a group of hunters formed by the local church to combat the witches. Now, driven by revenge, Mirabel fights to destroy the witches that ruined her life.
+    <section id="education" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="section-title">Ancient Lore & Scrolls of Achievement</h2>
+            </div>
+            <div class="mt-12 grid md:grid-cols-2 gap-10">
+                <div class="card-bg p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-red-800 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Academic Scrolls</h3>
+                    <ul class="space-y-6">
+                        <li class="bg-amber-50/30 p-4 rounded-md border border-amber-600/50">
+                            <h4 class="text-lg font-semibold text-amber-800">Master of Arcane Sciences in Product and Process Forging</h4>
+                            <p class="text-stone-700">Universidade Federal do Rio Grande do Norte (UFRN)</p>
+                            <p class="text-sm text-stone-600">Anticipated Start: Mar 2025</p>
+                        </li>
+                        <li class="bg-amber-50/30 p-4 rounded-md border border-amber-600/50">
+                            <h4 class="text-lg font-semibold text-amber-800">Bachelor of Information Glyphs</h4>
+                            <p class="text-stone-700">Universidade Federal do Rio Grande do Norte (UFRN)</p>
+                            <p class="text-sm text-stone-600">2020 – 2024</p>
+                        </li>
+                        <li class="bg-amber-50/30 p-4 rounded-md border border-amber-600/50">
+                            <h4 class="text-lg font-semibold text-amber-800">Specialized Studies in Digital Game Alchemy</h4>
+                            <p class="text-stone-700">Metrópole Digital - IMD/UFRN</p>
+                            <p class="text-sm text-stone-600">May 2022 – Dec 2024</p>
+                        </li>
+                         <li class="bg-amber-50/30 p-4 rounded-md border border-amber-600/50">
+                            <h4 class="text-lg font-semibold text-amber-800">Fast MBA: Guild Leadership & People Management</h4>
+                            <p class="text-stone-700">Fast MBA</p>
+                            <p class="text-sm text-stone-600">Feb 2025 – Mar 2025</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-bg p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-red-800 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Banners & Accolades</h3>
+                    <ul class="space-y-4">
+                        <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Organizer:</span> GameLab Jam 2024.2</li>
+                        <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Victor's Laurels:</span> Hallowjam 2023 (Project: Malleus Maleficarum - Original)</li>
+                        <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Champion Finalist:</span> Game Jam Plus 2022/2023 – Project: Baroneza</li>
+                        <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Participant:</span> Game Jam IP Challenge 2023</li>
+                        <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Participant:</span> Game Jam+ 2022</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10 text-center">
+            <h2 class="section-title">Send a Raven</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg">
+                Should you wish to discuss new quests, alliances, or opportunities, my ear is open. Dispatch your message!
+            </p>
+            <div class="mt-10">
+                <a href="mailto:joaoanisiomn@hotmail.com" class="button-primary text-lg">
+                    Email: joaoanisiomn@hotmail.com
+                </a>
+            </div>
+            <div class="mt-8">
+                <p>Find my sigil on other networks:</p>
+                <div class="mt-4 flex justify-center space-x-6">
+                     <a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">LinkedIn</a>
+                    <span class="text-stone-500">|</span>
+                    <a href="https://github.com/caduceusj" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">GitHub</a>
+                    <span class="text-stone-500">|</span>
+                    <a href="https://caduceusj.itch.io/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">Itch.io</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="nav-bg border-t-2 border-amber-700/50">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-amber-200/70 text-sm">
+            <p>&copy; Anno Domini <span id="currentYear"></span> João Anisio Marinho da Nobrega. All rights reserved by the Game Smith.</p>
+            <p class="mt-1">Forged with code and dreams in the lands of Natal, RN, Brazil.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                // Handle cases where URL might have query parameters (like for skill filtering)
+                if (targetId.includes('?skill=')) {
+                    const mainTargetId = targetId.split('?')[0]; // Get the ID part before '?'
+                    const targetElement = document.querySelector(mainTargetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                // Close mobile menu if open after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const menuButton = document.getElementById('mobile-menu-button');
+                    menuButton.children[0].classList.remove('hidden'); // Show hamburger
+                    menuButton.children[1].classList.add('hidden');    // Hide close icon
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.children[0].classList.toggle('hidden'); // Toggle hamburger icon
+            mobileMenuButton.children[1].classList.toggle('hidden'); // Toggle close icon
+        });
         
-        I programmed all the core mechanics for this game and had my first experience working with State Machines. Development flowed smoothly, and my friends and I are excited to create an expanded version of the game. Although this version is only available in Portuguese, our next official release—a larger Metroidvania featuring Mirabel's quest for vengeance—will be in English!</p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
-  <!--Fofoca-->
-  <section id="fofoca" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">Fofoca</h2>
-      <p>Fofoca was developed during the GMTK Game Jam using Godot 4.3, marking my first project in Godot with 3D elements. It was a fantastic learning experience, especially with pathfinding, state machines, and creating interactions where NPCs gossip with each other. The goal of the game is simple: spread a rumor around town while making sure not to gossip to the person the rumor is about! The game also features a built-in tutorial to guide players.</p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
-  <!-- Baroneza -->
-  <section id="baroneza" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">Baroneza</h2>
-      <p>My first full project as a programmer was built using Godot 3.5. In this game, I was responsible for implementing enemies, designing stages, integrating assets, and creating a unique Enter The Gungeon-inspired shooting mechanic—except with a bow and arrow! This project taught me a great deal about working within a team and developing a cohesive, enjoyable game experience, even though it wasn't very long. I'm proud to say that this game was one of the finalists in the Game Jam Plus 2022</p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
-  <!-- ELPH -->
-  <section id="elph" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="mb-4">E.L.P.H</h2>
-      <p>Developed in Godot 4.3 during a 3-week game jam at our college's Game Laboratory, this arcade game challenges you to reach the highest floor in an endless building within just 24.1 seconds. You’ll always have 3 elevator options, each with its own unique gimmick, and mastering these mechanics is key to climbing as high as possible. This is one of those projects I always look back on with pride—it’s the one where everything came together in a really well-rounded way</p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
+        // Navbar hide/show on scroll
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+        window.onscroll = () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 80) { // If scrolling down and past 80px
+                navbar.style.top = "-100px"; // Hide navbar
+            } else {
+                navbar.style.top = "0"; // Show navbar
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        };
 
-  <!-- The Supervisor -->
-  <section id="thesupervisor" class="py-5">
-    <div class="container">
-      <h2 class="mb-4">The Supervisor</h2>
-      <p>
-        "This was my first project using Unity, where I took on the role of Game Designer for a Game Jam. I also developed one of the minigames featured in the game. In this game, you play as a game tester hired by a company to ensure that the games sent to you don't infringe on intellectual property rights. Your task is to compare the assets in the games with a folder of copyrighted materials from the company and identify any stolen sprites. But there's a catch—your time is limited, so you'll need to act fast!
+        // Skills data and rendering
+        const skillIcons = {
+            "Godot Engine": '<i class="fas fa-cube"></i>', // Generic cube for Godot
+            "Unity": '<i class="fab fa-unity"></i>',
+            "GDScript": '📜', // Scroll for GDScript
+            "C#": '✨', // Sparkles for C#
+            "C++": '<i class="fas fa-cog"></i>', // Cog for C++
+            "Python": '<i class="fab fa-python"></i>',
+            "HTML5": '<i class="fab fa-html5"></i>',
+            "CSS3": '<i class="fab fa-css3-alt"></i>',
+            "JavaScript": '<i class="fab fa-js-square"></i>',
+            "VR Dev": '<i class="fas fa-vr-cardboard"></i>',
+            "AI Programming": '<i class="fas fa-brain"></i>',
+            "UI/UX Design": '<i class="fas fa-drafting-compass"></i>',
+            "Level Design": '<i class="fas fa-map-marked-alt"></i>',
+            "Adobe Suite": '<i class="fas fa-palette"></i>', // Palette for Adobe Suite
+            "Git & GitHub": '<i class="fab fa-git-alt"></i>',
+        };
+
+        const skills = [
+            { name: "Godot Engine", level: "Master Smith", category: "engine" },
+            { name: "Unity", level: "Master Smith", category: "engine" },
+            { name: "GDScript", level: "Scroll Master", category: "language" },
+            { name: "C#", level: "Spell Weaver", category: "language" },
+            { name: "C++", level: "Deep Magic", category: "language" },
+            { name: "Python", level: "Potion Brewer", category: "language" },
+            { name: "HTML5", level: "Rune Scribe (Web)", category: "web" },
+            { name: "CSS3", level: "Tapestry Weaver (Web)", category: "web" },
+            { name: "JavaScript", level: "Enchanter (Web)", category: "web" },
+            { name: "VR Dev", level: "Visionary Seer", category: "specialty" },
+            { name: "AI Programming", level: "Golemancer", category: "specialty" },
+            { name: "UI/UX Design", level: "Cartographer of Interfaces", category: "design" },
+            { name: "Level Design", level: "World Builder", category: "design" },
+            { name: "Adobe Suite", level: "Master Painter", category: "tool" },
+            { name: "Git & GitHub", level: "Chronicler of Versions", category: "tool" },
+        ];
+
+        const skillsGrid = document.getElementById('skills-grid');
+        if (skillsGrid) { // Check if the element exists before trying to modify it
+            skills.forEach(skill => {
+                const skillLink = `#portfolio?skill=${encodeURIComponent(skill.name)}`; // Link to portfolio, potentially filtering by skill
+                const skillElement = `
+                    <a href="${skillLink}" data-skill="${skill.name}" class="skill-card no-underline">
+                        <div class="text-4xl mb-3 text-amber-700">${skillIcons[skill.name] || '🛡️'}</div> {/* Default icon if not found */}
+                        <h3 class="text-lg font-semibold text-red-800" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3>
+                        <p class="text-sm text-stone-600">${skill.level}</p>
+                    </a>
+                `;
+                skillsGrid.innerHTML += skillElement;
+            });
+        }
+
+
+        // Projects data and rendering
+        const projects = [
+             {
+                title: "As Almas da Floresta",
+                description: "Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.",
+                engine: "Godot Engine",
+                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=As+Almas+da+Floresta", // Placeholder image
+                tags: ["Godot", "Gameplay Programming", "AI", "UI"],
+                projectUrl: "https://caduceusj.itch.io/as-almas-da-floresta",
+            },
+            {
+                title: "Serious Game: PICC Line Training",
+                description: "Developing a simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.",
+                engine: "Unity / Godot (TBD)",
+                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Serious+Game", // Placeholder image
+                tags: ["Serious Game", "Simulation", "Medical Training", "Unity"],
+                projectUrl: null, // No URL available yet
+            },
+            {
+                title: "Gargantua",
+                description: "3D retro-style horror game in development. Working on graphics, item inspection, UI, and main antagonist AI.",
+                engine: "Unity",
+                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Gargantua", // Placeholder image
+                tags: ["Unity", "3D Horror", "AI", "Retro Graphics"],
+                projectUrl: "https://caduceusj.itch.io/gargantua",
+            },
+            {
+                title: "Fofoca (Gossip)",
+                description: "Sole programmer for this GMTK Game Jam 2024 entry. Implemented character AI, day/night cycle, UI, and objective generation.",
+                engine: "Godot",
+                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Fofoca", // Placeholder image
+                tags: ["Game Jam", "AI", "Solo Dev", "Godot"],
+                projectUrl: "https://caduceusj.itch.io/fofoca",
+            },
+            {
+                title: "E.L.P.H.",
+                description: "Sole programmer. Implemented unique game mechanics and assisted with game design, including elevator systems.",
+                engine: "Godot",
+                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=E.L.P.H.", // Placeholder image
+                tags: ["Solo Dev", "Mechanics", "Godot"],
+                projectUrl: "https://caduceusj.itch.io/elph",
+            },
+            {
+                title: "Breaking Bastille",
+                description: "First 3D project. Contributed to Level Design, Game Design, dynamic UI, and combat mechanics.",
+                engine: "Unity", 
+                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Breaking+Bastille", // Placeholder image
+                tags: ["3D Project", "Level Design", "Combat Mechanics", "Unity"],
+                projectUrl: "https://caduceusj.itch.io/breaking-bastille",
+            },
+            {
+                title: "Baroneza",
+                description: "First major programming project. Implemented mechanics, cutscenes, enemies, and UI. Game Jam Plus Finalist.",
+                engine: "Godot", 
+                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Baroneza", // Placeholder image
+                tags: ["Game Jam", "Finalist", "Programming", "Godot"],
+                projectUrl: "https://caduceusj.itch.io/baroneza",
+            },
+            {
+                title: "Quentura",
+                description: "Keep students cool in this arcade game! Programming and Game Design.",
+                engine: "Godot",
+                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Quentura", // Placeholder image
+                tags: ["Godot", "Arcade", "Game Jam"],
+                projectUrl: "https://caduceusj.itch.io/quentura",
+            }
+        ];
+
+        const projectsGrid = document.getElementById('projects-grid');
+        const featuredProjectTagsContainer = document.querySelector('#featured-project .tag-container');
+
+        // Function to generate HTML for tags
+        function generateTagsHTML(tagsArray) {
+            return tagsArray.map((tag, index) => {
+                let tagHTML = `<span class="tag">${tag}</span>`;
+                if (index < tagsArray.length - 1) { // Add separator if not the last tag
+                    tagHTML += `<span class="tag-separator">/</span>`;
+                }
+                return tagHTML;
+            }).join('');
+        }
         
-        Players must test several games, performing well enough to unlock all the available content. The challenge lies in spotting stolen assets and accurately reporting how many have been used to protect the company's intellectual property. Points are awarded based on performance, and players only have one minute to identify the stolen assets before answering questions about their findings.
+        // Populate tags for the featured project
+        if (featuredProjectTagsContainer) { 
+            const featuredProjectTags = ["Godot 4.4", "Metroidvania", "Lead Programmer", "2D Platformer", "Dark Fantasy"]; 
+            featuredProjectTagsContainer.innerHTML = generateTagsHTML(featuredProjectTags);
+        }
+
+        // Populate project cards in the portfolio grid
+        if (projectsGrid) { // Check if the element exists
+            projects.forEach(project => {
+                const projectTagsString = project.tags.join(','); // For data attribute filtering
+                const projectCard = `
+                    <div class="project-card fade-in-section" data-tags="${projectTagsString.toLowerCase()}">
+                        <img src="${project.imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3a302b/e0dcd3?text=Image+Not+Found';" class="w-full h-56 object-cover border-b-2 border-amber-600">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-red-700 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3>
+                            <p class="text-sm text-stone-700 mb-3 h-20 overflow-y-auto">${project.description}</p>
+                            <p class="text-xs text-amber-700 font-medium mb-3">Engine: ${project.engine}</p>
+                            <div class="tag-container"> 
+                                ${generateTagsHTML(project.tags)}
+                            </div>
+                            ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-stone-500">Sealed Scroll (Details on request)</span>'}
+                        </div>
+                    </div>
+                `;
+                projectsGrid.innerHTML += projectCard;
+            });
+        }
+
+
+        // Intersection Observer for fade-in sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
         
-        It was a fun and challenging experience, combining quick reflexes with a detective-like attention to detail, and it helped sharpen my Unity development skills while exploring creative game design!" 
-        </p>
-      <!-- Vídeo ou imagens do projeto -->
-    </div>
-  </section>
-
-<!-- Seção Contato -->
-<section id="contato" class="py-5 bg-dark text-white">
-  <div class="container-fluid">
-    <h2 class="text-center mb-4">Entre em Contato</h2>
-    <div class="row">
-      <!-- Formulário de Contato -->
-      <div class="col-md-6 mb-4">
-        <form action="https://formspree.io/f/xwkdenzz" method="POST">
-          <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="name" placeholder="Seu Nome">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" name="_replyto" placeholder="Seu Email">
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Mensagem</label>
-            <textarea class="form-control" name="message" rows="5" placeholder="Sua Mensagem"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-      </div>
-      <!-- Redes Sociais -->
-      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
-        <p>Siga-me nas redes sociais:</p>
-        <div class="d-flex gap-3">
-          <a href="https://www.linkedin.com/in/jo%C3%A3o-anisio-marinho-da-nobrega-096358204/" target="_blank">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/LinkedIn-256.png" alt="LinkedIn" width="50">
-          </a>
-          <a href="https://www.instagram.com/joao_anisio_/" target="_blank">
-            <img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Instagram-256.png" alt="Instagram" width="50">
-          </a>
-          <a href="https://github.com/caduceusj" target="_blank">
-            <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/71-github-256.png" alt="GitHub" width="50">
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- Rodapé -->
-<footer class="py-3 bg-secondary">
-  <div class="container text-center text-white">
-    &copy; 2024 João Anisio. Todos os direitos reservados.
-  </div>
-</footer>
-
-  <!-- Scripts JavaScript -->
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/mdb.min.js"></script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
