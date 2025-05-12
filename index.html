@@ -13,51 +13,51 @@
     <style>
         body {
             font-family: 'Lora', serif;
-            background-color: #000000; /* Black background */
-            color: #e0e0e0; /* Light gray text */
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Kept, assuming it's dark/subtle */
+            background-color: #000000;
+            color: #e0e0e0;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
         .hero-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%); /* Darker gradient */
-            border-bottom: 4px solid #444444; /* Darker, contrasting border */
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+            border-bottom: 4px solid #444444;
         }
         .section-title {
             font-family: 'MedievalSharp', cursive;
-            @apply text-4xl sm:text-5xl font-bold mb-10 sm:mb-14 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500; /* Brighter gold gradient */
-            text-shadow: 1px 1px 3px rgba(220, 220, 220, 0.1); /* Subtle light glow */
+            @apply text-4xl sm:text-5xl font-bold mb-10 sm:mb-14 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500;
+            text-shadow: 1px 1px 3px rgba(220, 220, 220, 0.1);
         }
         .nav-link {
             font-family: 'Lora', serif;
             @apply px-2 py-2 rounded-md text-xs sm:text-sm font-medium text-gray-200 hover:bg-gray-700/50 hover:text-white transition-colors whitespace-nowrap;
         }
         .nav-bg {
-            background-color: rgba(10, 10, 10, 0.9); /* Darker nav background */
+            background-color: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(8px);
-            border-bottom: 2px solid #333333; /* Darker border */
+            border-bottom: 2px solid #333333;
             @apply shadow-xl;
         }
         .card-bg {
-            background-color: #1e1e1e; /* Very dark gray for cards */
-            color: #cccccc; /* Light gray text on cards */
-            border: 1px solid #444444; /* Darker border for cards */
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.7); /* Standard dark theme shadow */
+            background-color: #1e1e1e;
+            color: #cccccc;
+            border: 1px solid #444444;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.7);
             @apply rounded-lg;
         }
         .project-card {
-            @apply card-bg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(150,180,220,0.3)]; /* Light blueish glow on hover */
+            @apply card-bg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(150,180,220,0.3)];
         }
         .skill-card {
-             @apply card-bg p-5 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(150,200,150,0.3)]; /* Light greenish glow on hover */
+             @apply card-bg p-5 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(150,200,150,0.3)];
         }
         .tag-container {
             @apply flex flex-wrap items-center mb-4;
         }
         .tag {
             font-family: 'Lora', serif;
-            @apply text-xs bg-gray-700 text-gray-200 px-3 py-1 rounded-md border border-gray-600; /* Darker tags with light text */
+            @apply text-xs bg-gray-700 text-gray-200 px-3 py-1 rounded-md border border-gray-600;
         }
         .tag-separator {
-            @apply mx-1 text-gray-500; /* Lighter separator */
+            @apply mx-1 text-gray-500;
         }
         .button-primary {
             font-family: 'MedievalSharp', cursive;
@@ -68,14 +68,14 @@
             @apply inline-block px-8 py-3 border-2 border-gray-500 text-base font-bold rounded-md text-gray-100 bg-gray-700 hover:bg-gray-600 transition-all shadow-md hover:shadow-gray-500/30 transform hover:scale-105;
         }
         .timeline-border { @apply border-l-2 border-gray-500; }
-        .timeline-dot { @apply absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-sky-500 ring-4 ring-[#1e1e1e]; } /* Dot color matches primary, ring matches card bg */
+        .timeline-dot { @apply absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-sky-500 ring-4 ring-[#1e1e1e]; }
 
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-visible { opacity: 1; transform: translateY(0); }
 
         ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #101010; } /* Dark scrollbar track */
-        ::-webkit-scrollbar-thumb { background: #444444; border-radius: 5px; border: 1px solid #101010; } /* Darker scrollbar thumb */
+        ::-webkit-scrollbar-track { background: #101010; }
+        ::-webkit-scrollbar-thumb { background: #444444; border-radius: 5px; border: 1px solid #101010; }
         ::-webkit-scrollbar-thumb:hover { background: #666666; }
     </style>
 </head>
@@ -149,12 +149,12 @@
         </div>
     </header>
 
-    <section id="about" class="py-16 sm:py-24 bg-[#121212] fade-in-section"> {/* Removed beige-paper texture, using dark bg */}
+    <section id="about" class="py-16 sm:py-24 bg-[#121212] fade-in-section">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
             <div class="text-center">
                 <h2 class="section-title">The Chronicle of a Game Smith</h2>
             </div>
-            <div class="mt-8 max-w-3xl mx-auto text-lg space-y-6 text-justify text-gray-300"> {/* Text color inherited from card-bg or body, ensure it's light */}
+            <div class="mt-8 max-w-3xl mx-auto text-lg space-y-6 text-justify text-gray-300">
                 <p>
                     Hail, traveler! I am João Anisio, a Game Smith and Quest Designer from the realms of Natal, Brazil. My passion lies in forging creative concepts into captivating digital adventures. My anvils of choice are the mighty <strong class="text-yellow-400">Godot Engine</strong> and the versatile <strong class="text-amber-400">Unity</strong>, where I craft both grand solo sagas and collaborative expeditions.
                 </p>
@@ -168,7 +168,7 @@
         </div>
     </section>
 
-    <section id="skills" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');"> {/* Kept asfalt texture */}
+    <section id="skills" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">My Masteries</h2>
@@ -178,7 +178,7 @@
         </div>
     </section>
 
-    <section id="featured-project" class="py-16 sm:py-24 bg-[#121212] fade-in-section"> {/* Removed beige-paper texture */}
+    <section id="featured-project" class="py-16 sm:py-24 bg-[#121212] fade-in-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                  <h2 class="section-title">My Grand Quest</h2>
@@ -209,7 +209,7 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');"> {/* Kept asfalt texture */}
+    <section id="portfolio" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">My Treasure Hoard</h2>
@@ -219,7 +219,7 @@
         </div>
     </section>
 
-    <section id="experience" class="py-16 sm:py-24 bg-[#121212] fade-in-section"> {/* Removed beige-paper texture */}
+    <section id="experience" class="py-16 sm:py-24 bg-[#121212] fade-in-section">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
             <div class="text-center">
                 <h2 class="section-title">Sagas of My Journey</h2>
@@ -257,7 +257,7 @@
         </div>
     </section>
 
-    <section id="education" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');"> {/* Kept asfalt texture */}
+    <section id="education" class="py-16 sm:py-24 bg-black fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="section-title">Ancient Lore & Scrolls of Achievement</h2>
@@ -302,7 +302,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 sm:py-24 bg-[#121212] fade-in-section"> {/* Removed beige-paper texture */}
+    <section id="contact" class="py-16 sm:py-24 bg-[#121212] fade-in-section">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10 text-center">
             <h2 class="section-title">Send a Raven</h2>
             <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
@@ -422,9 +422,9 @@
                 const skillLink = `#portfolio?skill=${encodeURIComponent(skill.name)}`;
                 const skillElement = `
                     <a href="${skillLink}" data-skill="${skill.name}" class="skill-card no-underline">
-                        <div class="text-4xl mb-3 text-sky-400">${skillIcons[skill.name] || '🛡️'}</div> {/* Icon color changed */}
-                        <h3 class="text-lg font-semibold text-amber-300" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3> {/* Text color changed */}
-                        <p class="text-sm text-gray-400">${skill.level}</p> {/* Text color changed */}
+                        <div class="text-4xl mb-3 text-sky-400">${skillIcons[skill.name] || '🛡️'}</div>
+                        <h3 class="text-lg font-semibold text-amber-300" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3>
+                        <p class="text-sm text-gray-400">${skill.level}</p>
                     </a>
                 `;
                 skillsGrid.innerHTML += skillElement;
@@ -436,7 +436,7 @@
                 title: "As Almas da Floresta",
                 description: "Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.",
                 engine: "Godot Engine",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/c8a051?text=As+Almas+da+Floresta", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/c8a051?text=As+Almas+da+Floresta",
                 tags: ["Godot", "Gameplay Programming", "AI", "UI"],
                 projectUrl: "https://caduceusj.itch.io/as-almas-da-floresta",
             },
@@ -444,7 +444,7 @@
                 title: "Serious Game: PICC Line Training",
                 description: "Developing a simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.",
                 engine: "Unity / Godot (TBD)",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/b9946a?text=Serious+Game", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/b9946a?text=Serious+Game",
                 tags: ["Serious Game", "Simulation", "Medical Training", "Unity"],
                 projectUrl: null,
             },
@@ -452,7 +452,7 @@
                 title: "Gargantua",
                 description: "3D retro-style horror game in development. Working on graphics, item inspection, UI, and main antagonist AI.",
                 engine: "Unity",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/8c6d46?text=Gargantua", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/8c6d46?text=Gargantua",
                 tags: ["Unity", "3D Horror", "AI", "Retro Graphics"],
                 projectUrl: "https://caduceusj.itch.io/gargantua",
             },
@@ -460,7 +460,7 @@
                 title: "Fofoca (Gossip)",
                 description: "Sole programmer for this GMTK Game Jam 2024 entry. Implemented character AI, day/night cycle, UI, and objective generation.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/a07e3e?text=Fofoca", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/a07e3e?text=Fofoca",
                 tags: ["Game Jam", "AI", "Solo Dev", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/fofoca",
             },
@@ -468,7 +468,7 @@
                 title: "E.L.P.H.",
                 description: "Sole programmer. Implemented unique game mechanics and assisted with game design, including elevator systems.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/c8a051?text=E.L.P.H.", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/c8a051?text=E.L.P.H.",
                 tags: ["Solo Dev", "Mechanics", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/elph",
             },
@@ -476,7 +476,7 @@
                 title: "Breaking Bastille",
                 description: "First 3D project. Contributed to Level Design, Game Design, dynamic UI, and combat mechanics.",
                 engine: "Unity",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/b9946a?text=Breaking+Bastille", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/b9946a?text=Breaking+Bastille",
                 tags: ["3D Project", "Level Design", "Combat Mechanics", "Unity"],
                 projectUrl: "https://caduceusj.itch.io/breaking-bastille",
             },
@@ -484,7 +484,7 @@
                 title: "Baroneza",
                 description: "First major programming project. Implemented mechanics, cutscenes, enemies, and UI. Game Jam Plus Finalist.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/8c6d46?text=Baroneza", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/8c6d46?text=Baroneza",
                 tags: ["Game Jam", "Finalist", "Programming", "Godot"],
                 projectUrl: "https://caduceusj.itch.io/baroneza",
             },
@@ -492,7 +492,7 @@
                 title: "Quentura",
                 description: "Keep students cool in this arcade game! Programming and Game Design.",
                 engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/1a1a1a/a07e3e?text=Quentura", // Darker placeholder bg
+                imageUrl: "https://placehold.co/600x400/1a1a1a/a07e3e?text=Quentura",
                 tags: ["Godot", "Arcade", "Game Jam"],
                 projectUrl: "https://caduceusj.itch.io/quentura",
             }
@@ -521,15 +521,15 @@
                 const projectTagsString = project.tags.join(',');
                 const projectCard = `
                     <div class="project-card fade-in-section" data-tags="${projectTagsString.toLowerCase()}">
-                        <img src="${project.imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/cccccc?text=Image+Not+Found';" class="w-full h-56 object-cover border-b-2 border-gray-600"> {/* Border color changed */}
+                        <img src="${project.imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/cccccc?text=Image+Not+Found';" class="w-full h-56 object-cover border-b-2 border-gray-600">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-amber-300 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3> {/* Text color changed */}
-                            <p class="text-sm text-gray-300 mb-3 h-20 overflow-y-auto">${project.description}</p> {/* Text color changed */}
-                            <p class="text-xs text-amber-400 font-medium mb-3">Engine: ${project.engine}</p> {/* Text color changed */}
+                            <h3 class="text-xl font-semibold text-amber-300 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3>
+                            <p class="text-sm text-gray-300 mb-3 h-20 overflow-y-auto">${project.description}</p>
+                            <p class="text-xs text-amber-400 font-medium mb-3">Engine: ${project.engine}</p>
                             <div class="tag-container">
                                 ${generateTagsHTML(project.tags)}
                             </div>
-                            ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-gray-500">Sealed Scroll (Details on request)</span>'} {/* Text color changed for placeholder */}
+                            ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-gray-500">Sealed Scroll (Details on request)</span>'}
                         </div>
                     </div>
                 `;
