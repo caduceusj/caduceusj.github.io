@@ -13,15 +13,15 @@
     <style>
         body {
             font-family: 'Lora', serif;
-            background-color: #3a302b;
-            color: #e0dcd3;
+            background-color: #3a302b; /* Dark, earthy brown */
+            color: #e0dcd3; /* Default light text for body */
             background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
         .hero-gradient {
             background: linear-gradient(135deg, #2a1f1b 0%, #4a3b36 50%, #2a1f1b 100%);
             border-bottom: 4px solid #8c6d46;
         }
-        .section-title {
+        .section-title { /* This is for main section titles like "My Masteries", generally on a darker page background */
             font-family: 'MedievalSharp', cursive;
             @apply text-4xl sm:text-5xl font-bold mb-10 sm:mb-14 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
@@ -36,28 +36,31 @@
             border-bottom: 2px solid #8c6d46;
             @apply shadow-xl;
         }
-        .card-bg {
-            background-color: #f3e9dc; /* Light parchment for cards */
-            color: #3a302b; /* Default dark brown text on cards */
+        .card-bg { /* This class defines the card appearance. If it's dark now, these text colors are overridden locally */
+            background-color: #f3e9dc; /* Original: Light parchment for cards */
+            color: #3a302b; /* Original: Default dark brown text on cards */
             border: 2px solid #8c6d46;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
             @apply rounded-lg;
         }
+        /* If cards are dark, the text colors below will apply due to higher specificity or direct application */
         .project-card {
             @apply card-bg transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-600/40;
+             /* Assuming dark background for project card, text colors will be light. */
         }
         .skill-card {
              @apply card-bg p-5 text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-yellow-600/40;
+             /* Assuming dark background for skill card, text colors will be light. */
         }
         .tag-container {
             @apply flex flex-wrap items-center mb-4;
         }
-        .tag {
+        .tag { /* Tags have light text on a darker amber bg, should be fine */
             font-family: 'Lora', serif;
             @apply text-xs bg-amber-700/50 text-amber-100 px-3 py-1 rounded-md border border-amber-600;
         }
         .tag-separator {
-            @apply mx-1 text-amber-600;
+            @apply mx-1 text-amber-600; /* This might need to be lighter if on very dark bg */
         }
         .button-primary {
             font-family: 'MedievalSharp', cursive;
@@ -93,7 +96,6 @@
                     <a href="#education" class="nav-link">Lore & Scrolls</a>
                     <a href="#contact" class="nav-link">Send a Raven</a>
                 </div>
-
                 <div class="-mr-2 flex md:hidden">
                     <button type="button" id="mobile-menu-button" class="bg-stone-700/50 inline-flex items-center justify-center p-2 rounded-md text-amber-200 hover:text-amber-100 hover:bg-stone-600/70 focus:outline-none focus:ring-2 focus:ring-amber-500" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -103,7 +105,6 @@
                 </div>
             </div>
         </div>
-
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#about" class="block nav-link text-base">The Chronicle</a>
@@ -130,16 +131,8 @@
                 Forging immersive worlds and engaging adventures from lines of code and pixels.
             </p>
             <div class="mt-10 max-w-md mx-auto sm:flex sm:justify-center md:mt-12">
-                <div class="rounded-md shadow">
-                    <a href="#portfolio" class="button-primary md:py-4 md:text-lg md:px-10">
-                        View My Treasures
-                    </a>
-                </div>
-                <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                    <a href="#contact" class="button-secondary md:py-4 md:text-lg md:px-10">
-                        Send a Raven
-                    </a>
-                </div>
+                <div class="rounded-md shadow"><a href="#portfolio" class="button-primary md:py-4 md:text-lg md:px-10">View My Treasures</a></div>
+                <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3"><a href="#contact" class="button-secondary md:py-4 md:text-lg md:px-10">Send a Raven</a></div>
             </div>
             <div class="mt-12 flex justify-center space-x-6">
                 <a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-500 transition-colors"><i class="fab fa-linkedin fa-2x"></i></a>
@@ -150,60 +143,38 @@
     </header>
 
     <section id="about" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
-            <div class="text-center">
-                <h2 class="section-title">The Chronicle of a Game Smith</h2>
-            </div>
-            <div class="mt-8 max-w-3xl mx-auto text-lg space-y-6 text-justify text-stone-800">
-                <p>
-                    Hail, traveler! I am João Anisio, a Game Smith and Quest Designer from the realms of Natal, Brazil. My passion lies in forging creative concepts into captivating digital adventures. My anvils of choice are the mighty <strong class="text-yellow-700">Godot Engine</strong> and the versatile <strong class="text-amber-600">Unity</strong>, where I craft both grand solo sagas and collaborative expeditions.
-                </p>
-                <p>
-                    I am a perpetual apprentice, ever seeking new scrolls of knowledge and challenging quests to hone my craft. My skills extend to the arcane arts of Virtual Reality and Projection Mapping using Cave Automated Systems in Unity. Beyond the forge of game development, my grimoire includes spells in C#, C++, Python, the ancient runes of HTML5 & CSS3, and mastery over the Alchemist's tools (Adobe Suite).
-                </p>
-                <p>
-                    My ultimate quest is to continue evolving, crafting unique artifacts (games) that etch themselves into the legends of players. Should our paths align, let us convene and weave new tales together!
-                </p>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10"> {/* Card-bg is light, so text inside needs to be dark if not overridden */}
+            <div class="text-center"><h2 class="section-title">The Chronicle of a Game Smith</h2></div>
+            {/* If card-bg is indeed light, this text should be dark. If card-bg is dark in practice, it needs to be light. */}
+            <div class="mt-8 max-w-3xl mx-auto text-lg space-y-6 text-justify text-stone-200"> {/* Changed to text-stone-200 assuming card-bg becomes dark in context */}
+                <p>Hail, traveler! I am João Anisio, a Game Smith and Quest Designer from the realms of Natal, Brazil. My passion lies in forging creative concepts into captivating digital adventures. My anvils of choice are the mighty <strong class="text-yellow-700">Godot Engine</strong> and the versatile <strong class="text-amber-600">Unity</strong>, where I craft both grand solo sagas and collaborative expeditions.</p>
+                <p>I am a perpetual apprentice, ever seeking new scrolls of knowledge and challenging quests to hone my craft. My skills extend to the arcane arts of Virtual Reality and Projection Mapping using Cave Automated Systems in Unity. Beyond the forge of game development, my grimoire includes spells in C#, C++, Python, the ancient runes of HTML5 & CSS3, and mastery over the Alchemist's tools (Adobe Suite).</p>
+                <p>My ultimate quest is to continue evolving, crafting unique artifacts (games) that etch themselves into the legends of players. Should our paths align, let us convene and weave new tales together!</p>
             </div>
         </div>
     </section>
 
     <section id="skills" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="section-title">My Masteries</h2>
-            </div>
-            <div id="skills-grid" class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 text-center">
-            </div>
+            <div class="text-center"><h2 class="section-title">My Masteries</h2></div>
+            <div id="skills-grid" class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 text-center"></div>
         </div>
     </section>
 
     <section id="featured-project" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                 <h2 class="section-title">My Grand Quest</h2>
-            </div>
-            <div class="card-bg lg:grid lg:grid-cols-2 lg:gap-6 items-center p-6 md:p-8">
-                <div class="lg:pr-8">
-                    <img src="https://placehold.co/800x600/8c6d46/f3e9dc?text=Malleus+Maleficarum+Artwork" alt="Malleus Maleficarum" class="rounded-md shadow-lg w-full h-auto object-cover border-2 border-amber-600">
-                </div>
+            <div class="text-center mb-12"><h2 class="section-title">My Grand Quest</h2></div>
+            <div class="card-bg lg:grid lg:grid-cols-2 lg:gap-6 items-center p-6 md:p-8"> {/* Card-bg is light */}
+                <div class="lg:pr-8"><img src="https://placehold.co/800x600/8c6d46/f3e9dc?text=Malleus+Maleficarum+Artwork" alt="Malleus Maleficarum" class="rounded-md shadow-lg w-full h-auto object-cover border-2 border-amber-600"></div>
                 <div class="mt-6 lg:mt-0">
-                    <h3 class="text-3xl font-bold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">Malleus Maleficarum (Rebuild)</h3>
-                    <p class="text-sm text-amber-800 font-medium mt-1">Engine: Godot 4.4 | Role: Lead Programmer</p>
-                    <p class="mt-4 text-lg text-stone-800">
-                        A dark metroidvania, born from the embers of a 2023 game jam, now being reforged with greater ambition.
-                    </p>
-                    <p class="mt-3 text-base text-stone-800">
-                        As Lead Programmer, I channel my 3+ years of arcane knowledge to weave intricate mechanics, summon diverse foes, and ensure a gameplay experience as smooth as a polished blade, all with our own unique sigil.
-                    </p>
-                    <div class="tag-container mt-4">
-                    </div>
-                    <p class="mt-3 text-xs text-stone-600">Fellowship (Rebuild): Marcos Arthur, Luis Eduardo Sales, Gabriel Henrique Bessa, Guilherme Santos Rosas.</p>
-                    <div class="mt-6">
-                        <a href="https://caduceusj.itch.io/malleus-maleficarum" target="_blank" rel="noopener noreferrer" class="button-primary text-sm py-2 px-4">
-                            Behold on Itch.io (Coming Soon)
-                        </a>
-                    </div>
+                    {/* Assuming this card-bg is actually dark in user's view, hence light text */}
+                    <h3 class="text-3xl font-bold text-amber-400" style="font-family: 'MedievalSharp', cursive;">Malleus Maleficarum (Rebuild)</h3>
+                    <p class="text-sm text-amber-300 font-medium mt-1">Engine: Godot 4.4 | Role: Lead Programmer</p>
+                    <p class="mt-4 text-lg text-stone-200">A dark metroidvania, born from the embers of a 2023 game jam, now being reforged with greater ambition.</p>
+                    <p class="mt-3 text-base text-stone-200">As Lead Programmer, I channel my 3+ years of arcane knowledge to weave intricate mechanics, summon diverse foes, and ensure a gameplay experience as smooth as a polished blade, all with our own unique sigil.</p>
+                    <div class="tag-container mt-4"></div>
+                    <p class="mt-3 text-xs text-stone-400">Fellowship (Rebuild): Marcos Arthur, Luis Eduardo Sales, Gabriel Henrique Bessa, Guilherme Santos Rosas.</p> {/* text-stone-400 for slightly darker small text on dark bg */}
+                    <div class="mt-6"><a href="https://caduceusj.itch.io/malleus-maleficarum" target="_blank" rel="noopener noreferrer" class="button-primary text-sm py-2 px-4">Behold on Itch.io (Coming Soon)</a></div>
                 </div>
             </div>
         </div>
@@ -211,47 +182,43 @@
 
     <section id="portfolio" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="section-title">My Treasure Hoard</h2>
-            </div>
-            <div id="projects-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-            </div>
+            <div class="text-center"><h2 class="section-title">My Treasure Hoard</h2></div>
+            <div id="projects-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"></div>
         </div>
     </section>
 
     <section id="experience" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10">
-            <div class="text-center">
-                <h2 class="section-title">Sagas of My Journey</h2>
-            </div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10"> {/* Card-bg is light */}
+            <div class="text-center"><h2 class="section-title">Sagas of My Journey</h2></div>
             <div class="mt-12 max-w-3xl mx-auto space-y-12">
+                 {/* Assuming this card-bg is actually dark in user's view, hence light text */}
                 <div class="relative pl-8 sm:pl-10 timeline-border">
                     <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">Game Programmer</h3>
-                    <p class="text-md text-amber-800">Melted Peanut Studio | Natal, Brazil</p>
-                    <p class="text-sm text-stone-600">Jan 2024 – Present</p>
-                    <p class="mt-2 text-stone-800">Forging gameplay for "Almas da Floresta" with the Godot Engine.</p>
+                    <h3 class="text-xl font-semibold text-amber-400" style="font-family: 'MedievalSharp', cursive;">Game Programmer</h3>
+                    <p class="text-md text-amber-300">Melted Peanut Studio | Natal, Brazil</p>
+                    <p class="text-sm text-stone-400">Jan 2024 – Present</p>
+                    <p class="mt-2 text-stone-200">Forging gameplay for "Almas da Floresta" with the Godot Engine.</p>
                 </div>
                 <div class="relative pl-8 sm:pl-10 timeline-border">
                      <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">Game Lab Warden</h3>
-                    <p class="text-md text-amber-800">Metrópole Digital - IMD/UFRN | Natal, Brazil</p>
-                    <p class="text-sm text-stone-600">Nov 2023 – Present</p>
-                    <p class="mt-2 text-stone-800">Guiding young squires in the game lab, mending tools, and keeping the sanctum in order.</p>
+                    <h3 class="text-xl font-semibold text-amber-400" style="font-family: 'MedievalSharp', cursive;">Game Lab Warden</h3>
+                    <p class="text-md text-amber-300">Metrópole Digital - IMD/UFRN | Natal, Brazil</p>
+                    <p class="text-sm text-stone-400">Nov 2023 – Present</p>
+                    <p class="mt-2 text-stone-200">Guiding young squires in the game lab, mending tools, and keeping the sanctum in order.</p>
                 </div>
                 <div class="relative pl-8 sm:pl-10 timeline-border">
                     <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">Artisan of Serious Games</h3>
-                    <p class="text-md text-amber-800">Universidade Federal do Rio Grande do Norte (UFRN)</p>
-                    <p class="text-sm text-stone-600">Oct 2023 – Present</p>
-                    <p class="mt-2 text-stone-800">Crafting a training simulation for the delicate art of PICC line placement in neonates.</p>
+                    <h3 class="text-xl font-semibold text-amber-400" style="font-family: 'MedievalSharp', cursive;">Artisan of Serious Games</h3>
+                    <p class="text-md text-amber-300">Universidade Federal do Rio Grande do Norte (UFRN)</p>
+                    <p class="text-sm text-stone-400">Oct 2023 – Present</p>
+                    <p class="mt-2 text-stone-200">Crafting a training simulation for the delicate art of PICC line placement in neonates.</p>
                 </div>
                 <div class="relative pl-8 sm:pl-10 timeline-border">
                     <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">Independent Adventurer & Game Smith</h3>
-                    <p class="text-md text-amber-800">Realms of Natal, Brazil</p>
-                    <p class="text-sm text-stone-600">2021 – Dec 2023</p>
-                    <p class="mt-2 text-stone-800">Ventured through numerous game jams, often as lead programmer or quest designer. Many artifacts from these journeys are chronicled on Itch.io.</p>
+                    <h3 class="text-xl font-semibold text-amber-400" style="font-family: 'MedievalSharp', cursive;">Independent Adventurer & Game Smith</h3>
+                    <p class="text-md text-amber-300">Realms of Natal, Brazil</p>
+                    <p class="text-sm text-stone-400">2021 – Dec 2023</p>
+                    <p class="mt-2 text-stone-200">Ventured through numerous game jams, often as lead programmer or quest designer. Many artifacts from these journeys are chronicled on Itch.io.</p>
                 </div>
             </div>
         </div>
@@ -259,12 +226,12 @@
 
     <section id="education" class="py-16 sm:py-24 bg-[#3a302b] fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="section-title">Ancient Lore & Scrolls of Achievement</h2>
-            </div>
+            <div class="text-center"><h2 class="section-title">Ancient Lore & Scrolls of Achievement</h2></div>
             <div class="mt-12 grid md:grid-cols-2 gap-10">
-                <div class="card-bg p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold text-yellow-900 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Academic Scrolls</h3>
+                <div class="card-bg p-6 md:p-8"> {/* Card-bg is light */}
+                     {/* Assuming this card-bg is actually dark in user's view, hence light text for title */}
+                    <h3 class="text-2xl font-semibold text-amber-400 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Academic Scrolls</h3>
+                    {/* These list items have their own light bg (bg-amber-50/30), so their dark text should be fine */}
                     <ul class="space-y-6">
                         <li class="bg-amber-50/30 p-4 rounded-md border border-amber-600/50">
                             <h4 class="text-lg font-semibold text-amber-800">Master of Arcane Sciences in Product and Process Forging</h4>
@@ -288,8 +255,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="card-bg p-6 md:p-8">
-                    <h3 class="text-2xl font-semibold text-yellow-900 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Banners & Accolades</h3>
+                <div class="card-bg p-6 md:p-8"> {/* Card-bg is light */}
+                    {/* Assuming this card-bg is actually dark in user's view, hence light text for title */}
+                    <h3 class="text-2xl font-semibold text-amber-400 mb-6 text-center md:text-left" style="font-family: 'MedievalSharp', cursive;">Banners & Accolades</h3>
+                     {/* These list items have their own light bg (bg-amber-50/30), so their dark text should be fine */}
                     <ul class="space-y-4">
                         <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Organizer:</span> <span class="text-stone-700">GameLab Jam 2024.2</span></li>
                         <li class="bg-amber-50/30 p-3 rounded-md border border-amber-600/50"><span class="font-semibold text-amber-800">Victor's Laurels:</span> <span class="text-stone-700">Hallowjam 2023 (Project: Malleus Maleficarum - Original)</span></li>
@@ -303,24 +272,19 @@
     </section>
 
     <section id="contact" class="py-16 sm:py-24 bg-[#4a3b36] bg-opacity-70 fade-in-section" style="background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 card-bg py-10 text-center"> {/* Card-bg is light */}
             <h2 class="section-title">Send a Raven</h2>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-stone-800">
-                Should you wish to discuss new quests, alliances, or opportunities, my ear is open. Dispatch your message!
-            </p>
-            <div class="mt-10">
-                <a href="mailto:joaoanisiomn@hotmail.com" class="button-primary text-lg">
-                    Email: joaoanisiomn@hotmail.com
-                </a>
-            </div>
+             {/* Assuming this card-bg is actually dark in user's view, hence light text */}
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-stone-200">Should you wish to discuss new quests, alliances, or opportunities, my ear is open. Dispatch your message!</p>
+            <div class="mt-10"><a href="mailto:joaoanisiomn@hotmail.com" class="button-primary text-lg">Email: joaoanisiomn@hotmail.com</a></div>
             <div class="mt-8">
-                <p class="text-stone-800">Find my sigil on other networks:</p>
+                <p class="text-stone-200">Find my sigil on other networks:</p> {/* text-stone-200 for light text */}
                 <div class="mt-4 flex justify-center space-x-6">
-                     <a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">LinkedIn</a>
-                    <span class="text-stone-500">|</span>
-                    <a href="https://github.com/caduceusj" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">GitHub</a>
-                    <span class="text-stone-500">|</span>
-                    <a href="https://caduceusj.itch.io/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-400 transition-colors text-sm">Itch.io</a>
+                     <a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors text-sm">LinkedIn</a> {/* amber-500 is a good link color on dark bg */}
+                    <span class="text-stone-400">|</span> {/* stone-400 for separator */}
+                    <a href="https://github.com/caduceusj" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors text-sm">GitHub</a>
+                    <span class="text-stone-400">|</span>
+                    <a href="https://caduceusj.itch.io/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-400 transition-colors text-sm">Itch.io</a>
                 </div>
             </div>
         </div>
@@ -381,38 +345,21 @@
         };
 
         const skillIcons = {
-            "Godot Engine": '<i class="fas fa-cube"></i>',
-            "Unity": '<i class="fab fa-unity"></i>',
-            "GDScript": '📜',
-            "C#": '✨',
-            "C++": '<i class="fas fa-cog"></i>',
-            "Python": '<i class="fab fa-python"></i>',
-            "HTML5": '<i class="fab fa-html5"></i>',
-            "CSS3": '<i class="fab fa-css3-alt"></i>',
-            "JavaScript": '<i class="fab fa-js-square"></i>',
-            "VR Dev": '<i class="fas fa-vr-cardboard"></i>',
-            "AI Programming": '<i class="fas fa-brain"></i>',
-            "UI/UX Design": '<i class="fas fa-drafting-compass"></i>',
-            "Level Design": '<i class="fas fa-map-marked-alt"></i>',
-            "Adobe Suite": '<i class="fas fa-palette"></i>',
-            "Git & GitHub": '<i class="fab fa-git-alt"></i>',
+            "Godot Engine": '<i class="fas fa-cube"></i>', "Unity": '<i class="fab fa-unity"></i>', "GDScript": '📜', "C#": '✨',
+            "C++": '<i class="fas fa-cog"></i>', "Python": '<i class="fab fa-python"></i>', "HTML5": '<i class="fab fa-html5"></i>',
+            "CSS3": '<i class="fab fa-css3-alt"></i>', "JavaScript": '<i class="fab fa-js-square"></i>', "VR Dev": '<i class="fas fa-vr-cardboard"></i>',
+            "AI Programming": '<i class="fas fa-brain"></i>', "UI/UX Design": '<i class="fas fa-drafting-compass"></i>',
+            "Level Design": '<i class="fas fa-map-marked-alt"></i>', "Adobe Suite": '<i class="fas fa-palette"></i>', "Git & GitHub": '<i class="fab fa-git-alt"></i>',
         };
 
         const skills = [
-            { name: "Godot Engine", level: "Master Smith", category: "engine" },
-            { name: "Unity", level: "Master Smith", category: "engine" },
-            { name: "GDScript", level: "Scroll Master", category: "language" },
-            { name: "C#", level: "Spell Weaver", category: "language" },
-            { name: "C++", level: "Deep Magic", category: "language" },
-            { name: "Python", level: "Potion Brewer", category: "language" },
-            { name: "HTML5", level: "Rune Scribe (Web)", category: "web" },
-            { name: "CSS3", level: "Tapestry Weaver (Web)", category: "web" },
-            { name: "JavaScript", level: "Enchanter (Web)", category: "web" },
-            { name: "VR Dev", level: "Visionary Seer", category: "specialty" },
-            { name: "AI Programming", level: "Golemancer", category: "specialty" },
-            { name: "UI/UX Design", level: "Cartographer of Interfaces", category: "design" },
-            { name: "Level Design", level: "World Builder", category: "design" },
-            { name: "Adobe Suite", level: "Master Painter", category: "tool" },
+            { name: "Godot Engine", level: "Master Smith", category: "engine" }, { name: "Unity", level: "Master Smith", category: "engine" },
+            { name: "GDScript", level: "Scroll Master", category: "language" }, { name: "C#", level: "Spell Weaver", category: "language" },
+            { name: "C++", level: "Deep Magic", category: "language" }, { name: "Python", level: "Potion Brewer", category: "language" },
+            { name: "HTML5", level: "Rune Scribe (Web)", category: "web" }, { name: "CSS3", level: "Tapestry Weaver (Web)", category: "web" },
+            { name: "JavaScript", level: "Enchanter (Web)", category: "web" }, { name: "VR Dev", level: "Visionary Seer", category: "specialty" },
+            { name: "AI Programming", level: "Golemancer", category: "specialty" }, { name: "UI/UX Design", level: "Cartographer of Interfaces", category: "design" },
+            { name: "Level Design", level: "World Builder", category: "design" }, { name: "Adobe Suite", level: "Master Painter", category: "tool" },
             { name: "Git & GitHub", level: "Chronicler of Versions", category: "tool" },
         ];
 
@@ -422,80 +369,23 @@
                 const skillLink = `#portfolio?skill=${encodeURIComponent(skill.name)}`;
                 const skillElement = `
                     <a href="${skillLink}" data-skill="${skill.name}" class="skill-card no-underline">
-                        <div class="text-4xl mb-3 text-amber-700">${skillIcons[skill.name] || '🛡️'}</div>
-                        <h3 class="text-lg font-semibold text-yellow-900" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3>
-                        <p class="text-sm text-stone-600">${skill.level}</p>
-                    </a>
-                `;
+                        <div class="text-4xl mb-3 text-amber-500">${skillIcons[skill.name] || '🛡️'}</div> {/* Icon color */}
+                        <h3 class="text-lg font-semibold text-amber-400" style="font-family: 'MedievalSharp', cursive;">${skill.name}</h3> {/* Title color */}
+                        <p class="text-sm text-stone-300">${skill.level}</p> {/* Level text color */}
+                    </a>`;
                 skillsGrid.innerHTML += skillElement;
             });
         }
 
         const projects = [
-             {
-                title: "As Almas da Floresta",
-                description: "Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.",
-                engine: "Godot Engine",
-                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=As+Almas+da+Floresta",
-                tags: ["Godot", "Gameplay Programming", "AI", "UI"],
-                projectUrl: "https://caduceusj.itch.io/as-almas-da-floresta",
-            },
-            {
-                title: "Serious Game: PICC Line Training",
-                description: "Developing a simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.",
-                engine: "Unity / Godot (TBD)",
-                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Serious+Game",
-                tags: ["Serious Game", "Simulation", "Medical Training", "Unity"],
-                projectUrl: null,
-            },
-            {
-                title: "Gargantua",
-                description: "3D retro-style horror game in development. Working on graphics, item inspection, UI, and main antagonist AI.",
-                engine: "Unity",
-                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Gargantua",
-                tags: ["Unity", "3D Horror", "AI", "Retro Graphics"],
-                projectUrl: "https://caduceusj.itch.io/gargantua",
-            },
-            {
-                title: "Fofoca (Gossip)",
-                description: "Sole programmer for this GMTK Game Jam 2024 entry. Implemented character AI, day/night cycle, UI, and objective generation.",
-                engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Fofoca",
-                tags: ["Game Jam", "AI", "Solo Dev", "Godot"],
-                projectUrl: "https://caduceusj.itch.io/fofoca",
-            },
-            {
-                title: "E.L.P.H.",
-                description: "Sole programmer. Implemented unique game mechanics and assisted with game design, including elevator systems.",
-                engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=E.L.P.H.",
-                tags: ["Solo Dev", "Mechanics", "Godot"],
-                projectUrl: "https://caduceusj.itch.io/elph",
-            },
-            {
-                title: "Breaking Bastille",
-                description: "First 3D project. Contributed to Level Design, Game Design, dynamic UI, and combat mechanics.",
-                engine: "Unity",
-                imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Breaking+Bastille",
-                tags: ["3D Project", "Level Design", "Combat Mechanics", "Unity"],
-                projectUrl: "https://caduceusj.itch.io/breaking-bastille",
-            },
-            {
-                title: "Baroneza",
-                description: "First major programming project. Implemented mechanics, cutscenes, enemies, and UI. Game Jam Plus Finalist.",
-                engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Baroneza",
-                tags: ["Game Jam", "Finalist", "Programming", "Godot"],
-                projectUrl: "https://caduceusj.itch.io/baroneza",
-            },
-            {
-                title: "Quentura",
-                description: "Keep students cool in this arcade game! Programming and Game Design.",
-                engine: "Godot",
-                imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Quentura",
-                tags: ["Godot", "Arcade", "Game Jam"],
-                projectUrl: "https://caduceusj.itch.io/quentura",
-            }
+             { title: "As Almas da Floresta", description: "Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.", engine: "Godot Engine", imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=As+Almas+da+Floresta", tags: ["Godot", "Gameplay Programming", "AI", "UI"], projectUrl: "https://caduceusj.itch.io/as-almas-da-floresta",},
+            { title: "Serious Game: PICC Line Training", description: "Developing a simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.", engine: "Unity / Godot (TBD)", imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Serious+Game", tags: ["Serious Game", "Simulation", "Medical Training", "Unity"], projectUrl: null,},
+            { title: "Gargantua", description: "3D retro-style horror game in development. Working on graphics, item inspection, UI, and main antagonist AI.", engine: "Unity", imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Gargantua", tags: ["Unity", "3D Horror", "AI", "Retro Graphics"], projectUrl: "https://caduceusj.itch.io/gargantua",},
+            { title: "Fofoca (Gossip)", description: "Sole programmer for this GMTK Game Jam 2024 entry. Implemented character AI, day/night cycle, UI, and objective generation.", engine: "Godot", imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Fofoca", tags: ["Game Jam", "AI", "Solo Dev", "Godot"], projectUrl: "https://caduceusj.itch.io/fofoca",},
+            { title: "E.L.P.H.", description: "Sole programmer. Implemented unique game mechanics and assisted with game design, including elevator systems.", engine: "Godot", imageUrl: "https://placehold.co/600x400/4a3b36/c8a051?text=E.L.P.H.", tags: ["Solo Dev", "Mechanics", "Godot"], projectUrl: "https://caduceusj.itch.io/elph",},
+            { title: "Breaking Bastille", description: "First 3D project. Contributed to Level Design, Game Design, dynamic UI, and combat mechanics.", engine: "Unity", imageUrl: "https://placehold.co/600x400/4a3b36/b9946a?text=Breaking+Bastille", tags: ["3D Project", "Level Design", "Combat Mechanics", "Unity"], projectUrl: "https://caduceusj.itch.io/breaking-bastille",},
+            { title: "Baroneza", description: "First major programming project. Implemented mechanics, cutscenes, enemies, and UI. Game Jam Plus Finalist.", engine: "Godot", imageUrl: "https://placehold.co/600x400/4a3b36/8c6d46?text=Baroneza", tags: ["Game Jam", "Finalist", "Programming", "Godot"], projectUrl: "https://caduceusj.itch.io/baroneza",},
+            { title: "Quentura", description: "Keep students cool in this arcade game! Programming and Game Design.", engine: "Godot", imageUrl: "https://placehold.co/600x400/4a3b36/a07e3e?text=Quentura", tags: ["Godot", "Arcade", "Game Jam"], projectUrl: "https://caduceusj.itch.io/quentura",}
         ];
 
         const projectsGrid = document.getElementById('projects-grid');
@@ -504,9 +394,7 @@
         function generateTagsHTML(tagsArray) {
             return tagsArray.map((tag, index) => {
                 let tagHTML = `<span class="tag">${tag}</span>`;
-                if (index < tagsArray.length - 1) {
-                    tagHTML += `<span class="tag-separator">/</span>`;
-                }
+                if (index < tagsArray.length - 1) { tagHTML += `<span class="tag-separator">/</span>`;}
                 return tagHTML;
             }).join('');
         }
@@ -523,16 +411,13 @@
                     <div class="project-card fade-in-section" data-tags="${projectTagsString.toLowerCase()}">
                         <img src="${project.imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3a302b/e0dcd3?text=Image+Not+Found';" class="w-full h-56 object-cover border-b-2 border-amber-600">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-yellow-900 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3>
-                            <p class="text-sm text-stone-800 mb-3 h-20 overflow-y-auto">${project.description}</p>
-                            <p class="text-xs text-amber-800 font-medium mb-3">Engine: ${project.engine}</p>
-                            <div class="tag-container">
-                                ${generateTagsHTML(project.tags)}
-                            </div>
-                            ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-stone-500">Sealed Scroll (Details on request)</span>'}
+                            <h3 class="text-xl font-semibold text-amber-400 mb-2" style="font-family: 'MedievalSharp', cursive;">${project.title}</h3>
+                            <p class="text-sm text-stone-200 mb-3 h-20 overflow-y-auto">${project.description}</p>
+                            <p class="text-xs text-amber-300 font-medium mb-3">Engine: ${project.engine}</p>
+                            <div class="tag-container">${generateTagsHTML(project.tags)}</div>
+                            ${project.projectUrl ? `<a href="${project.projectUrl}" target="_blank" rel="noopener noreferrer" class="button-secondary text-xs py-1 px-3">View Artifact</a>` : '<span class="text-sm text-stone-400">Sealed Scroll (Details on request)</span>'}
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 projectsGrid.innerHTML += projectCard;
             });
         }
@@ -546,11 +431,10 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.fade-in-section').forEach(section => { observer.observe(section); });
         
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
+```
