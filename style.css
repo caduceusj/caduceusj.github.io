@@ -1,276 +1,1097 @@
-/* style.css */
+/* ============================================
+   JoãoOS - Portfolio Theme
+   ============================================ */
 
-/* Estilo para a seção Hero */
-.hero-section {
-  background-image: url('https://ormuco.com/wp-content/uploads/2019/01/Ormuco-Designs-8.png');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+/* --- Reset & Variables --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilo para os títulos */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', Arial, sans-serif;
-  text-align: justify;
+:root {
+    --taskbar-height: 48px;
+    --accent: #5b9bd5;
+    --accent-hover: #4a8bc4;
+    --window-bg: #1e1e1e;
+    --window-titlebar: #2d2d2d;
+    --window-border: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --close-red: #e81123;
+    --minimize-yellow: #e8b800;
+    --maximize-green: #00cc6a;
 }
 
-p{
-  text-align: justify;
+html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    background: #000;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
-/* Estilo personalizado para o texto */
-p {
-  font-family: 'Roboto', Arial, sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
+/* --- Scrollbars --- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* ============================================
+   BOOT SCREEN
+   ============================================ */
+#boot-screen {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: bootFadeOut 0.6s ease 2.8s forwards;
 }
 
-/* Estilo para as seções */
-section {
-  padding: 60px 0;
+.boot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Estilo para o rodapé */
-footer {
-  background-color: #343a40;
-  color: #fff;
+.boot-logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 6px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.2s forwards;
 }
 
-/* Estilo para os ícones sociais */
-section#contato img {
-  margin: 0 10px;
-  transition: transform 0.3s;
+.boot-subtitle {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 8px;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.7s forwards;
 }
 
-section#contato img:hover {
-  transform: scale(1.2);
+.boot-loader {
+    width: 220px;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    margin-top: 32px;
+    overflow: hidden;
 }
 
-/* Estilo para os botões */
-.btn-primary {
-  background-color: #3f1f5a;
-  border-color: #3f1f5a;
+.boot-progress {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: bootProgress 1.8s ease 0.8s forwards;
 }
 
-.btn-primary:hover {
-  background-color: #29153d;
-  border-color: #29153d;
-}
-/* Destaque para o projeto principal */
-#projetos .card.mb-4.shadow-lg {
-  border: none;
-  background-color: #91ff94;
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
-#projetos .card.mb-4.shadow-lg .card-title {
-  font-size: 2rem;
-  color: #3f1f5a;
+@keyframes bootProgress {
+    to { width: 100%; }
 }
 
-#projetos .card.mb-4.shadow-lg .card-text {
-  font-size: 1.1rem;
+@keyframes bootFadeOut {
+    to { opacity: 0; pointer-events: none; }
 }
 
-#projetos .card.mb-4.shadow-lg .btn-primary {
-  background-color: #3f1f5a;
-  border-color: #3f1f5a;
+/* ============================================
+   DESKTOP
+   ============================================ */
+#desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: var(--taskbar-height);
+    background: linear-gradient(135deg, #0a0e27 0%, #1a0a2e 35%, #0d1b3e 65%, #0a0e27 100%);
+    overflow: hidden;
 }
 
-#projetos .card.mb-4.shadow-lg .btn-primary:hover {
-  background-color: #29153d;
-  border-color: #29153d;
+/* Subtle star effect */
+#desktop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 85% 40%, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1.5px 1.5px at 15% 90%, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 92% 10%, rgba(255,255,255,0.12), transparent);
+    background-size: 300px 300px;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Estilo para a imagem de perfil */
-.perfil-img {
-  max-width: 250px; /* Ajuste este valor conforme necessário */
-  width: 50%;
-  border-radius: 10px; /* Ajuste este valor conforme desejado */
-  height: auto;
+/* --- Desktop Icons --- */
+#desktop-icons {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 20px;
+    gap: 6px;
+    height: 100%;
 }
 
-/* Estilo para as imagens das cards */
-.card-img-top {
-  height: 200px; /* Definindo uma altura consistente para todas as imagens */
-  object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente e se encaixe no espaço */
+.desktop-icon {
+    width: 88px;
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    color: #fff;
 }
 
-/* Estilo para a linha (row) que contém as cards */
-.row {
-  display: flex;
-  flex-wrap: wrap;
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.col-md-4 {
-  display: flex;
-  align-items: stretch;
+.desktop-icon:active {
+    background: rgba(255, 255, 255, 0.18);
 }
 
-.card {
-  min-height: 450px; /* Altura mínima para as cards, para garantir alinhamento */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.desktop-icon-img {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
 
-/* Seção de Contato */
-#contato{
-  margin-bottom: 0; /* Remove a margem inferior */
-  padding-bottom: 0; /* Remove o padding inferior, se existir */
-}
-
-#contato {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* Remover margem e padding extras da row e do container */
-#contato .container-fluid,
-#contato .row {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-footer {
-  margin-top: 0;
-  padding-top: 0;
-}
-#contato .form-control {
-  background-color: #333; /* Ajuste para um fundo mais escuro, se necessário */
-  color: #fff;
-}
-
-#contato .btn-primary {
-  background-color: #6f42c1; /* Ajuste da cor para combinar com o tema */
-  border: none;
-}
-
-#contato .btn-primary:hover {
-  background-color: #563d7c; /* Ajuste da cor do botão ao passar o mouse */
-}
-
-/* Espaçamento dos ícones das redes sociais */
-.d-flex.gap-3 a {
-  transition: transform 0.3s;
-}
-
-.d-flex.gap-3 a:hover {
-  transform: scale(1.1); /* Aumenta um pouco o tamanho ao passar o mouse para dar destaque */
-}
-/* Estilo para a seção "Almas da Floresta" */
-#almasdafloresta {
-  background-color: #004d00; /* Fundo verde escuro para combinar com o tema da floresta */
-  color: #f8f9fa; /* Texto em cor clara para contraste */
-  padding: 60px 0; /* Mais espaçamento para deixar a seção mais equilibrada */
-}
-
-/* Estilo para a logo do projeto */
-.logo-projeto {
-  max-width: 80%; /* Limita o tamanho da logo para não ocupar muito espaço */
-  height: auto;
-  border-radius: 10px; /* Cantos levemente arredondados para um visual mais agradável */
-}
-
-/* Estilo para o título do projeto */
-.titulo-projeto {
-  font-family: 'Roboto', sans-serif; /* Fonte mais elegante e legível */
-  font-weight: 700; /* Título em negrito para destaque */
-  color: #ffdd57; /* Cor amarela para dar contraste e chamar atenção */
-  font-size: 2rem; /* Tamanho do título */
-}
-
-/* Estilo para a descrição do projeto */
-.descricao-projeto {
-  font-family: 'Roboto', sans-serif; /* Fonte legível e consistente */
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: #ffffff; /* Texto branco para legibilidade */
-}
-
-/* Estilo para o botão */
-.btn-primary {
-  background-color: #6f42c1; /* Tom roxo para destacar o botão */
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: #563d7c; /* Efeito de hover mais escuro */
-}
-
-/* Estilo para a coluna da logo para centralizar */
-#almasdafloresta .col-md-6.text-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Estilo do card de apresentação */
-.apresentacao-card {
-  max-width: 900px;
-  border-radius: 10px;
-  background-color: #f8f9fa; /* Fundo suave para destaque */
-  color: #333;
-}
-
-/* Estilo da imagem de perfil */
-
-.perfil-img {
-  max-width: 300px; /* Aumentar o tamanho máximo da imagem */
-  width: 100%; /* Garante que a imagem se ajuste à largura máxima */
-  height: auto;
-  border-radius: 10px; /* Cantos levemente arredondados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para um efeito flutuante */
-}
-
-
-/* Estilo do título de apresentação */
-.titulo-apresentacao {
-  font-family: 'Roboto', sans-serif; /* Fonte mais moderna e legível */
-  font-weight: bold;
-  color: #004d00; /* Tom verde escuro que remete à natureza e destaca bem */
-}
-
-/* Estilo do texto de apresentação */
-.texto-apresentacao {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Ajuste responsivo para centralizar texto em telas menores */
-@media (max-width: 768px) {
-  .apresentacao-card {
+.desktop-icon-label {
+    font-size: 11px;
     text-align: center;
-  }
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.5);
+    word-wrap: break-word;
+    max-width: 82px;
+    white-space: pre-line;
 }
 
-/* Estilo para o formulário de contato - Fonte branca */
-.col-md-6 form {
-  color: #ffffff; /* Define a cor da fonte como branco */
+/* ============================================
+   WINDOWS
+   ============================================ */
+#windows-container {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* Garantir que os textos dentro dos inputs e textarea também fiquem brancos */
-.form-control {
-  background-color: #333; /* Cor de fundo mais escura para contraste */
-  color: #ffffff; /* Fonte branca */
-  border: 1px solid #555; /* Ajustar a cor da borda para melhor contraste */
+.os-window {
+    position: absolute;
+    background: var(--window-bg);
+    border: 1px solid var(--window-border);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    pointer-events: auto;
+    animation: windowOpen 0.2s ease;
+    min-width: 300px;
+    min-height: 180px;
 }
 
-.form-control::placeholder {
-  color: #cccccc; /* Deixa o placeholder em um tom mais claro para diferenciá-lo do texto normal */
+.os-window.focused {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--accent);
 }
 
-.form-label {
-  color: #ffffff; /* Torna os rótulos (labels) brancos */
+@keyframes windowOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
-/* Estilo do botão para melhorar a integração visual */
-.btn-primary {
-  background-color: #6f42c1;
-  border: none;
+/* --- Title Bar --- */
+.window-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 14px;
+    background: var(--window-titlebar);
+    border-bottom: 1px solid var(--window-border);
+    cursor: default;
+    flex-shrink: 0;
 }
 
-.btn-primary:hover {
-  background-color: #563d7c; /* Cor mais escura no hover */
+.window-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.window-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    padding: 0;
+    transition: opacity 0.15s, transform 0.1s;
+    opacity: 0.85;
+}
+
+.window-btn:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.close-btn { background: var(--close-red); }
+.minimize-btn { background: var(--minimize-yellow); }
+.maximize-btn { background: var(--maximize-green); }
+
+/* --- Window Body --- */
+.window-body {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Window States --- */
+.os-window.minimized {
+    display: none !important;
+}
+
+.os-window.maximized {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0;
+    border: none;
+}
+
+/* ============================================
+   TASKBAR
+   ============================================ */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--taskbar-height);
+    background: rgba(15, 15, 25, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    z-index: 9000;
+}
+
+#start-btn {
+    height: 36px;
+    padding: 0 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+#start-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#start-btn i {
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.taskbar-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 6px;
+    flex-shrink: 0;
+}
+
+#taskbar-apps {
+    flex: 1;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 0 4px;
+    min-width: 0;
+}
+
+.taskbar-app-btn {
+    height: 34px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.taskbar-app-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.taskbar-app-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-bottom-color: var(--accent);
+}
+
+#system-tray {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px;
+    flex-shrink: 0;
+}
+
+#clock {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* ============================================
+   START MENU
+   ============================================ */
+#start-menu {
+    position: fixed;
+    bottom: calc(var(--taskbar-height) + 8px);
+    left: 8px;
+    width: 300px;
+    background: rgba(25, 25, 38, 0.96);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    z-index: 9500;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+    animation: startMenuOpen 0.15s ease;
+}
+
+#start-menu.hidden {
+    display: none;
+}
+
+@keyframes startMenuOpen {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.start-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.start-menu-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.start-menu-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.start-menu-role {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.start-menu-items {
+    padding: 8px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 13px;
+    transition: background 0.12s;
+}
+
+.start-menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.start-menu-item i {
+    width: 22px;
+    text-align: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.start-menu-footer {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.start-menu-footer a {
+    color: var(--text-secondary);
+    font-size: 18px;
+    transition: color 0.15s;
+}
+
+.start-menu-footer a:hover {
+    color: var(--accent);
+}
+
+/* ============================================
+   NOTEPAD WINDOW CONTENT
+   ============================================ */
+.notepad-menu {
+    display: flex;
+    gap: 0;
+    background: #252526;
+    border-bottom: 1px solid var(--window-border);
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+
+.notepad-menu span {
+    padding: 5px 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: default;
+    transition: background 0.1s;
+}
+
+.notepad-menu span:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.notepad-content {
+    flex: 1;
+    padding: 16px 20px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #d4d4d4;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    background: #1a1a1a;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+/* ============================================
+   EXPLORER WINDOW CONTENT
+   ============================================ */
+.explorer-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #252526;
+    border-bottom: 1px solid var(--window-border);
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.explorer-path {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--window-border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.explorer-path i {
+    color: #ffd54f;
+}
+
+.explorer-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 6px;
+    padding: 16px;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.explorer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.explorer-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.explorer-item-thumb {
+    width: 80px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 1px solid var(--window-border);
+    background: #2a2a2a;
+}
+
+.explorer-item-label {
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 110px;
+    word-wrap: break-word;
+    color: var(--text-primary);
+}
+
+.explorer-item-engine {
+    font-size: 9px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.explorer-item-badge {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: 600;
+    background: rgba(91, 155, 213, 0.2);
+    color: var(--accent);
+    border: 1px solid rgba(91, 155, 213, 0.3);
+}
+
+/* ============================================
+   SKILLS WINDOW CONTENT
+   ============================================ */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 16px;
+    flex: 1;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--window-border);
+    border-radius: 10px;
+    padding: 18px 12px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.skill-card-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.skill-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.skill-card-level {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   EXPERIENCE WINDOW CONTENT
+   ============================================ */
+.experience-content {
+    padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.timeline {
+    border-left: 2px solid var(--accent);
+    padding-left: 24px;
+    margin-left: 8px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--window-bg);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-item h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.timeline-item .company {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+
+.timeline-item .period {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ============================================
+   EDUCATION WINDOW CONTENT
+   ============================================ */
+.education-content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.edu-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--window-border);
+    display: flex;
+    align-items: center;
+}
+
+.edu-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--window-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+}
+
+.edu-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.edu-card .institution {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.edu-card .period {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.award-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--window-border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.award-badge {
+    color: #ffd700;
+    font-size: 18px;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+}
+
+.award-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.award-label {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* ============================================
+   CONTACT WINDOW CONTENT
+   ============================================ */
+.contact-content {
+    padding: 32px 24px;
+    text-align: center;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon {
+    font-size: 48px;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.contact-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.contact-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 320px;
+    line-height: 1.5;
+}
+
+.contact-email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.contact-email-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.contact-social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+}
+
+.contact-social-link:hover {
+    color: var(--accent);
+}
+
+.contact-social-link i {
+    font-size: 20px;
+}
+
+/* ============================================
+   FEATURED PROJECT (MALLEUS MALEFICARUM)
+   ============================================ */
+.featured-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.featured-banner {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--window-border);
+}
+
+.featured-info {
+    padding: 20px 24px;
+}
+
+.featured-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.featured-meta {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.featured-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.featured-tag {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--window-border);
+    border-radius: 14px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.featured-team {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.featured-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.featured-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    #desktop-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 16px 12px;
+        gap: 4px;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .desktop-icon {
+        width: 76px;
+    }
+
+    .desktop-icon-img {
+        font-size: 28px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .os-window {
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 0;
+        border: none;
+    }
+
+    #start-menu {
+        left: 0;
+        right: 0;
+        bottom: var(--taskbar-height);
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .explorer-grid {
+        grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .explorer-item-thumb {
+        width: 64px;
+        height: 48px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        padding: 12px;
+    }
+
+    .featured-banner {
+        height: 160px;
+    }
+
+    #start-btn span {
+        display: none;
+    }
+
+    .taskbar-app-btn {
+        padding: 0 8px;
+        font-size: 0;
+    }
+
+    .taskbar-app-btn i {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .desktop-icon {
+        width: 68px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
 }
