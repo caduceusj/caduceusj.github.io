@@ -25,7 +25,7 @@ function openWindow(appId) {
     if (!app) return;
 
     var windowEl = document.createElement('div');
-    windowEl.className = 'os-window';
+    windowEl.className = 'window desktop-window';
     windowEl.id = 'window-' + appId;
 
     var isMobile = window.innerWidth <= 768;
@@ -34,7 +34,6 @@ function openWindow(appId) {
         windowEl.style.top = '0';
         windowEl.style.width = '100%';
         windowEl.style.height = '100%';
-        windowEl.style.borderRadius = '0';
     } else {
         windowEl.style.width = app.width + 'px';
         windowEl.style.height = app.height + 'px';
@@ -47,22 +46,19 @@ function openWindow(appId) {
 
     var content = getWindowContent(appId);
 
-    windowEl.innerHTML = '<div class="window-titlebar" data-window="' + appId + '">'
-        + '<div class="window-title">'
-        + '<i class="' + app.icon + '" style="color:' + app.iconColor + ';margin-right:8px;font-size:14px"></i>'
-        + app.windowTitle
-        + '</div>'
-        + '<div class="window-controls">'
-        + '<button class="window-btn minimize-btn" title="Minimize"></button>'
-        + '<button class="window-btn maximize-btn" title="Maximize"></button>'
-        + '<button class="window-btn close-btn" title="Close"></button>'
+    windowEl.innerHTML = '<div class="title-bar">'
+        + '<div class="title-bar-text">' + app.windowTitle + '</div>'
+        + '<div class="title-bar-controls">'
+        + '<button aria-label="Minimize"></button>'
+        + '<button aria-label="Maximize"></button>'
+        + '<button aria-label="Close"></button>'
         + '</div></div>'
-        + '<div class="window-body">' + content + '</div>';
+        + '<div class="window-body">' + content + '</div>'
+        + (app.statusText ? '<div class="status-bar"><p class="status-bar-field">' + app.statusText + '</p></div>' : '');
 
-    // Button listeners
-    var closeBtn = windowEl.querySelector('.close-btn');
-    var minBtn = windowEl.querySelector('.minimize-btn');
-    var maxBtn = windowEl.querySelector('.maximize-btn');
+    var closeBtn = windowEl.querySelector('button[aria-label="Close"]');
+    var minBtn = windowEl.querySelector('button[aria-label="Minimize"]');
+    var maxBtn = windowEl.querySelector('button[aria-label="Maximize"]');
 
     closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeWindow(appId); });
     minBtn.addEventListener('click', function(e) { e.stopPropagation(); minimizeWindow(appId); });
@@ -85,8 +81,6 @@ function openWindow(appId) {
     initDrag(windowEl, appId);
 
     windowOffset = (windowOffset + 30) % 150;
-
-    // Close start menu
     document.getElementById('start-menu').classList.add('hidden');
 }
 
@@ -163,7 +157,7 @@ function focusWindow(appId) {
 // DRAG
 // ============================================
 function initDrag(windowEl, appId) {
-    var titlebar = windowEl.querySelector('.window-titlebar');
+    var titlebar = windowEl.querySelector('.title-bar');
     var isDragging = false;
     var startX, startY, startLeft, startTop;
 
@@ -171,7 +165,7 @@ function initDrag(windowEl, appId) {
         if (window.innerWidth <= 768) return;
         var state = windowState[appId];
         if (state && state.isMaximized) return;
-        if (e.target.closest('.window-controls')) return;
+        if (e.target.closest('.title-bar-controls')) return;
 
         isDragging = true;
         var evt = e.touches ? e.touches[0] : e;
@@ -285,9 +279,7 @@ function updateClock() {
     hours = hours % 12;
     if (hours === 0) hours = 12;
     var timeStr = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm;
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var dateStr = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
-    clock.textContent = timeStr + '  ' + dateStr;
+    clock.textContent = timeStr;
 }
 
 // ============================================
@@ -299,7 +291,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateClock();
     setInterval(updateClock, 30000);
 
-    // Start menu toggle
     var startBtn = document.getElementById('start-btn');
     var startMenu = document.getElementById('start-menu');
 
@@ -314,13 +305,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Remove boot screen after animation
     setTimeout(function() {
         var boot = document.getElementById('boot-screen');
         if (boot) boot.remove();
     }, 3500);
 
-    // Auto-open about_me.txt after boot
     setTimeout(function() {
         openWindow('about');
     }, 3200);

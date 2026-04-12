@@ -1,29 +1,43 @@
 // ============================================
-// PROJECT DATA
+// PROJECT DATA (all itch.io games + extras)
 // ============================================
 const projects = [
     {
+        id: 'malleus', title: 'Malleus Maleficarum',
+        description: 'Dark metroidvania rebuilt from a 2023 game jam. Lead Programmer.',
+        engine: 'Godot 4.4', image: 'assets/malleusmale.png',
+        tags: ['Metroidvania', 'Lead Programmer', 'Dark Fantasy'],
+        url: 'https://caduceusj.itch.io/malleus-maleficarum'
+    },
+    {
         id: 'almas', title: 'As Almas da Floresta',
-        description: 'Gameplay Programmer for this Godot-powered game. Implemented core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.',
+        description: 'Gameplay Programmer. Core mechanics, spells, AI, UI, and boss battles. Approved under Paulo Gustavo Law.',
         engine: 'Godot', image: 'assets/As_almas_da_floresta.png',
         tags: ['Godot Engine', 'Gameplay', 'AI', 'UI/UX'],
         url: 'https://caduceusj.itch.io/as-almas-da-floresta'
     },
     {
+        id: 'catcha', title: 'Catcha',
+        description: 'A parody critique of gambling. 2D point-and-click arcade desperation simulator — open chests, collect cats, gamble.',
+        engine: 'Godot', image: 'assets/catcha.png',
+        tags: ['Arcade', 'Parody', 'Solo Dev'],
+        url: 'https://caduceusj.itch.io/catcha'
+    },
+    {
         id: 'picc', title: 'PICC Line Training',
-        description: 'Simulation for medical training on PICC line placement in neonates, focusing on accuracy and educational value.',
+        description: 'Simulation for medical training on PICC line placement in neonates.',
         engine: 'Unity/Godot', image: 'assets/piccBaby.jpg',
         tags: ['Serious Game', 'Medical', 'Simulation'], url: null
     },
     {
         id: 'separatio', title: 'Separatio',
-        description: 'A VR project about Isolation. A study in Godot VR to gain experience.',
+        description: 'A VR project about Isolation. A study in Godot VR.',
         engine: 'Godot', image: 'assets/VRGameGodot.png',
         tags: ['VR', '3D', 'Godot'], url: null
     },
     {
         id: 'awa', title: 'AWA',
-        description: '2D Point and Click game - select ingredient combinations to see interesting chemical reactions.',
+        description: '2D Point and Click game — select ingredient combinations for chemical reactions.',
         engine: 'Godot', image: 'assets/AwA Banner.png',
         tags: ['Serious Game', 'Chemistry', 'Point & Click'], url: null
     },
@@ -42,14 +56,14 @@ const projects = [
     },
     {
         id: 'nolegs', title: 'I Have No Legs But I Must Sit',
-        description: 'Procedurally generated environments with unique chairs, each with their own score, name, and anomaly.',
+        description: 'Procedurally generated environments with unique chairs, each with their own score and anomaly.',
         engine: 'Unity', image: 'assets/I have no legs.png',
         tags: ['Procedural', 'Walk Simulator'],
         url: 'https://caduceusj.itch.io/i-have-no-legs'
     },
     {
         id: 'fofoca', title: 'Fofoca (Gossip)',
-        description: 'GMTK Game Jam 2024 - Sole programmer. Character AI, day/night cycle, UI, and objective generation.',
+        description: 'GMTK Game Jam 2024 — Sole programmer. Character AI, day/night cycle, UI, objective generation.',
         engine: 'Godot', image: 'assets/fofocaLogo.png',
         tags: ['Game Jam', 'AI', 'Solo Dev'],
         url: 'https://caduceusj.itch.io/fofoca'
@@ -91,21 +105,21 @@ const projects = [
     },
     {
         id: 'dodgeboy', title: 'Dodge Boy',
-        description: 'Trijam #286 - 4th Place. Dodge enemies as a Viking escaping the enemy base.',
+        description: 'Trijam #286 — 4th Place. Dodge enemies as a Viking escaping the enemy base.',
         engine: 'Godot', image: 'assets/DodgeBoy.png',
         tags: ['Game Jam', '4th Place'],
         url: 'https://caduceusj.itch.io/dodge-boy'
     },
     {
         id: 'jamsession', title: 'Jam Session',
-        description: 'Trijam #270 - 4th Place. Rhythm game about programmers making a game in 3 hours.',
+        description: 'Trijam #270 — 4th Place. Rhythm game about programmers making a game in 3 hours.',
         engine: 'Godot', image: 'assets/JamSession.png',
         tags: ['Game Jam', 'Rhythm', '4th Place'],
         url: 'https://caduceusj.itch.io/jam-session'
     },
     {
         id: 'cropfi', title: 'Crop-fi',
-        description: 'Trijam #248 - 2nd Place. Maintain your hobby garden, water plants, collect and sell fruits.',
+        description: 'Trijam #248 — 2nd Place. Maintain your hobby garden, water plants, collect and sell fruits.',
         engine: 'Godot', image: 'assets/Cropfi.png',
         tags: ['Game Jam', 'Cozy', '2nd Place'],
         url: 'https://deadpix.itch.io/crop-fi'
@@ -119,7 +133,7 @@ const projects = [
     },
     {
         id: 'songs', title: 'My Songs',
-        description: 'Songs I make for fun. I enjoy music and sometimes creativity sparks!',
+        description: 'Songs I make for fun. Music is another creative outlet!',
         engine: 'BeepBox', image: 'assets/MySongs(hobby).png',
         tags: ['Music', 'Hobby'],
         url: 'https://music.youtube.com/browse/VLPLSwvU73KLgNjKyugBiZmka6N2yfk9-JMq'
@@ -136,28 +150,28 @@ const skills = [
     { name: 'C#', icon: 'fas fa-hashtag', level: 'C# Programmer', color: '#68217a' },
     { name: 'C++', icon: 'fas fa-microchip', level: 'C++ Programmer', color: '#659bd3' },
     { name: 'Python', icon: 'fab fa-python', level: 'Python Programmer', color: '#ffd43b' },
-    { name: 'HTML5', icon: 'fab fa-html5', level: 'Web Development', color: '#e34f26' },
-    { name: 'CSS3', icon: 'fab fa-css3-alt', level: 'Web Development', color: '#1572b6' },
-    { name: 'JavaScript', icon: 'fab fa-js-square', level: 'Web Development', color: '#f7df1e' },
+    { name: 'Game Design', icon: 'fas fa-lightbulb', level: 'Designer', color: '#ff9800' },
+    { name: 'Level Design', icon: 'fas fa-map', level: 'Level Designer', color: '#00e676' },
+    { name: 'Porting', icon: 'fas fa-right-left', level: 'Cross-Platform', color: '#26c6da' },
     { name: 'VR Dev', icon: 'fas fa-vr-cardboard', level: 'VR Experience', color: '#7c4dff' },
-    { name: 'AI Programming', icon: 'fas fa-brain', level: 'AI Game Developer', color: '#ff6e40' },
+    { name: 'AI Programming', icon: 'fas fa-brain', level: 'Game AI', color: '#ff6e40' },
     { name: 'UI/UX Design', icon: 'fas fa-drafting-compass', level: 'UI/UX Designer', color: '#e040fb' },
-    { name: 'Level Design', icon: 'fas fa-map-marked-alt', level: 'Level Designer', color: '#00e676' },
+    { name: 'HTML/CSS/JS', icon: 'fab fa-html5', level: 'Web Development', color: '#e34f26' },
     { name: 'Adobe Suite', icon: 'fas fa-palette', level: 'Adobe Experience', color: '#ff0000' },
-    { name: 'Git & GitHub', icon: 'fab fa-git-alt', level: 'Gitflow Experience', color: '#f05032' }
+    { name: 'Git & GitHub', icon: 'fab fa-git-alt', level: 'Gitflow', color: '#f05032' }
 ];
 
 // ============================================
 // DESKTOP APP DEFINITIONS
 // ============================================
 const desktopApps = [
-    { id: 'about', title: 'about_me.txt', icon: 'fas fa-file-lines', iconColor: '#4fc3f7', windowTitle: 'about_me.txt - Notepad', width: 680, height: 520 },
-    { id: 'projects', title: 'My Projects', icon: 'fas fa-folder', iconColor: '#ffd54f', windowTitle: 'My Projects', width: 900, height: 620 },
-    { id: 'malleus', title: 'Malleus\nMaleficarum', icon: 'fas fa-skull-crossbones', iconColor: '#ef5350', windowTitle: 'Malleus Maleficarum', width: 750, height: 560 },
-    { id: 'skills', title: 'Skills', icon: 'fas fa-code', iconColor: '#81c784', windowTitle: 'Skills Manager', width: 780, height: 560 },
-    { id: 'experience', title: 'Experience', icon: 'fas fa-briefcase', iconColor: '#ba68c8', windowTitle: 'Work Experience', width: 700, height: 560 },
-    { id: 'education', title: 'Education', icon: 'fas fa-graduation-cap', iconColor: '#4db6ac', windowTitle: 'Education & Awards', width: 780, height: 560 },
-    { id: 'contact', title: 'Contact', icon: 'fas fa-envelope', iconColor: '#ff8a65', windowTitle: 'Contact Me', width: 520, height: 440 }
+    { id: 'about', title: 'about_me.txt', icon: 'fas fa-file-lines', iconColor: '#4fc3f7', windowTitle: 'about_me.txt - Notepad', width: 660, height: 500, statusText: 'Ln 1, Col 1' },
+    { id: 'projects', title: 'My Projects', icon: 'fas fa-folder', iconColor: '#ffd54f', windowTitle: 'My Projects', width: 880, height: 600, statusText: '20 objects' },
+    { id: 'malleus', title: 'Malleus\nMaleficarum', icon: 'fas fa-skull-crossbones', iconColor: '#ef5350', windowTitle: 'Malleus Maleficarum', width: 720, height: 540, statusText: 'Featured Project' },
+    { id: 'skills', title: 'Skills', icon: 'fas fa-code', iconColor: '#81c784', windowTitle: 'Skills Manager', width: 760, height: 540, statusText: '15 skills' },
+    { id: 'experience', title: 'Experience', icon: 'fas fa-briefcase', iconColor: '#ba68c8', windowTitle: 'Work Experience', width: 680, height: 540, statusText: '6 positions' },
+    { id: 'education', title: 'Education', icon: 'fas fa-graduation-cap', iconColor: '#4db6ac', windowTitle: 'Education & Awards', width: 760, height: 540, statusText: '4 degrees, 5 awards' },
+    { id: 'contact', title: 'Contact', icon: 'fas fa-envelope', iconColor: '#ff8a65', windowTitle: 'Contact Me', width: 500, height: 420, statusText: 'Ready' }
 ];
 
 // ============================================
@@ -177,58 +191,64 @@ function getWindowContent(appId) {
 }
 
 function getAboutContent() {
-    return `
-    <div class="notepad-menu">
-        <span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span>
-    </div>
-    <div class="notepad-content">==============================================
-      ABOUT ME - João Anisio
-      Game Programmer & Game Designer
-==============================================
-
-Name:     João Anisio Marinho da Nobrega
-Role:     Game Programmer & Game Designer
-Location: Natal, RN, Brazil
-Engines:  Godot Engine | Unity
-
-----------------------------------------------
-
-Hail, traveler! I am João Anisio, a Game
-Programmer and Game Designer from the realms
-of Natal, Brazil.
-
-My passion lies in forging creative concepts
-into captivating digital adventures. My anvils
-of choice are the mighty Godot Engine and the
-versatile Unity, where I craft both grand solo
-sagas and collaborative expeditions.
-
-I am a perpetual apprentice, ever seeking new
-scrolls of knowledge and challenging quests
-to hone my craft. My skills extend to the
-arcane arts of Virtual Reality and Projection
-Mapping using Cave Automated Systems in Unity.
-
-Beyond the forge of game development, my
-grimoire includes:
-
-  > C#, C++, Python, GDScript
-  > HTML5 & CSS3
-  > Adobe Suite
-  > Git & GitHub
-
-My ultimate quest is to continue evolving,
-crafting unique games that etch themselves
-into the legends of players.
-
-Should our paths align, let us convene and
-weave new tales together!
-
-----------------------------------------------
-Contact: joaoanisiomn@hotmail.com
-GitHub:  github.com/caduceusj
-Itch.io: caduceusj.itch.io
-----------------------------------------------</div>`;
+    return '<div class="notepad-menu">'
+        + '<span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span>'
+        + '</div>'
+        + '<div class="notepad-content">'
+        + '==============================================\n'
+        + '  ABOUT ME \u2014 Jo\u00e3o Anisio\n'
+        + '  Game Programmer & Game Designer\n'
+        + '==============================================\n'
+        + '\n'
+        + 'Name:     Jo\u00e3o Anisio Marinho da Nobrega\n'
+        + 'Role:     Game Programmer | Game Designer\n'
+        + 'Location: Natal, RN, Brazil\n'
+        + 'Engines:  Godot Engine | Unity\n'
+        + '\n'
+        + '----------------------------------------------\n'
+        + '\n'
+        + 'Hello! I\'m Jo\u00e3o Anisio, a Game Programmer\n'
+        + 'and Game Designer from Natal, Brazil.\n'
+        + '\n'
+        + 'I\'m passionate about turning creative ideas\n'
+        + 'into fun and engaging digital experiences.\n'
+        + 'I work primarily with Godot Engine and Unity,\n'
+        + 'developing both solo and collaborative\n'
+        + 'projects across various genres.\n'
+        + '\n'
+        + 'Currently, I serve as a Substitute Professor\n'
+        + 'of Digital Games at UFRN and as a Researcher\n'
+        + 'at AKCIT, while continuing to develop games\n'
+        + 'and expand my craft.\n'
+        + '\n'
+        + 'Lately I\'ve been deepening my studies in:\n'
+        + '\n'
+        + '  > Porting (cross-platform deployment)\n'
+        + '  > Level Design\n'
+        + '  > Game Design\n'
+        + '\n'
+        + 'My technical toolkit includes:\n'
+        + '\n'
+        + '  > GDScript, C#, C++, Python\n'
+        + '  > HTML5, CSS3, JavaScript\n'
+        + '  > VR Development & Hand Tracking\n'
+        + '  > Projection Mapping (CAVE Systems)\n'
+        + '  > Adobe Suite | Git & GitHub\n'
+        + '\n'
+        + 'My goal is to fully transition into the game\n'
+        + 'industry, bringing my creative ideas to life\n'
+        + 'and building unique experiences that resonate\n'
+        + 'with players worldwide.\n'
+        + '\n'
+        + 'Let\'s connect and create something great!\n'
+        + '\n'
+        + '----------------------------------------------\n'
+        + 'Contact:  joaoanisiomn@hotmail.com\n'
+        + 'LinkedIn: linkedin.com/in/jo\u00e3o-anisio-...\n'
+        + 'GitHub:   github.com/caduceusj\n'
+        + 'Itch.io:  caduceusj.itch.io\n'
+        + '----------------------------------------------'
+        + '</div>';
 }
 
 function getProjectsContent() {
@@ -286,36 +306,46 @@ function getSkillsContent() {
 
 function getExperienceContent() {
     return '<div class="experience-content"><div class="timeline">'
+        + '<div class="timeline-item"><h3>Substitute Professor \u2014 Digital Games</h3>'
+        + '<div class="company">UFRN | Natal, Brazil</div>'
+        + '<div class="period">Current</div>'
+        + '<p>Teaching Digital Games courses at the Federal University of Rio Grande do Norte.</p></div>'
+        + '<div class="timeline-item"><h3>Researcher \u2014 AKCIT</h3>'
+        + '<div class="company">AKCIT Research Group | Natal, Brazil</div>'
+        + '<div class="period">Current</div>'
+        + '<p>Conducting research in game development technologies and interactive systems.</p></div>'
         + '<div class="timeline-item"><h3>Game Programmer</h3>'
         + '<div class="company">Melted Peanut Studio | Natal, Brazil</div>'
-        + '<div class="period">Jan 2024 – Present</div>'
+        + '<div class="period">Jan 2024 \u2013 Present</div>'
         + '<p>Developer for "Almas da Floresta" with the Godot Engine.</p></div>'
         + '<div class="timeline-item"><h3>Game Lab Monitor</h3>'
-        + '<div class="company">Metrópole Digital - IMD/UFRN | Natal, Brazil</div>'
-        + '<div class="period">Nov 2023 – Present</div>'
+        + '<div class="company">Metr\u00f3pole Digital \u2014 IMD/UFRN | Natal, Brazil</div>'
+        + '<div class="period">Nov 2023 \u2013 Present</div>'
         + '<p>Guiding students in the game lab, maintaining tools, and keeping the workspace in order.</p></div>'
         + '<div class="timeline-item"><h3>Serious Games Developer</h3>'
         + '<div class="company">Universidade Federal do Rio Grande do Norte (UFRN)</div>'
-        + '<div class="period">Oct 2023 – Dec 2024</div>'
-        + '<p>Crafting a training simulation for PICC line placement in neonates, and Hand Tracking Finger Counting Project.</p></div>'
+        + '<div class="period">Oct 2023 \u2013 Dec 2024</div>'
+        + '<p>Built a training simulation for PICC line placement in neonates, and a Hand Tracking Finger Counting project.</p></div>'
         + '<div class="timeline-item"><h3>Game Developer For Love</h3>'
         + '<div class="company">Natal, Brazil</div>'
-        + '<div class="period">2021 – Present</div>'
-        + '<p>Ventured through numerous game jams as lead programmer or game designer. Many projects chronicled on Itch.io.</p></div>'
-        + '</div></div>';
+        + '<div class="period">2021 \u2013 Present</div>'
+        + '<p>Ventured through numerous game jams as lead programmer or game designer. Many projects on Itch.io.</p></div>'
+        + '</div>'
+        + '<div class="linkedin-cta"><a href="https://www.linkedin.com/in/jo%C3%A3o-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> View full profile on LinkedIn</a></div>'
+        + '</div>';
 }
 
 function getEducationContent() {
     return '<div class="education-content">'
-        + '<div class="edu-section-title"><i class="fas fa-scroll" style="margin-right:8px"></i>Academic</div>'
+        + '<div class="edu-section-title"><i class="fas fa-scroll" style="margin-right:6px"></i>Academic</div>'
         + '<div class="edu-card"><h4>Master\'s in Bioinformatics</h4><div class="institution">UFRN</div><div class="period">Anticipated Start: Mar 2025</div></div>'
-        + '<div class="edu-card"><h4>Bachelor of Information Technology</h4><div class="institution">UFRN</div><div class="period">2020 – 2024</div></div>'
-        + '<div class="edu-card"><h4>Specialized Studies in Digital Games</h4><div class="institution">Metrópole Digital - IMD/UFRN</div><div class="period">May 2022 – Dec 2024</div></div>'
-        + '<div class="edu-card"><h4>Fast MBA: Leadership & People Management</h4><div class="institution">Fast MBA</div><div class="period">Feb 2025 – Mar 2025</div></div>'
-        + '<div class="edu-section-title" style="margin-top:24px"><i class="fas fa-trophy" style="margin-right:8px"></i>Awards & Achievements</div>'
+        + '<div class="edu-card"><h4>Bachelor of Information Technology</h4><div class="institution">UFRN</div><div class="period">2020 \u2013 2024</div></div>'
+        + '<div class="edu-card"><h4>Specialized Studies in Digital Games</h4><div class="institution">Metr\u00f3pole Digital \u2014 IMD/UFRN</div><div class="period">May 2022 \u2013 Dec 2024</div></div>'
+        + '<div class="edu-card"><h4>Fast MBA: Leadership & People Management</h4><div class="institution">Fast MBA</div><div class="period">Feb 2025 \u2013 Mar 2025</div></div>'
+        + '<div class="edu-section-title" style="margin-top:16px"><i class="fas fa-trophy" style="margin-right:6px"></i>Awards & Achievements</div>'
         + '<div class="award-item"><div class="award-badge"><i class="fas fa-star"></i></div><div class="award-text"><span class="award-label">Organizer:</span> GameLab Jam 2024.2</div></div>'
         + '<div class="award-item"><div class="award-badge"><i class="fas fa-trophy"></i></div><div class="award-text"><span class="award-label">Winner:</span> Hallowjam 2023 (Malleus Maleficarum)</div></div>'
-        + '<div class="award-item"><div class="award-badge"><i class="fas fa-medal"></i></div><div class="award-text"><span class="award-label">Finalist:</span> Game Jam Plus 2022/2023 – Baroneza</div></div>'
+        + '<div class="award-item"><div class="award-badge"><i class="fas fa-medal"></i></div><div class="award-text"><span class="award-label">Finalist:</span> Game Jam Plus 2022/2023 \u2013 Baroneza</div></div>'
         + '<div class="award-item"><div class="award-badge"><i class="fas fa-certificate"></i></div><div class="award-text"><span class="award-label">Participant:</span> Game Jam IP Challenge 2023</div></div>'
         + '<div class="award-item"><div class="award-badge"><i class="fas fa-certificate"></i></div><div class="award-text"><span class="award-label">Participant:</span> Game Jam+ 2022</div></div>'
         + '</div>';
@@ -328,7 +358,7 @@ function getContactContent() {
         + '<div class="contact-subtitle">Let\'s discuss new projects, collaborations, or opportunities!</div>'
         + '<a href="mailto:joaoanisiomn@hotmail.com" class="contact-email-btn"><i class="fas fa-envelope"></i> joaoanisiomn@hotmail.com</a>'
         + '<div class="contact-socials">'
-        + '<a href="https://www.linkedin.com/in/joão-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="contact-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>'
+        + '<a href="https://www.linkedin.com/in/jo%C3%A3o-anisio-marinho-da-nobrega-096358204/" target="_blank" rel="noopener noreferrer" class="contact-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>'
         + '<a href="https://github.com/caduceusj" target="_blank" rel="noopener noreferrer" class="contact-social-link"><i class="fab fa-github"></i> GitHub</a>'
         + '<a href="https://caduceusj.itch.io/" target="_blank" rel="noopener noreferrer" class="contact-social-link"><i class="fab fa-itch-io"></i> Itch.io</a>'
         + '</div></div>';
