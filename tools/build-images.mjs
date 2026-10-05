@@ -1,0 +1,94 @@
+// Generates the optimized image set + js/media-manifest.js from assets/*.
+//   node tools/build-images.mjs
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
+import { projects, sizes, portrait, pixelPortraits } from './images.config.mjs';
+import { hasExif } from './strip-exif.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ASSETS = path.join(ROOT, 'assets');
+const OUT = path.join(ASSETS, 'img');
+const OUT_P = path.join(OUT, 'p');
+fs.mkdirSync(OUT_P, { recursive: true });
+
+const kb = (f) => fs.statSync(f).size / 1024;
+let totalIn = 0, totalOut = 0;
+
+async function open(file) {
+  return sharp(path.join(ASSETS, file), { failOn: 'none' }).rotate();
+}
+
+// Encode one derivative. Returns { w, h }.
+async function encode(file, out, { width, aspect, compose, pixel }) {
+  let img = await open(file);
+  const meta = await sharp(path.join(ASSETS, file), { failOn: 'none' }).rotate().toBuffer({ resolveWithObject: true }).then((r) => r.info);
+  if (compose) {
+    const W = width, H = Math.round(width / aspect);
+    const inner = await img.resize(Math.round(W * (1 - 2 * compose.pad)), Math.round(H * (1 - 2 * compose.pad)), { fit: 'inside' }).toBuffer();
+    img = sharp({ create: { width: W, height: H, channels: 3, background: compose.bg } }).composite([{ input: inner, gravity: 'center' }]);
+  } else {
+    img = img.flatten({ background: '#000' });
+    if (!(pixel && meta.width <= width)) img = img.resize({ width, withoutEnlargement: true, kernel: 'lanczos3' });
+  }
+  const opts = pixel && !/\.jpe?g$/i.test(file) ? { nearLossless: true, quality: 85, effort: 6 } : { quality: width <= sizes.thumb ? 74 : 80, effort: 6, smartSubsample: true };
+  const info = await img.webp(opts).toFile(out);
+  totalOut += kb(out);
+  return { w: info.width, h: info.height };
+}
+
+const manifest = { projects: {}, me: {} };
+for (const p of projects) {
+  const srcFile = path.join(ASSETS, p.src);
+  if (!fs.existsSync(srcFile)) { console.warn('! missing source for', p.id, p.src); continue; }
+  totalIn += kb(srcFile);
+  const entry = { pixel: Boolean(p.pixel) };
+  const aspectThumb = 4 / 3, aspectLarge = 16 / 9;
+  const t = await encode(p.src, path.join(OUT_P, `${p.id}.webp`), { width: sizes.thumb, aspect: aspectThumb, compose: p.compose, pixel: p.pixel });
+  Object.assign(entry, { w: t.w, h: t.h });
+  const srcMeta = await sharp(srcFile, { failOn: 'none' }).metadata();
+  if (p.compose || srcMeta.width > sizes.thumb * 1.25) {
+    entry.lg = await encode(p.src, path.join(OUT_P, `${p.id}-lg.webp`), { width: sizes.large, aspect: aspectLarge, compose: p.compose, pixel: p.pixel });
+  } else entry.lg = null; // thumb is already the native size: reuse it
+  entry.shots = [];
+  for (let i = 0; i < (p.shots || []).length; i++) {
+    const s = p.shots[i];
+    totalIn += kb(path.join(ASSETS, s));
+    const big = await encode(s, path.join(OUT_P, `${p.id}-s${i + 1}.webp`), { width: sizes.large, pixel: p.pixel });
+    const small = await encode(s, path.join(OUT_P, `${p.id}-s${i + 1}-t.webp`), { width: sizes.shotThumb, pixel: p.pixel });
+    entry.shots.push({ w: big.w, h: big.h, tw: small.w, th: small.h });
+  }
+  manifest.projects[p.id] = entry;
+  console.log(`${p.id.padEnd(13)} ${(kb(srcFile)).toFixed(0).padStart(5)} KB -> thumb ${kb(path.join(OUT_P, p.id + '.webp')).toFixed(0)} KB` + (entry.lg ? ` + large ${kb(path.join(OUT_P, p.id + '-lg.webp')).toFixed(0)} KB` : '') + (entry.shots.length ? ` + ${entry.shots.length} shots` : ''));
+}
+
+// Face portrait (photo) for the Welcome window.
+{
+  const f = path.join(OUT, 'me-320.webp');
+  const info = await (await open(portrait.src)).extract(portrait.crop).resize(320, 320, { kernel: 'lanczos3' }).webp({ quality: 80, effort: 6 }).toFile(f);
+  manifest.me = { w: info.width, h: info.height };
+  totalIn += kb(path.join(ASSETS, portrait.src)); totalOut += kb(f);
+  console.log(`me-320.webp   ${kb(f).toFixed(0)} KB`);
+}
+
+// Pixel portraits (palette PNGs, shown with image-rendering: pixelated).
+for (const pp of pixelPortraits) {
+  let img = await open(pp.src);
+  img = img.flatten({ background: pp.bg || '#808080' }).extract(pp.crop);
+  if (pp.brightness) img = img.modulate({ brightness: pp.brightness }).normalise();
+  const buf = await img.resize(pp.size, pp.size, { kernel: 'lanczos3' }).png({ palette: true, colours: pp.colors, dither: 0 }).toBuffer();
+  const f = path.join(OUT, pp.out);
+  fs.writeFileSync(f, buf);
+  totalOut += kb(f);
+  console.log(`${pp.out.padEnd(13)} ${kb(f).toFixed(1)} KB`);
+}
+
+// GPS check on every JPEG that ships in the repo.
+for (const f of fs.readdirSync(ASSETS).filter((n) => /\.jpe?g$/i.test(n))) {
+  if (await hasExif(path.join(ASSETS, f))) console.warn(`! assets/${f} still has EXIF metadata — run: node tools/strip-exif.mjs assets/${f}`);
+}
+
+fs.writeFileSync(path.join(ROOT, 'js/media-manifest.js'),
+  `/* GENERATED by tools/build-images.mjs — do not edit by hand. */\nwindow.MEDIA = ${JSON.stringify(manifest)};\n`);
+console.log(`\n${(totalIn / 1024).toFixed(1)} MB of originals -> ${(totalOut / 1024).toFixed(2)} MB of derivatives`);
