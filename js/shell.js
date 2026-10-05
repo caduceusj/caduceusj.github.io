@@ -10,8 +10,22 @@
   const state = { startOpen: false, startAll: false, hidden: null, ready: false };
 
   // ------------------------------------------------------------------ desktop icons
+  // Pixel-native app tiles (24px-grid glyph on a banded color tile), one per desktop app.
+  const TILES = {
+    projects: { glyph: 'folder', color: '#d9a21b' },
+    resume: { glyph: 'file-text', color: '#c8372d' },
+    skills: { glyph: 'sliders', color: '#8a4fd0' },
+    experience: { glyph: 'briefcase', color: '#a0652a' },
+    education: { glyph: 'university', color: '#2e7d5b' },
+    achievements: { glyph: 'trophy', color: '#e0a800' },
+    about: { glyph: 'info-box', color: '#3a7bd5' },
+    contact: { glyph: 'mail', color: '#2f9ad0' },
+    terminal: { glyph: 'terminal', color: '#2b2b33' },
+    display: { glyph: 'monitor', color: '#3a7bd5' },
+    aboutos: { glyph: 'laptop', color: '#5a6a85' },
+  };
   function bigIcon(app) {
-    const b = app.big;
+    const b = app.big || (TILES[app.id] && { tile: TILES[app.id] });
     if (b && b.img) return '<img class="px" src="' + b.img + '" width="' + b.w + '" height="' + b.h + '" alt="">';
     if (b && b.tile) return JOS.tile(Object.assign({ size: 'lg' }, b.tile));
     return ico((b && b.ico) || app.ico, 3);
