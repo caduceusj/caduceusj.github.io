@@ -34,7 +34,7 @@
     const el = document.createElement('section');
     const id = 'win-' + JOS.cssId(key);
     el.className = 'win'; el.id = id; el.dataset.key = key; el.dataset.app = app.id;
-    el.setAttribute('role', 'dialog'); el.setAttribute('aria-labelledby', id + '-t');
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-labelledby', id + '-t'); el.tabIndex = -1;
     el.innerHTML = '<div class="win-shadow"></div><div class="win-frame">'
       + '<header class="win-titlebar"><span class="wt-ico"></span><span class="win-title" id="' + id + '-t"></span>'
       + '<div class="win-ctrls">'
@@ -141,6 +141,8 @@
     w.el.style.zIndex = ++z;
     const changed = active !== key;
     active = key;
+    // keyboard users land inside the window (apps may move focus further, e.g. the terminal input)
+    if (!w.el.contains(document.activeElement)) { try { w.el.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
     if (changed) JOS.emit('wm:change');
     JOS.emit('wm:focus', w);
   }

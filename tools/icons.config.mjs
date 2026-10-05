@@ -15,7 +15,7 @@ controller joystick cog wrench briefcase bricks brick lightning chart_bar chart_
 medal_gold_1 medal_gold_2 medal_gold_3 award_star_gold_1 award_star_gold_2 award_star_silver_1 award_star_bronze_1 rosette cup star
 user user_suit user_gray user_green group
 email email_open email_attach world world_go world_link map house computer monitor television
-application_xp application_xp_terminal application_view_tile application_view_list application_view_icons application_view_detail application_form
+application_double application_xp application_xp_terminal application_view_tile application_view_list application_view_icons application_view_detail application_form
 lightbulb bug palette paintbrush cd music sound sound_mute sound_low sound_none link key lock magnifier printer disk door_in door_out
 arrow_left arrow_right arrow_up arrow_down arrow_refresh arrow_switch
 bin_empty bin bell flag_green flag_red flag_blue flag_yellow heart tag_blue accept cancel error exclamation help information tick

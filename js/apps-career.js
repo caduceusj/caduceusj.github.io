@@ -58,7 +58,7 @@
         + (a.year ? '<span class="chip">' + a.year + '</span>' : '')
         + (o ? '<button type="button" class="btn sm' + (a.kind === 'lock' ? ' primary' : '') + '" data-act="ach-open" data-app="' + o.app + '"' + (o.key ? ' data-key="' + o.key + '"' : '') + '>' + (a.kind === 'lock' ? esc(t('ach.unlock')) : esc(t('ach.view'))) + '</button>' : '') + '</li>';
     }).join('');
-    return '<div class="ach"><header class="ach-head">' + ico('medal_gold_1', 3) + '<div class="grow"><h2>' + esc(t('ach.title')) + '</h2><p>' + esc(t('ach.progress', { a: got, b: list.length })) + ' · ' + pct + '%</p><div class="progress" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div></div></header>'
+    return '<div class="ach"><header class="ach-head">' + ico('medal_gold_1', 3) + '<div class="grow"><h2>' + esc(t('ach.title')) + '</h2><p>' + esc(t('ach.progress', { a: got, b: list.length })) + ' · ' + pct + '%</p><div class="progress" role="progressbar" aria-label="' + esc(t('ach.title')) + '" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div></div></header>'
       + '<ul class="ach-list sel">' + items + '</ul></div>';
   }
   reg({

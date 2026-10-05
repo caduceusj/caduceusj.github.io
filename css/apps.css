@@ -26,7 +26,7 @@
 .ph-e{position:absolute;right:6px;bottom:6px;width:24px;height:24px;color:#fff;opacity:.5}
 
 /* ---------- João.exe (welcome / profile) ---------- */
-.wel{flex:1;min-height:0;display:grid;grid-template-columns:292px minmax(0,1fr);overflow:auto;background:#fff}
+.wel{flex:1;min-height:0;display:grid;grid-template-columns:292px minmax(0,1fr);overflow:auto;grid-template-rows:minmax(max-content,1fr);background:#fff}
 .wel-card{
   position:relative;
   display:flex;
@@ -121,7 +121,7 @@
 .qa b{display:block;font-size:17px}.qa small{display:block;font-size:14px;color:var(--ink-3)}
 .nowlist{display:grid;gap:6px}.nowlist li{display:flex;align-items:center;gap:9px;font-size:16px;line-height:1.25}
 @container win (max-width:760px){
-  .wel{grid-template-columns:minmax(0,1fr)}
+  .wel{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-rows:max-content;align-content:start}
   .wel-card{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;justify-items:start;column-gap:16px;padding:16px}
   .wel-card .wel-photo{grid-row:1 / span 3;width:112px;height:112px}
   .wel-name,.wel-typed{text-align:left}.wel-name{margin:0}
@@ -167,8 +167,9 @@
 /* ---------- LinkedIn ---------- */
 .li{flex:1;min-height:0;overflow:auto;background:#fff}
 .li-banner{height:88px;background:linear-gradient(135deg,#0a66c2 0 25%,#0b73da 25% 50%,#0a66c2 50% 75%,#0b73da 75%) 0 0/16px 16px}
-.li-head{display:flex;align-items:flex-end;gap:14px;padding:0 18px;margin-top:-36px}
-.li-av{flex:none;border:4px solid #fff;background:#6d0d2a;box-shadow:3px 3px 0 rgba(0,0,0,.25)}
+.li-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;padding:0 18px}
+.li-head>div{padding-top:10px}
+.li-av{flex:none;border:4px solid #fff;background:#6d0d2a;box-shadow:3px 3px 0 rgba(0,0,0,.25);margin-top:-36px}
 .li-head h2{font:400 22px/1.2 var(--font-ui);text-shadow:1px 0 0 currentColor}.li-head p{font-size:16px;line-height:1.3;color:var(--ink-2)}
 .li-head small{display:flex;align-items:center;gap:6px;color:var(--ink-3);margin-top:3px}
 .li-body{padding:16px 18px 22px}
@@ -221,7 +222,12 @@
   body>*:not(#print-root){display:none!important}
   #print-root{display:block!important;color:#000}
   #print-root .paper{max-width:none;margin:0;padding:0;box-shadow:none;font-size:10.5pt}
-  #print-root .paper h2{font-size:17pt}
+  #print-root .paper{font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;line-height:1.35;text-shadow:none}
+  #print-root .paper *{text-shadow:none!important}
+  #print-root .paper h2{font-family:var(--font-px);font-size:15pt}
+  #print-root .paper h3,#print-root .paper .r-row b{font-family:inherit;font-weight:700}
+  #print-root .paper h3{font-size:9.5pt}
+  #print-root .paper b,#print-root .paper strong{font-weight:700}
   #print-root .paper a{color:#000;text-decoration:none}
 }
 
@@ -295,7 +301,7 @@
 .xi-name{font:400 15px/1.2 var(--font-ui);overflow-wrap:anywhere;text-shadow:1px 0 0 currentColor}
 .xi-eng{font-size:14px;color:var(--ink-3)}
 .xi:hover{background:#eef4ff;box-shadow:inset 0 0 0 1px #9db6e8}
-.xi.sel{background:var(--sel);color:#fff;box-shadow:none}.xi.sel .xi-eng,.xi.sel .xt-d{color:#d6e4ff}
+.xi.sel{background:var(--sel);color:#fff;box-shadow:none}.xi.sel .xi-eng,.xi.sel .xt-d{color:#fff}
 .xi:focus-visible{outline:1px dotted #000;outline-offset:-2px}.xi.sel:focus-visible{outline-color:#fff}
 .xi-b{
   position:absolute;
@@ -408,7 +414,7 @@
 .sk-card .tile{margin:2px}
 .sk-card b{font-size:16px;line-height:1.15}.sk-card small{font-size:14px;line-height:1.15;color:var(--ink-3)}
 .sk-card:hover{background:linear-gradient(#fff6d2 0 2px,#ffe9a2 2px)}
-.sk-card.sel{color:#fff;background:var(--sel)}.sk-card.sel small{color:#d6e4ff}
+.sk-card.sel{color:#fff;background:var(--sel)}.sk-card.sel small{color:#fff}
 .sk-st{position:absolute;top:4px;right:4px;min-height:18px;padding:0 3px}
 .sk-det{overflow:auto;padding:16px;background:var(--face);border-left:1px solid var(--face-lo)}
 .sd-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}.sd-head h3{font:400 20px/1.2 var(--font-ui);text-shadow:1px 0 0 currentColor}.sd-head p{color:var(--ink-3)}

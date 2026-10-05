@@ -19,7 +19,7 @@
   function renderIcons() {
     const apps = JOS.apps.list.filter((a) => a.desk).sort((a, b) => a.desk - b.desk);
     $('#icons').innerHTML = apps.map((a) =>
-      '<button type="button" class="dicon" role="listitem" data-act="open-app" data-app="' + a.id + '"><span class="dv">' + bigIcon(a) + '</span><span class="dl">' + esc(L(a.label)) + '</span></button>'
+      '<button type="button" class="dicon" data-act="open-app" data-app="' + a.id + '"><span class="dv">' + bigIcon(a) + '</span><span class="dl">' + esc(L(a.label)) + '</span></button>'
     ).join('');
   }
 
@@ -41,15 +41,15 @@
     const pinned = JOS.apps.list.filter((a) => a.pin).sort((a, b) => a.pin - b.pin);
     const right = JOS.apps.list.filter((a) => a.right).sort((a, b) => a.right - b.right);
     const left = state.startAll
-      ? '<div class="sm-head-label">' + esc(t('sm.all')) + '</div>' + JOS.apps.list.map((a) => smItem(a, false)).join('')
-        + '<div class="sm-sep"></div><button type="button" class="sm-item sm-back" data-act="sm-back">' + gl('chevron-left') + '<span class="t"><b>' + esc(t('sm.back')) + '</b></span></button>'
+      ? '<div class="sm-head-label" aria-hidden="true">' + esc(t('sm.all')) + '</div>' + JOS.apps.list.map((a) => smItem(a, false)).join('')
+        + '<div class="sm-sep" role="separator"></div><button type="button" class="sm-item sm-back" role="menuitem" data-act="sm-back">' + gl('chevron-left') + '<span class="t"><b>' + esc(t('sm.back')) + '</b></span></button>'
       : pinned.map((a) => smItem(a, true)).join('')
-        + '<div class="sm-sep"></div><button type="button" class="sm-item sm-all" data-act="sm-all"><span class="t"><b>' + esc(t('sm.all')) + '</b></span>' + gl('chevron-right') + '</button>';
+        + '<div class="sm-sep" role="separator"></div><button type="button" class="sm-item sm-all" role="menuitem" data-act="sm-all"><span class="t"><b>' + esc(t('sm.all')) + '</b></span>' + gl('chevron-right') + '</button>';
     el.innerHTML =
       '<div class="sm-head"><img class="px" src="assets/img/me-24.png" width="48" height="48" alt=""><div><b>' + esc(d.me.short) + '</b><small>' + esc(L(d.me.headline)) + '</small></div></div>'
-      + '<div class="sm-cols"><div class="sm-left">' + left + '</div><div class="sm-right">'
+      + '<div class="sm-cols"><div class="sm-left" role="menu" aria-label="' + esc(t('sm.programs')) + '">' + left + '</div><div class="sm-right" role="menu" aria-label="' + esc(t('sm.places')) + '">'
       + right.map((a) => smItem(a, false)).join('')
-      + '<div class="sm-sep"></div>'
+      + '<div class="sm-sep" role="separator"></div>'
       + linkItem(d.links.linkedin, { glyph: 'linkedin', color: '#0a66c2' }, 'LinkedIn')
       + linkItem(d.links.github, { glyph: 'github', color: '#2b3137' }, 'GitHub')
       + linkItem(d.links.itch, { brand: 'itch', color: '#e8504f' }, 'itch.io')

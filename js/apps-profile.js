@@ -218,6 +218,7 @@
     return '<div class="mail">'
       + '<div class="mail-bar"><button type="button" class="btn sm primary" data-act="mail-send">' + ico('email') + ' <span>' + esc(t('mail.send')) + '</span></button>'
       + '<button type="button" class="btn sm" data-act="mail-copy">' + ico('page_white_copy') + ' <span>' + esc(t('mail.copy')) + '</span></button>'
+      + '<button type="button" class="btn sm" data-act="mail-vcard">' + ico('vcard') + ' <span>' + esc(t('mail.vcard')) + '</span></button>'
       + ext(ln.linkedin, 'btn sm linkedin', gl('linkedin') + ' <span>LinkedIn</span>') + '</div>'
       + '<form class="mail-form sel" autocomplete="off" novalidate>'
       + '<div class="field"><label for="m-to">' + esc(t('mail.to')) + '</label><select class="select" id="m-to">' + me.emails.map((e) => '<option>' + e + '</option>').join('') + '</select></div>'
@@ -238,6 +239,15 @@
   const note = (w, txt, bad) => { const n = w.$('.mail-note'); if (n) { n.textContent = txt; n.className = 'mail-note' + (bad ? ' bad' : ' ok'); } };
   JOS.actions['mail-subject'] = (el) => { const w = JOS.wm.get('contact'); if (w) { w.$('#m-sub').value = t(el.dataset.s); w.$('#m-msg').focus(); } };
   JOS.actions['mail-copy'] = () => { const w = JOS.wm.get('contact'); const to = w.$('#m-to').value; JOS.copy(to).then((ok) => note(w, ok ? t('mail.copied', { e: to }) : to, !ok)); };
+  // vCard 3.0 so recruiters can add João to their address book in one click
+  JOS.actions['mail-vcard'] = () => {
+    const me = D().me, ln = D().links, v = (x) => String(x).replace(/([,;\\])/g, '\\$1');
+    const card = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Nobrega;João Anisio Marinho da;;;', 'FN:' + me.name, 'NICKNAME:' + me.short, 'ORG:UFRN;AKCIT', 'TITLE:' + v(D().me.headline.en),
+      'TEL;TYPE=CELL:' + me.phone, ...me.emails.map((e) => 'EMAIL;TYPE=INTERNET:' + e), 'ADR;TYPE=WORK:;;;Natal;RN;;Brazil',
+      'URL:https://caduceusj.github.io/', 'URL;TYPE=LinkedIn:' + ln.linkedin, 'URL;TYPE=GitHub:' + ln.github, 'URL;TYPE=itch.io:' + ln.itch, 'NOTE:' + v('Game programmer & designer · Godot, Unity, VR/XR · Malleus Maleficarum (Steam)'), 'END:VCARD'].join('\r\n');
+    JOS.download('joao-anisio.vcf', card + '\r\n', 'text/vcard;charset=utf-8');
+    const w = JOS.wm.get('contact'); if (w) note(w, t('mail.vcard.ok'), false);
+  };
   JOS.actions['mail-send'] = () => {
     const w = JOS.wm.get('contact'); if (!w) return;
     const v = mailValues(w);
@@ -280,8 +290,11 @@
     const jobs = d.jobs.map((j) => '<div class="r-item"><div class="r-row"><b>' + esc(L(j.title)) + '</b><span>' + esc(L(j.period)) + '</span></div><div class="r-org">' + esc(j.org) + '</div><p>' + esc(L(j.text)) + '</p></div>').join('');
     const edu = d.education.map((e) => '<div class="r-item"><div class="r-row"><b>' + esc(L(e.title)) + '</b><span>' + esc(L(e.period)) + '</span></div><div class="r-org">' + esc(e.org) + '</div></div>').join('');
     const res = d.research.map((r) => '<div class="r-item"><b>[' + esc(L(r.type)) + '] ' + esc(r.venue) + '</b> — “' + esc(r.title) + '”' + (r.by ? ' — ' + esc(r.by) : '') + (r.note ? ' (' + esc(L(r.note)) + ')' : '') + '</div>').join('');
-    const awards = d.achievements.filter((a) => a.kind === 'gold' || a.kind === 'silver' || a.kind === 'bronze').filter((a) => !/^ieee/.test(a.id)).map((a) => '<li><b>' + esc(L(a.title)) + '</b>' + (a.year ? ' (' + a.year + ')' : '') + ' — ' + esc(L(a.text)) + '</li>').join('');
-    const projects = d.projects.filter((p) => p.featured).map((p) => '<li><b>' + esc(p.title) + '</b> (' + esc(JOS.engineLabel(p)) + ') — ' + esc(L(p.desc)) + (p.role ? ' [' + esc(L(p.role)) + ']' : '') + (p.award ? ' ' + esc(L(p.award)) + '.' : '') + '</li>').join('');
+    const awards = d.achievements.filter((a) => a.kind === 'gold' || a.kind === 'silver' || a.kind === 'bronze').filter((a) => !/^ieee/.test(a.id)).map((a) => {
+      const title = L(a.title);
+      return '<li><b>' + esc(title) + '</b>' + (a.year && title.indexOf(a.year) < 0 ? ' (' + a.year + ')' : '') + (a.kind !== 'bronze' ? ' — ' + esc(L(a.text)) : '') + '</li>';
+    }).join('');
+    const projects = d.projects.filter((p) => p.featured).map((p) => '<li><b>' + esc(p.title) + '</b> (' + esc(JOS.engineLabel(p)) + ') — ' + esc(L(p.desc)) + (p.role ? ' [' + esc(L(p.role)) + ']' : '') + '</li>').join('');
     const groups = { dev: t('cv.dev'), design: t('cv.design'), xr: t('cv.xr'), prod: t('cv.prod') };
     const skills = Object.keys(groups).map((g) => '<div><b>' + esc(groups[g]) + ':</b> ' + esc(d.skills.filter((s) => s.cat === g).map((s) => L(s.name)).join(', ')) + '</div>').join('');
     return '<article class="paper sel">'

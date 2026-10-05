@@ -9,7 +9,7 @@
       close: 'Close', start: 'start',
       'boot.skip': 'click to skip', 'login.begin': 'To begin, click your user name', 'login.sub': 'Game Programmer & Designer', 'login.off': 'After you log on, explore the desktop',
       'tray.lang': 'Language: click to switch (PT / EN)', 'tray.sound': 'UI sounds', 'tray.desktop': 'Show desktop',
-      'sm.all': 'All Programs', 'sm.back': 'Back', 'sm.logoff': 'Log Off', 'sm.turnoff': 'Turn Off',
+      'sm.all': 'All Programs', 'sm.programs': 'Programs', 'sm.places': 'Places and links', 'sm.back': 'Back', 'sm.logoff': 'Log Off', 'sm.turnoff': 'Turn Off',
       'ctx.open': 'Open', 'ctx.refresh': 'Refresh', 'ctx.display': 'Display Properties', 'ctx.projects': 'My Projects', 'ctx.terminal': 'Terminal', 'ctx.about': 'About JoãoOS XP',
       'wm.min': 'Minimize', 'wm.max': 'Maximize', 'wm.restore': 'Restore', 'wm.close': 'Close',
       'bal.malleus.t': 'Malleus Maleficarum is out on Steam!', 'bal.malleus.x': 'My solo-programmed metroidvania is live. Come take a look.', 'bal.malleus.a': 'See the game',
@@ -26,7 +26,7 @@
       'np.file': 'File', 'np.edit': 'Edit', 'np.view': 'View', 'np.help': 'Help', 'np.saveas': 'Save As…', 'np.print': 'Print…', 'np.exit': 'Exit', 'np.selectall': 'Select All', 'np.copy': 'Copy all',
       'np.zoomin': 'Zoom In', 'np.zoomout': 'Zoom Out', 'np.zoomreset': 'Default Zoom', 'np.about': 'About JoãoOS XP', 'np.status': 'Ln 1, Col 1',
 
-      'mail.send': 'Send', 'mail.copy': 'Copy address', 'mail.to': 'To', 'mail.name': 'Your name', 'mail.from': 'Your email', 'mail.subject': 'Subject', 'mail.msg': 'Message',
+      'mail.send': 'Send', 'mail.copy': 'Copy address', 'mail.vcard': 'Save contact (.vcf)', 'mail.vcard.ok': 'Contact card downloaded — open it to add João to your address book.', 'mail.to': 'To', 'mail.name': 'Your name', 'mail.from': 'Your email', 'mail.subject': 'Subject', 'mail.msg': 'Message',
       'mail.ph': 'Hi João, I saw your portfolio and…', 'mail.err': 'Please write a message first.', 'mail.opening': 'Opening your email app… if nothing happens, use “Copy address”.', 'mail.copied': 'Address copied: {e}',
       'mail.status': 'Messages open in your email app (nothing is stored)',
       'sub.job': 'Job opportunity', 'sub.collab': 'Collaboration', 'sub.jam': 'Game jam / project', 'sub.teach': 'Teaching / research', 'sub.hi': 'Just saying hi',
@@ -41,7 +41,7 @@
       close: 'Fechar', start: 'iniciar',
       'boot.skip': 'clique para pular', 'login.begin': 'Para começar, clique no seu nome', 'login.sub': 'Programador e Designer de Jogos', 'login.off': 'Depois de entrar, explore a área de trabalho',
       'tray.lang': 'Idioma: clique para alternar (PT / EN)', 'tray.sound': 'Sons da interface', 'tray.desktop': 'Mostrar a área de trabalho',
-      'sm.all': 'Todos os Programas', 'sm.back': 'Voltar', 'sm.logoff': 'Fazer Logoff', 'sm.turnoff': 'Desligar',
+      'sm.all': 'Todos os Programas', 'sm.programs': 'Programas', 'sm.places': 'Locais e links', 'sm.back': 'Voltar', 'sm.logoff': 'Fazer Logoff', 'sm.turnoff': 'Desligar',
       'ctx.open': 'Abrir', 'ctx.refresh': 'Atualizar', 'ctx.display': 'Propriedades de Exibição', 'ctx.projects': 'Meus Projetos', 'ctx.terminal': 'Terminal', 'ctx.about': 'Sobre o JoãoOS XP',
       'wm.min': 'Minimizar', 'wm.max': 'Maximizar', 'wm.restore': 'Restaurar', 'wm.close': 'Fechar',
       'bal.malleus.t': 'Malleus Maleficarum já está na Steam!', 'bal.malleus.x': 'Meu metroidvania programado solo já está no ar. Venha conferir.', 'bal.malleus.a': 'Ver o jogo',
@@ -58,7 +58,7 @@
       'np.file': 'Arquivo', 'np.edit': 'Editar', 'np.view': 'Exibir', 'np.help': 'Ajuda', 'np.saveas': 'Salvar como…', 'np.print': 'Imprimir…', 'np.exit': 'Sair', 'np.selectall': 'Selecionar tudo', 'np.copy': 'Copiar tudo',
       'np.zoomin': 'Aumentar', 'np.zoomout': 'Diminuir', 'np.zoomreset': 'Zoom padrão', 'np.about': 'Sobre o JoãoOS XP', 'np.status': 'Lin 1, Col 1',
 
-      'mail.send': 'Enviar', 'mail.copy': 'Copiar endereço', 'mail.to': 'Para', 'mail.name': 'Seu nome', 'mail.from': 'Seu e-mail', 'mail.subject': 'Assunto', 'mail.msg': 'Mensagem',
+      'mail.send': 'Enviar', 'mail.copy': 'Copiar endereço', 'mail.vcard': 'Salvar contato (.vcf)', 'mail.vcard.ok': 'Cartão de contato baixado — abra-o para adicionar o João à sua agenda.', 'mail.to': 'Para', 'mail.name': 'Seu nome', 'mail.from': 'Seu e-mail', 'mail.subject': 'Assunto', 'mail.msg': 'Mensagem',
       'mail.ph': 'Oi João, vi seu portfólio e…', 'mail.err': 'Escreva uma mensagem primeiro.', 'mail.opening': 'Abrindo seu app de e-mail… se nada acontecer, use “Copiar endereço”.', 'mail.copied': 'Endereço copiado: {e}',
       'mail.status': 'A mensagem abre no seu app de e-mail (nada é armazenado)',
       'sub.job': 'Oportunidade de trabalho', 'sub.collab': 'Colaboração', 'sub.jam': 'Game jam / projeto', 'sub.teach': 'Docência / pesquisa', 'sub.hi': 'Só dizendo oi',
@@ -71,7 +71,7 @@
 
   // ---------------------------------------------------------------- apps: portfolio / career / system
   Object.assign(JOS.strings.en, {
-    'ex.back': 'Back', 'ex.fwd': 'Forward', 'ex.up': 'Up', 'ex.search': 'Search projects…', 'ex.view': 'View',
+    'desk.shortcuts': 'Desktop shortcuts', 'taskbar.label': 'Taskbar', 'ex.back': 'Back', 'ex.fwd': 'Forward', 'ex.up': 'Up', 'ex.search': 'Search projects…', 'ex.view': 'View',
     'ex.view.thumbs': 'Thumbnails', 'ex.view.list': 'List', 'ex.view.details': 'Details',
     'ex.sort': 'Sort', 'ex.sort.featured': 'Featured', 'ex.sort.name': 'Name', 'ex.sort.engine': 'Engine', 'ex.sort.kind': 'Type',
     'ex.coll': 'Folders', 'ex.details': 'Details', 'ex.c.all': 'All projects', 'ex.c.featured': 'Featured', 'ex.c.xr': 'VR & Research', 'ex.c.music': 'Music',
@@ -83,7 +83,7 @@
     'pv.prevImg': 'Previous image', 'pv.nextImg': 'Next image', 'pv.play': 'Play on itch.io', 'pv.steam': 'View on Steam', 'pv.copy': 'Copy link', 'pv.copied': 'Link copied!',
     'pv.prev': 'Previous', 'pv.next': 'Next', 'pv.shot': 'Screenshot {n}', 'pv.private': 'Not publicly available',
     'mal.team': 'Team', 'mal.dev': 'Developer', 'mal.status': 'Status', 'mal.released': 'Released on Steam', 'mal.more': 'Screenshots & project page',
-    'sk.all': 'All', 'sk.dev': 'Engines & code', 'sk.design': 'Design', 'sk.xr': 'XR & immersive', 'sk.prod': 'Production & tools', 'sk.cat': 'Skill categories',
+    'sk.all': 'All', 'sk.dev': 'Engines & code', 'sk.design': 'Design', 'sk.xr': 'XR & immersive', 'sk.prod': 'Production & tools', 'sk.cat': 'Skill categories', 'sk.title': 'Skills',
     'sk.studying': 'Currently deepening my studies here', 'sk.used': 'Used in {n} projects', 'sk.show': 'Show {n} projects', 'sk.count': '{n} skills',
     'exp.all': 'All', 'exp.teach': 'Teaching', 'exp.research': 'Research', 'exp.games': 'Games', 'exp.it': 'IT', 'exp.now': 'Present', 'exp.filter': 'Filter by area',
     'exp.positions': 'positions', 'exp.since': 'since {y}', 'exp.positions.n': '{n} positions',
@@ -98,7 +98,7 @@
     'ab.disc': 'Windows XP is a trademark of Microsoft Corporation. JoãoOS XP is an independent, fan-made tribute and is not affiliated with or endorsed by Microsoft.', 'ab.source': 'Source code',
   });
   Object.assign(JOS.strings.pt, {
-    'ex.back': 'Voltar', 'ex.fwd': 'Avançar', 'ex.up': 'Acima', 'ex.search': 'Buscar projetos…', 'ex.view': 'Exibição',
+    'desk.shortcuts': 'Atalhos da área de trabalho', 'taskbar.label': 'Barra de tarefas', 'ex.back': 'Voltar', 'ex.fwd': 'Avançar', 'ex.up': 'Acima', 'ex.search': 'Buscar projetos…', 'ex.view': 'Exibição',
     'ex.view.thumbs': 'Miniaturas', 'ex.view.list': 'Lista', 'ex.view.details': 'Detalhes',
     'ex.sort': 'Ordenar', 'ex.sort.featured': 'Destaques', 'ex.sort.name': 'Nome', 'ex.sort.engine': 'Engine', 'ex.sort.kind': 'Tipo',
     'ex.coll': 'Pastas', 'ex.details': 'Detalhes', 'ex.c.all': 'Todos os projetos', 'ex.c.featured': 'Destaques', 'ex.c.xr': 'VR e Pesquisa', 'ex.c.music': 'Música',
@@ -110,7 +110,7 @@
     'pv.prevImg': 'Imagem anterior', 'pv.nextImg': 'Próxima imagem', 'pv.play': 'Jogar no itch.io', 'pv.steam': 'Ver na Steam', 'pv.copy': 'Copiar link', 'pv.copied': 'Link copiado!',
     'pv.prev': 'Anterior', 'pv.next': 'Próximo', 'pv.shot': 'Captura {n}', 'pv.private': 'Não disponível publicamente',
     'mal.team': 'Equipe', 'mal.dev': 'Desenvolvedor', 'mal.status': 'Status', 'mal.released': 'Lançado na Steam', 'mal.more': 'Capturas e página do projeto',
-    'sk.all': 'Todas', 'sk.dev': 'Engines e código', 'sk.design': 'Design', 'sk.xr': 'XR e imersivo', 'sk.prod': 'Produção e ferramentas', 'sk.cat': 'Categorias de habilidades',
+    'sk.all': 'Todas', 'sk.dev': 'Engines e código', 'sk.design': 'Design', 'sk.xr': 'XR e imersivo', 'sk.prod': 'Produção e ferramentas', 'sk.cat': 'Categorias de habilidades', 'sk.title': 'Habilidades',
     'sk.studying': 'Aprofundando meus estudos nesta área', 'sk.used': 'Usado em {n} projetos', 'sk.show': 'Mostrar {n} projetos', 'sk.count': '{n} habilidades',
     'exp.all': 'Todas', 'exp.teach': 'Docência', 'exp.research': 'Pesquisa', 'exp.games': 'Jogos', 'exp.it': 'TI', 'exp.now': 'Atual', 'exp.filter': 'Filtrar por área',
     'exp.positions': 'posições', 'exp.since': 'desde {y}', 'exp.positions.n': '{n} posições',

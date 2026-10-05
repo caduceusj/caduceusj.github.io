@@ -264,7 +264,7 @@
     const s = skState(w), all = D().skills, list = all.filter((k) => s.cat === 'all' || k.cat === s.cat);
     if (!list.some((k) => k.id === s.sel)) s.sel = list[0] && list[0].id;
     w.$$('.sk .tab').forEach((b) => b.setAttribute('aria-selected', b.dataset.cat === s.cat ? 'true' : 'false'));
-    w.$('.sk-grid').innerHTML = list.map((k) => '<button type="button" role="listitem" class="sk-card' + (k.id === s.sel ? ' sel' : '') + '" data-id="' + k.id + '">'
+    w.$('.sk-grid').innerHTML = list.map((k) => '<button type="button" class="sk-card' + (k.id === s.sel ? ' sel' : '') + '" data-id="' + k.id + '" aria-pressed="' + (k.id === s.sel ? 'true' : 'false') + '">'
       + JOS.tile({ brand: k.tile.brand, glyph: k.tile.glyph, text: k.tile.text, color: k.tile.color, size: 'lg' }) + '<b>' + esc(L(k.name)) + '</b><small>' + esc(L(k.level)) + '</small>' + (k.studying ? '<span class="chip gold sk-st">' + gl('lightbulb', 'gl-12') + '</span>' : '') + '</button>').join('');
     const sk = all.find((k) => k.id === s.sel);
     w.$('.sk-det').innerHTML = sk ? skDetail(sk) : '';
@@ -277,7 +277,7 @@
     render(w) {
       const s = skState(w);
       return '<div class="sk"><div class="tabs" role="tablist" aria-label="' + esc(t('sk.cat')) + '">' + CATS.map((c) => '<button type="button" role="tab" class="tab" data-cat="' + c + '" aria-selected="' + (s.cat === c ? 'true' : 'false') + '">' + esc(t('sk.' + c)) + '</button>').join('')
-        + '</div><div class="sk-main"><div class="sk-grid" role="list"></div><aside class="sk-det sel" aria-live="polite"></aside></div></div>';
+        + '</div><div class="sk-main"><div class="sk-grid" role="group" aria-label="' + esc(t('sk.title')) + '"></div><aside class="sk-det sel" aria-live="polite"></aside></div></div>';
     },
     mount(w) {
       const s = skState(w);

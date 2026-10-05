@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0000aa">
+<title>404 — JoãoOS XP</title>
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="preload" href="/assets/fonts/vt323-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"VT323";font-display:swap;src:url(/assets/fonts/vt323-400.woff2) format("woff2")}
+html,body{height:100%;margin:0;background:#0000aa;color:#fff}
+body{display:flex;align-items:center;justify-content:center;padding:24px;font:22px/1.25 "VT323","Lucida Console",monospace;-webkit-font-smoothing:none}
+main{max-width:720px}
+h1{display:inline-block;margin:0 0 18px;padding:0 10px;background:#aaa;color:#0000aa;font:inherit}
+p{margin:0 0 14px;white-space:pre-wrap}
+a{color:#fff}
+.btn{display:inline-block;margin-top:6px;padding:2px 14px;color:#0000aa;background:#fff;text-decoration:none}
+.btn:hover,.btn:focus-visible{background:#ff0;outline:none}
+.cur{display:inline-block;width:12px;height:20px;background:#fff;vertical-align:-3px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cur{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <h1>JoãoOS XP</h1>
+  <p id="t1"></p>
+  <p id="t2"></p>
+  <p>*** STOP: 0x00000194 (PAGE_NOT_FOUND)</p>
+  <a class="btn" id="back" href="/">&gt; Return to the desktop</a> <span class="cur" aria-hidden="true"></span>
+</main>
+<script>
+(function () {
+  var pt = (navigator.language || '').toLowerCase().indexOf('pt') === 0;
+  document.documentElement.lang = pt ? 'pt-BR' : 'en';
+  document.getElementById('t1').textContent = pt
+    ? 'Um problema foi detectado e o JoãoOS XP foi desligado para evitar danos ao seu dia.\n\nA página que você procura não existe ou foi movida.'
+    : 'A problem has been detected and JoãoOS XP has been shut down to prevent damage to your day.\n\nThe page you are looking for does not exist or has moved.';
+  document.getElementById('t2').textContent = pt ? 'Se esta é a primeira vez que você vê esta tela, volte para a área de trabalho.' : 'If this is the first time you have seen this stop screen, return to the desktop.';
+  document.getElementById('back').textContent = pt ? '> Voltar para a área de trabalho' : '> Return to the desktop';
+  document.title = pt ? '404 — JoãoOS XP' : '404 — JoãoOS XP';
+})();
+</script>
+<noscript><p>404 — <a href="/">caduceusj.github.io</a></p></noscript>
+</body>
+</html>

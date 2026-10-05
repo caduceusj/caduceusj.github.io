@@ -7,10 +7,17 @@
   "scripts": {
     "build:icons": "node tools/build-icons.mjs",
     "build:images": "node tools/build-images.mjs",
-    "build:assets": "npm run build:icons && npm run build:images",
+    "build:favicon": "node tools/build-favicon.mjs",
+    "build:assets": "npm run build:icons && npm run build:images && npm run build:favicon",
+    "strip-exif": "node tools/strip-exif.mjs assets/*.jpg assets/*.jpeg",
     "serve": "npx http-server -p 8080 -c-1 ."
   },
   "devDependencies": {
     "sharp": "0.35.5"
+  },
+  "homepage": "https://caduceusj.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caduceusj/caduceusj.github.io.git"
   }
 }

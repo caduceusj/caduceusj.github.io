@@ -33,11 +33,11 @@
   --paper:#fff;
   --ink:#15151f;
   --ink-2:#4a4a42;
-  --ink-3:#77766b;
+  --ink-3:#5d5c53;
   --link:#0a3ea6;
   --sel:#316ac5;
   --sel-ink:#fff;
-  --ok:#2e8b2e;
+  --ok:#237a23;
   --warn:#d9822b;
   --bad:#c0392b;
   --accent:#ff8c00;
@@ -125,6 +125,7 @@ h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
 ul,ol{padding:0;list-style:none}
 ::selection{background:var(--sel);color:var(--sel-ink)}
 :focus{outline:none}
+.win:focus,.win:focus-visible{outline:none}
 :focus-visible{outline:1px dotted #000;outline-offset:-4px}
 .sel,.sel *{user-select:text;-webkit-user-select:text;cursor:text}
 .px{image-rendering:pixelated;image-rendering:-moz-crisp-edges}

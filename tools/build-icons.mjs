@@ -16,9 +16,24 @@ const OUT_SVG = path.join(ROOT, 'assets/icons/glyphs.svg');
 const INDEX = path.join(ROOT, 'index.html');
 const cls = (n) => n.replace(/_/g, '-');
 
+// ---------------------------------------------------------------- usage scan
+// icons.config.mjs is the catalogue; only icons that the code references end up in the
+// build (smaller sprite + smaller inline SVG). A reference is any quoted string equal to an
+// icon name in js/*.js, or an i-/g- class/id in index.html and css/*.css.
+const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
+const jsFiles = fs.readdirSync(path.join(ROOT, 'js')).filter((f) => f.endsWith('.js') && f !== 'media-manifest.js');
+let corpus = jsFiles.map((f) => read('js/' + f)).join('\n');
+corpus += '\n' + read('css/base.css') + '\n' + read('css/shell.css') + '\n' + read('css/apps.css');
+const htmlRaw = fs.existsSync(INDEX) ? read('index.html') : '';
+corpus += '\n' + htmlRaw.replace(/<!--glyphs:start-->[\s\S]*?<!--glyphs:end-->/, '');
+const KEEP_ALL = process.argv.includes('--all');
+const refd = (name, kind) => KEEP_ALL || (kind === 'silk'
+  ? new RegExp(`['"]${name}['"]|\\bi-${cls(name)}\\b`).test(corpus)
+  : new RegExp(`['"]${name}['"]|#g-${name}\\b|\\bg-${name}\\b`).test(corpus));
+
 // ---------------------------------------------------------------- sprite (Silk + custom)
 const cells = []; // { name, data }
-for (const n of silk) {
+for (const n of silk.filter((n) => refd(n, 'silk'))) {
   const file = path.join(SRC, 'silk', n + '.png');
   const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   if (info.width !== 16 || info.height !== 16) throw new Error(`${n}.png is ${info.width}x${info.height}`);
@@ -61,7 +76,7 @@ fs.writeFileSync(OUT_CSS, css);
 
 // ---------------------------------------------------------------- SVG glyph symbols
 const symbols = [];
-for (const n of glyphs) {
+for (const n of glyphs.filter((n) => refd(n, 'glyph'))) {
   const svg = fs.readFileSync(path.join(SRC, 'pixelarticons', n + '.svg'), 'utf8');
   const ds = [...svg.matchAll(/<path[^>]*\sd="([^"]+)"/g)].map((m) => m[1].replace(/\s+/g, ' ').trim());
   if (!ds.length) throw new Error('no path in ' + n);
@@ -86,7 +101,7 @@ function bitmapToPath(bits, W, H) {
   }
   return d;
 }
-for (const [id, slug] of Object.entries(brands)) {
+for (const [id, slug] of Object.entries(brands).filter(([id]) => refd(id, 'glyph'))) {
   const svg = fs.readFileSync(path.join(SRC, 'brands', slug + '.svg'), 'utf8').replace('<svg', '<svg fill="#000"');
   const { data } = await sharp(Buffer.from(svg), { density: 72 * 8 })
     .resize(24, 24, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
