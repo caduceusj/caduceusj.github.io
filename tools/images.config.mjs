@@ -36,6 +36,7 @@ export const portrait = {
   crop: { left: 20, top: 40, width: 2000, height: 2000 }, // square around the face (upright image)
 };
 export const pixelPortraits = [
+  { out: 'me-24.png', src: 'Eu.jpg', crop: portrait.crop, size: 24, colors: 32, brightness: 1.15 },
   { out: 'me-32.png', src: 'Eu.jpg', crop: portrait.crop, size: 32, colors: 40, brightness: 1.15 },
   { out: 'malleus-24.png', src: 'malleusmale.png', crop: { left: 521, top: 60, width: 430, height: 430 }, size: 24, colors: 24, bg: '#6d0d2a' },
 ];

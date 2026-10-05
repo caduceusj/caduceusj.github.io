@@ -32,7 +32,7 @@ chevron-down chevron-up chevron-left chevron-right arrow-left arrow-right arrow-
 search menu more-horizontal more-vertical
 volume volume-1 volume-2 volume-3 volume-x wifi languages
 calendar clock user users mail phone external-link link copy download upload printer save reload refresh home
-folder open file file-text article grid-3x3 grid-2x2-2 bulletlist list-box filter sliders sliders-horizontal settings-cog gear
+folder open file file-text article square grid-3x3 grid-2x2-2 bulletlist list-box filter sliders sliders-horizontal settings-cog gear
 info-box circle-info circle-question warning-diamond power power-off login logout
 trophy star heart flag target zap fire sparkles lightbulb map globe code terminal cpu gamepad joystick sword skull
 briefcase university teach script book-open github linkedin youtube send clipboard play pause stop forward repeat
