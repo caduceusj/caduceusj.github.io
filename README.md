@@ -72,14 +72,16 @@ assets/img            WebP otimizado (gerado) + retratos pixelados
 tools/                scripts de build de assets (opcionais) e os ícones-fonte vendorizados
 ```
 
-## Otimização (medido com Lighthouse local + Playwright)
+## Otimização (medido com Lighthouse local + Playwright, servidor com gzip como o GitHub Pages)
 
-* **Lighthouse (desktop): Performance 100 · Acessibilidade 100 · Boas práticas 100 · SEO 100** — FCP 0,4 s, LCP 0,7 s, TBT 0 ms, CLS 0.
-* Primeira carga ≈ **320 KB sem compressão (≈ 135 KB com gzip)**, 26 requisições, **zero terceiros**
+* **Lighthouse desktop: Performance 100 · Acessibilidade 100 · Boas práticas 100 · SEO 100** — FCP 0,3 s, LCP 0,4 s, TBT 0 ms, CLS 0.
+* **Lighthouse mobile** (4G lento + CPU 4× mais lenta): **97 · 100 · 100 · 100** — FCP 1,1 s, LCP 2,0 s.
+* Primeira carga: **130 KiB transferidos** (≈ 320 KB sem compressão), 26 requisições, **zero terceiros**
   (antes: Font Awesome + XP.css via CDN e uma foto de 1,6 MB usada como avatar de 40 px).
 * Imagens: **10,4 MB → 1 MB** em WebP; as capas só carregam quando aparecem (`loading="lazy"`).
-* Fontes pixel auto-hospedadas (3 famílias, subset latino) com `preload` e `font-display: swap`.
-* Acessibilidade: axe-core sem violações, navegação por teclado, `prefers-reduced-motion`, zoom liberado.
+* Fontes pixel auto-hospedadas (3 famílias, subset latino, 44 KB) com `preload` e `font-display: swap`;
+  ícones: sprite PNG de 9 KB + 65 símbolos SVG inline (só os usados).
+* Acessibilidade: axe-core sem violações (desktop e mobile), navegação por teclado, `prefers-reduced-motion`, zoom liberado.
 
 ## Créditos e licenças
 

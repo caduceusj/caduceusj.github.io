@@ -1,7 +1,7 @@
 // Builds the icon assets from tools/icons-src + tools/icons.config.mjs.
 //   node tools/build-icons.mjs
-// Outputs: assets/icons/silk.png, css/icons.css, assets/icons/glyphs.svg and the
-// inline <symbol> sprite inside index.html (between the glyphs markers).
+// Outputs: assets/icons/silk.png, css/icons.css and the inline <symbol> sprite inside
+// index.html (between the glyphs markers).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,7 +12,6 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'tools/icons-src');
 const OUT_PNG = path.join(ROOT, 'assets/icons/silk.png');
 const OUT_CSS = path.join(ROOT, 'css/icons.css');
-const OUT_SVG = path.join(ROOT, 'assets/icons/glyphs.svg');
 const INDEX = path.join(ROOT, 'index.html');
 const cls = (n) => n.replace(/_/g, '-');
 
@@ -125,7 +124,6 @@ for (const [id, slug] of Object.entries(brands).filter(([id]) => refd(id, 'glyph
 }
 
 const sprite = `<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${symbols.join('')}</svg>`;
-fs.writeFileSync(OUT_SVG, sprite + '\n');
 
 if (fs.existsSync(INDEX)) {
   const html = fs.readFileSync(INDEX, 'utf8');
@@ -137,4 +135,4 @@ if (fs.existsSync(INDEX)) {
 }
 
 const kb = (f) => (fs.statSync(f).size / 1024).toFixed(1) + ' KB';
-console.log(`silk.png: ${N} icons, ${kb(OUT_PNG)} | icons.css ${kb(OUT_CSS)} | glyphs.svg ${symbols.length} symbols, ${kb(OUT_SVG)}`);
+console.log(`silk.png: ${N} icons, ${kb(OUT_PNG)} | icons.css ${kb(OUT_CSS)} | ${symbols.length} inline SVG symbols (${(sprite.length / 1024).toFixed(1)} KB)`);
