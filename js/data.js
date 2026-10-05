@@ -23,6 +23,8 @@
     name: 'João Anisio Marinho da Nobrega',
     short: 'João Anisio',
     since: 2021, // started making games ("Level" on the profile = years since)
+    site: 'https://caduceusj.github.io/',
+    address: { city: 'Natal', region: 'RN', country: 'Brazil' },
     emails: ['joaoanisiomn@hotmail.com', 'joaoanisiomn@gmail.com'],
     phone: '+55 84 99708-1625',
     location: L('Natal, RN — Brasil', 'Natal, RN — Brazil'),

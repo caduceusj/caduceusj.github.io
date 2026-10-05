@@ -239,13 +239,27 @@
   const note = (w, txt, bad) => { const n = w.$('.mail-note'); if (n) { n.textContent = txt; n.className = 'mail-note' + (bad ? ' bad' : ' ok'); } };
   JOS.actions['mail-subject'] = (el) => { const w = JOS.wm.get('contact'); if (w) { w.$('#m-sub').value = t(el.dataset.s); w.$('#m-msg').focus(); } };
   JOS.actions['mail-copy'] = () => { const w = JOS.wm.get('contact'); const to = w.$('#m-to').value; JOS.copy(to).then((ok) => note(w, ok ? t('mail.copied', { e: to }) : to, !ok)); };
-  // vCard 3.0 so recruiters can add João to their address book in one click
+  // vCard 3.0 (RFC 2426) so recruiters can add João to their address book in one click.
+  // Values are escaped and long lines are folded at 75 octets; text follows the UI language.
+  const vEsc = (x) => String(x).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/([,;])/g, '\\$1');
+  const vFold = (line) => {
+    const enc = new TextEncoder(); let out = '', cur = '', bytes = 0, limit = 75;
+    for (const ch of line) {
+      const n = enc.encode(ch).length;
+      if (bytes + n > limit) { out += cur + '\r\n '; cur = ''; bytes = 0; limit = 74; }
+      cur += ch; bytes += n;
+    }
+    return out + cur;
+  };
   JOS.actions['mail-vcard'] = () => {
-    const me = D().me, ln = D().links, v = (x) => String(x).replace(/([,;\\])/g, '\\$1');
-    const card = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Nobrega;João Anisio Marinho da;;;', 'FN:' + me.name, 'NICKNAME:' + me.short, 'ORG:UFRN;AKCIT', 'TITLE:' + v(D().me.headline.en),
-      'TEL;TYPE=CELL:' + me.phone, ...me.emails.map((e) => 'EMAIL;TYPE=INTERNET:' + e), 'ADR;TYPE=WORK:;;;Natal;RN;;Brazil',
-      'URL:https://caduceusj.github.io/', 'URL;TYPE=LinkedIn:' + ln.linkedin, 'URL;TYPE=GitHub:' + ln.github, 'URL;TYPE=itch.io:' + ln.itch, 'NOTE:' + v('Game programmer & designer · Godot, Unity, VR/XR · Malleus Maleficarum (Steam)'), 'END:VCARD'].join('\r\n');
-    JOS.download('joao-anisio.vcf', card + '\r\n', 'text/vcard;charset=utf-8');
+    const me = D().me, ln = D().links, parts = me.name.split(' '), family = parts.pop(), given = parts.join(' '), a = me.address;
+    const lines = ['BEGIN:VCARD', 'VERSION:3.0', 'N:' + vEsc(family) + ';' + vEsc(given) + ';;;', 'FN:' + vEsc(me.name), 'NICKNAME:' + vEsc(me.short),
+      'ORG:' + vEsc('UFRN / AKCIT'), 'TITLE:' + vEsc(L(me.headline)), 'TEL;TYPE=CELL:' + vEsc(me.phone),
+      ...me.emails.map((e) => 'EMAIL;TYPE=INTERNET:' + vEsc(e)),
+      'ADR;TYPE=WORK:;;;' + vEsc(a.city) + ';' + vEsc(a.region) + ';;' + vEsc(a.country),
+      'URL:' + me.site, 'URL;TYPE=LinkedIn:' + ln.linkedin, 'URL;TYPE=GitHub:' + ln.github, 'URL;TYPE=itch.io:' + ln.itch,
+      'NOTE:' + vEsc(L(me.bio)), 'END:VCARD'];
+    JOS.download('joao-anisio.vcf', lines.map(vFold).join('\r\n') + '\r\n', 'text/vcard;charset=utf-8');
     const w = JOS.wm.get('contact'); if (w) note(w, t('mail.vcard.ok'), false);
   };
   JOS.actions['mail-send'] = () => {

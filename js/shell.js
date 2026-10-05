@@ -306,6 +306,7 @@
 
     JOS.on('langchange', () => { renderIcons(); renderStart(); updateTray(); updateClock(); renderTasks(); });
     JOS.on('wm:change', renderTasks);
+    JOS.on('wm:open', () => closeStart());
     boot();
   }
 

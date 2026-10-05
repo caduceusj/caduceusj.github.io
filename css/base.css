@@ -446,6 +446,9 @@ hr.sep{height:2px;margin:8px 0;border:0;background:linear-gradient(var(--face-lo
   scroll-behavior:auto!important
 }}
 
+/* Same rule for the in-app "Reduce animations" setting */
+[data-motion=off] *,[data-motion=off] *::before,[data-motion=off] *::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+
 /* Mobile: every window is a full-screen sheet */
 @media (max-width:768px){
   .win{left:0!important;top:0!important;width:100%!important;height:100%!important;--clip:none}

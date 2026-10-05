@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { silk, glyphs, brands, custom } from './icons.config.mjs';
+import { silk, glyphs, brands, custom, keep } from './icons.config.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'tools/icons-src');
@@ -27,9 +27,22 @@ corpus += '\n' + read('css/base.css') + '\n' + read('css/shell.css') + '\n' + re
 const htmlRaw = fs.existsSync(INDEX) ? read('index.html') : '';
 corpus += '\n' + htmlRaw.replace(/<!--glyphs:start-->[\s\S]*?<!--glyphs:end-->/, '');
 const KEEP_ALL = process.argv.includes('--all');
-const refd = (name, kind) => KEEP_ALL || (kind === 'silk'
+const forced = new Set((keep || []).map(String));
+const refd = (name, kind) => KEEP_ALL || forced.has(name) || (kind === 'silk'
   ? new RegExp(`['"]${name}['"]|\\bi-${cls(name)}\\b`).test(corpus)
   : new RegExp(`['"]${name}['"]|#g-${name}\\b|\\bg-${name}\\b`).test(corpus));
+
+
+// Warn about literal icon names the code uses that are not in the catalogue (they would render empty).
+{
+  const found = (re) => [...corpus.matchAll(re)].map((m) => m[1]);
+  const known = { silk: new Set([...silk, ...custom.map((c) => c.name)].map(cls)), glyph: new Set([...glyphs, ...Object.keys(brands)]) };
+  const silkRefs = new Set([...found(/\bico\(\s*['"]([\w]+)['"]/g), ...found(/\bico:\s*['"]([\w]+)['"]/g)].map(cls));
+  const glyphRefs = new Set([...found(/\bgl\(\s*['"]([\w-]+)['"]/g), ...found(/\b(?:glyph|brand):\s*['"]([\w-]+)['"]/g)]);
+  const missing = [...[...silkRefs].filter((n) => !known.silk.has(n)).map((n) => 'sprite:' + n), ...[...glyphRefs].filter((n) => !known.glyph.has(n)).map((n) => 'glyph:' + n)];
+  if (missing.length) console.warn('! icons used in the code but missing from tools/icons.config.mjs: ' + missing.join(', '));
+  if (/\bico\(\s*[`]|\bgl\(\s*[`]/.test(corpus)) console.warn('! template-literal icon names found; add them to `keep` in tools/icons.config.mjs');
+}
 
 // ---------------------------------------------------------------- sprite (Silk + custom)
 const cells = []; // { name, data }

@@ -9,7 +9,7 @@
     "build:images": "node tools/build-images.mjs",
     "build:favicon": "node tools/build-favicon.mjs",
     "build:assets": "npm run build:icons && npm run build:images && npm run build:favicon",
-    "strip-exif": "node tools/strip-exif.mjs assets/*.jpg assets/*.jpeg",
+    "strip-exif": "node tools/strip-exif.mjs",
     "serve": "npx http-server -p 8080 -c-1 ."
   },
   "devDependencies": {

@@ -1,8 +1,11 @@
 // Removes EXIF metadata (GPS position, camera model...) from JPEG files, applying the
 // orientation to the pixels first so the picture still looks upright.
-//   node tools/strip-exif.mjs assets/Eu.jpg [more.jpg ...]
-// Files without EXIF are left untouched.
+//   node tools/strip-exif.mjs                 -> every .jpg/.jpeg in assets/
+//   node tools/strip-exif.mjs assets/Eu.jpg   -> only the given files
+// Files without EXIF (or that do not exist) are left untouched.
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 export async function hasExif(file) {
@@ -17,8 +20,13 @@ export async function strip(file) {
   return true;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  for (const f of process.argv.slice(2)) {
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  const assets = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'assets');
+  const args = process.argv.slice(2);
+  const files = args.length ? args : fs.readdirSync(assets).filter((n) => /\.jpe?g$/i.test(n)).map((n) => path.join(assets, n));
+  for (const f of files) {
+    if (!fs.existsSync(f)) { console.log(`${f}: not found, skipped`); continue; }
     const before = fs.statSync(f).size;
     const changed = await strip(f);
     console.log(`${f}: ${changed ? `EXIF removed (${(before / 1024).toFixed(0)} KB -> ${(fs.statSync(f).size / 1024).toFixed(0)} KB)` : 'no EXIF, unchanged'}`);

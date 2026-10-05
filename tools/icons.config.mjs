@@ -59,6 +59,10 @@ export const brands = {
   ytmusic: 'youtubemusic',
 };
 
+// Names that must always be built, e.g. icons chosen at runtime from a computed string
+// (the build only scans for literal names). Example: keep: ['flag_red', 'sound_low'].
+export const keep = [];
+
 // Hand-drawn 16x16 icons (same look as Silk: 1px dark outline + soft shading).
 // "." is transparent. Every row must have exactly 16 characters.
 export const custom = [

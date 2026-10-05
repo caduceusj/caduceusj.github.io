@@ -133,9 +133,15 @@
     return w;
   }
 
+  function renormalizeZ() {
+    z = 100;
+    Array.from(wins.values()).sort((a, b) => (+a.el.style.zIndex || 0) - (+b.el.style.zIndex || 0)).forEach((x) => { x.el.style.zIndex = ++z; });
+  }
+
   function focus(key) {
     const w = wins.get(key);
     if (!w || w.state === 'min') return;
+    if (z > 5000) renormalizeZ();
     wins.forEach((x) => x.el.classList.remove('focused'));
     w.el.classList.add('focused');
     w.el.style.zIndex = ++z;

@@ -26,23 +26,24 @@ a{color:#fff}
 <body>
 <main>
   <h1>JoãoOS XP</h1>
-  <p id="t1"></p>
-  <p id="t2"></p>
+  <p id="t1">A problem has been detected and JoãoOS XP has been shut down to prevent damage to your day.
+
+The page you are looking for does not exist or has moved.</p>
+  <p id="t2">If this is the first time you have seen this stop screen, return to the desktop.</p>
   <p>*** STOP: 0x00000194 (PAGE_NOT_FOUND)</p>
   <a class="btn" id="back" href="/">&gt; Return to the desktop</a> <span class="cur" aria-hidden="true"></span>
 </main>
 <script>
 (function () {
   var pt = (navigator.language || '').toLowerCase().indexOf('pt') === 0;
+  if (!pt) return; // English text is already in the HTML
   document.documentElement.lang = pt ? 'pt-BR' : 'en';
   document.getElementById('t1').textContent = pt
     ? 'Um problema foi detectado e o JoãoOS XP foi desligado para evitar danos ao seu dia.\n\nA página que você procura não existe ou foi movida.'
     : 'A problem has been detected and JoãoOS XP has been shut down to prevent damage to your day.\n\nThe page you are looking for does not exist or has moved.';
   document.getElementById('t2').textContent = pt ? 'Se esta é a primeira vez que você vê esta tela, volte para a área de trabalho.' : 'If this is the first time you have seen this stop screen, return to the desktop.';
   document.getElementById('back').textContent = pt ? '> Voltar para a área de trabalho' : '> Return to the desktop';
-  document.title = pt ? '404 — JoãoOS XP' : '404 — JoãoOS XP';
 })();
 </script>
-<noscript><p>404 — <a href="/">caduceusj.github.io</a></p></noscript>
 </body>
 </html>
