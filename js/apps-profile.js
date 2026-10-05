@@ -10,7 +10,13 @@
 
   // ====================================================================== shared helpers
   const hue = (id) => { let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 360; return h; };
-  const initials = (title) => title.replace(/[^\p{L}\p{N} ]/gu, '').split(/\s+/).filter(Boolean).slice(0, 3).map((s) => s[0]).join('').toUpperCase();
+  const STOP = /^(a|an|as|o|os|da|das|de|do|dos|e|em|no|na|of|the|and|but|i|\&)$/i;
+  const initials = (title) => {
+    const words = title.replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean);
+    const main = words.filter((w) => w.length < 2 || !STOP.test(w));
+    const use = main.length ? main : words;
+    return (use.length === 1 ? use[0].slice(0, use[0].length <= 3 ? 3 : 2) : use.slice(0, 3).map((w) => w[0]).join('')).toUpperCase();
+  };
   const media = (id) => (window.MEDIA && window.MEDIA.projects && window.MEDIA.projects[id]) || null;
 
   // Cover image for a project: optimized WebP if generated, raw `img` if set in data.js, else a generated pixel cover.
@@ -85,6 +91,7 @@
       + '<article class="feat"><div class="feat-img">' + JOS.cover(m, 'thumb', { eager: true }) + '<span class="ribbon">' + gl('star', 'gl-12') + ' ' + esc(t('feat.steam')) + '</span></div>'
       + '<div class="feat-info"><h3>' + esc(m.title) + '</h3><p>' + esc(L(m.desc)) + ' ' + esc(L(m.award)) + '.</p>'
       + '<div class="feat-btns">' + ext(links.steam, 'btn steam sm', JOS.gl('steam', '') + ' ' + esc(t('feat.view'))) + '<button type="button" class="btn sm" data-act="open-app" data-app="malleus">' + esc(t('feat.details')) + '</button></div></div></article>'
+      + '<h3 class="sec">' + esc(t('wel.more')) + '</h3><div class="hl">' + d.projects.filter((p) => p.featured && p.id !== 'malleusgame').slice(0, 4).map((p) => '<button type="button" class="hl-i" data-act="proj-open" data-id="' + p.id + '" title="' + esc(L(p.desc)) + '"><span class="hl-img">' + JOS.cover(p, 'thumb', { alt: '' }) + '</span><b>' + esc(p.title) + '</b><small>' + esc(JOS.engineLabel(p)) + '</small></button>').join('') + '</div>'
       + '<h3 class="sec">' + esc(t('wel.explore')) + '</h3><div class="quick">' + quick + '</div>'
       + '<h3 class="sec">' + esc(t('wel.now')) + '</h3><ul class="nowlist">' + nowList + '</ul>'
       + '</section></div>';

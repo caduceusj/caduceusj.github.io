@@ -165,7 +165,8 @@
       setTimeout(() => bootEl.remove(), 400);
       later(toDesktop, reduce ? 300 : 1700);
     };
-    if (JOS.store.sget('booted', false) || /[?&]noboot\b/.test(location.search)) {
+    const bot = /bot|crawl|spider|slurp|facebookexternalhit|lighthouse|pagespeed|preview/i.test(navigator.userAgent);
+    if (JOS.store.sget('booted', false) || bot || /[?&]noboot\b/.test(location.search)) {
       loginEl.hidden = true; bootEl.remove(); done = true; ready(); return;
     }
     later(toLogin, reduce ? 500 : 2300);

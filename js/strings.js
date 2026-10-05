@@ -17,7 +17,7 @@
       'egg.t': 'Cheat activated!', 'egg.x': '+30 lives. You found the Konami code.',
       'sd.title': 'Thanks for visiting!', 'sd.text': 'JoãoOS XP is now safe to leave. Have a great day — and let’s build something together.', 'sd.restart': 'Restart', 'sd.contact': 'Say hello',
 
-      'wel.sub': 'Profile & highlights', 'wel.explore': 'Explore', 'wel.now': 'Currently',
+      'wel.sub': 'Profile & highlights', 'wel.more': 'More highlights', 'wel.explore': 'Explore', 'wel.now': 'Currently',
       'sheet.class': 'Class', 'sheet.level': 'Level', 'sheet.xp': 'XP to next level: {n}%', 'sheet.guild': 'Guild', 'sheet.weapons': 'Weapons', 'sheet.spawn': 'Spawn', 'sheet.langs': 'Languages', 'sheet.quest': 'Main quest',
       'stat.games': 'games & prototypes', 'stat.steam': 'Steam release', 'stat.ieee': 'IEEE VR 2026 works', 'stat.years': 'years making games',
       'qa.projects': 'My Projects', 'qa.projects.s': '{n} games & prototypes', 'qa.resume': 'Resume', 'qa.resume.s': 'Print or save as PDF', 'qa.skills': 'Skills', 'qa.skills.s': '{n} skills & tools', 'qa.contact': 'Contact', 'qa.contact.s': 'Let’s talk',
@@ -49,7 +49,7 @@
       'egg.t': 'Cheat ativado!', 'egg.x': '+30 vidas. Você encontrou o código Konami.',
       'sd.title': 'Obrigado pela visita!', 'sd.text': 'Agora é seguro sair do JoãoOS XP. Tenha um ótimo dia — e vamos construir algo juntos.', 'sd.restart': 'Reiniciar', 'sd.contact': 'Dizer olá',
 
-      'wel.sub': 'Perfil e destaques', 'wel.explore': 'Explorar', 'wel.now': 'Atualmente',
+      'wel.sub': 'Perfil e destaques', 'wel.more': 'Mais destaques', 'wel.explore': 'Explorar', 'wel.now': 'Atualmente',
       'sheet.class': 'Classe', 'sheet.level': 'Nível', 'sheet.xp': 'XP para o próximo nível: {n}%', 'sheet.guild': 'Guilda', 'sheet.weapons': 'Armas', 'sheet.spawn': 'Origem', 'sheet.langs': 'Idiomas', 'sheet.quest': 'Missão',
       'stat.games': 'jogos e protótipos', 'stat.steam': 'lançamento na Steam', 'stat.ieee': 'trabalhos na IEEE VR 2026', 'stat.years': 'anos fazendo jogos',
       'qa.projects': 'Meus Projetos', 'qa.projects.s': '{n} jogos e protótipos', 'qa.resume': 'Currículo', 'qa.resume.s': 'Imprimir ou salvar em PDF', 'qa.skills': 'Habilidades', 'qa.skills.s': '{n} habilidades e ferramentas', 'qa.contact': 'Contato', 'qa.contact.s': 'Vamos conversar',
