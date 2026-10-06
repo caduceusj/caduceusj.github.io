@@ -162,6 +162,11 @@ b,strong,th,h1,h2,h3,h4,h5,h6,legend{
 }
 .tile .gl{filter:drop-shadow(0 1px 0 rgba(0,0,0,.4))}
 .tile>span{text-shadow:1px 1px 0 rgba(0,0,0,.4)}
+.tile-s1{width:20px;height:20px;margin:0;box-shadow:0 -1px 0 var(--cd),0 1px 0 var(--cd),-1px 0 0 var(--cd),1px 0 0 var(--cd);background:linear-gradient(var(--cl) 0 1px,var(--c) 1px calc(100% - 2px),var(--cd) calc(100% - 2px))}
+.tile-s1 .gl{width:16px;height:16px;filter:none}
+.tile-s2{width:32px;height:32px;margin:0}
+.tile-s3{width:48px;height:48px;margin:0}
+.tile-s3 .gl{width:36px;height:36px}
 .tile-sm{width:28px;height:28px}.tile-lg{width:48px;height:48px;font-size:14px}.tile-xl{width:56px;height:56px;font-size:16px}
 
 /* ---------- Buttons ---------- */

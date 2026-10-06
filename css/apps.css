@@ -285,7 +285,7 @@
 [data-theme=olive] .xp h4{background:linear-gradient(90deg,#667d34,#9db35e)}[data-theme=silver] .xp h4{background:linear-gradient(90deg,#8a8fb8,#c3c7e0);color:#23254a;text-shadow:none}
 .xp-b{padding:8px 6px}
 .xc{display:flex;align-items:center;gap:7px;width:100%;padding:4px 6px;border:0;background:none;color:#0a3ea6;text-align:left;font:400 15px/1.2 var(--font-ui)}
-.xc span{flex:1;min-width:0}.xc i{font-style:normal;font-size:13px;color:var(--ink-3)}
+.xc>span:not(.tile){flex:1;min-width:0}.xc i{font-style:normal;font-size:13px;color:var(--ink-3)}
 .xc:hover{color:#c25a00;text-decoration:underline}
 .xc.on{background:#fff;font-weight:400;box-shadow:inset 0 0 0 1px #316ac5;text-shadow:1px 0 0 currentColor}
 .xd{display:flex;flex-direction:column;gap:6px;padding:0 2px}

@@ -56,7 +56,29 @@
 
   // ------------------------------------------------------------------ icons
   // Sprite icon (Silk, 16px grid). Sizes are integer scales: 1 (16px), 2 (32px), 3 (48px).
-  JOS.ico = (n, s, extra) => '<i class="ico i-' + String(n).replace(/_/g, '-') + (s > 1 ? ' ico-' + s : '') + (extra ? ' ' + extra : '') + '" aria-hidden="true"></i>';
+  // Every app/object icon is a pixel-native tile: a 24px-grid glyph on a banded color base.
+  // Names are the legacy Silk names (kept as stable ids); unmapped names fall back to the Silk sprite.
+  const T = {
+    folder: ['folder', '#d9a21b'], folder_star: ['star', '#d9a21b'], folder_page: ['file', '#d9a21b'],
+    folder_explore: ['globe', '#d9a21b'], folder_heart: ['heart', '#d9a21b'], folder_lightbulb: ['lightbulb', '#d9a21b'],
+    page_white_text: ['file-text', '#3a7bd5'], page_white_acrobat: ['file-text', '#c8372d'], page_white_copy: ['copy', '#5a6a85'],
+    briefcase: ['briefcase', '#a0652a'], book_open: ['university', '#2e7d5b'], bricks: ['sliders', '#8a4fd0'],
+    medal_gold_1: ['trophy', '#e0a800'], medal_gold_2: ['trophy', '#9aa3b2'], medal_gold_3: ['trophy', '#b8733a'],
+    award_star_gold_1: ['star', '#e0a800'], rosette: ['sparkles', '#d1498a'],
+    email: ['mail', '#2f9ad0'], telephone: ['phone', '#2e9b52'], world: ['globe', '#2f7fd0'], vcard: ['user', '#0a66c2'],
+    user_suit: ['human', '#3a7bd5'], house: ['home', '#2e7d5b'], computer: ['laptop', '#5a6a85'], monitor: ['monitor', '#3a7bd5'],
+    server: ['server', '#5a6a85'], application_xp_terminal: ['terminal', '#2b2b33'], application_double: ['layout', '#5a6a85'],
+    controller: ['gamepad', '#8a4fd0'], joystick: ['joystick', '#c8372d'], bug: ['bug', '#2e9b52'], lightbulb: ['lightbulb', '#e0a800'],
+    image: ['image', '#2f9ad0'], link: ['link', '#3a7bd5'], lock: ['lock', '#9a6b1f'], magnifier: ['search', '#3a7bd5'],
+    printer: ['printer', '#5a6a85'], disk: ['save', '#3a7bd5'], door_out: ['logout', '#c8372d'], arrow_refresh: ['reload', '#2e9b52'],
+    information: ['info-box', '#3a7bd5'], star: ['star', '#e0a800'], skull: ['skull', '#6a1f2a'],
+    flag_blue: ['flag', '#2f7fd0'], flag_green: ['flag', '#2e9b52'], flag_yellow: ['flag', '#e0a800'],
+  };
+  JOS.ico = (n, s, extra) => {
+    const k = String(n), m = T[k];
+    if (m) return '<span class="tile tile-s' + (s || 1) + (extra ? ' ' + extra : '') + '" style="--c:' + m[1] + ';--cl:' + JOS.shade(m[1], 0.28) + ';--cd:' + JOS.shade(m[1], -0.38) + '" aria-hidden="true">' + JOS.gl(m[0]) + '</span>';
+    return '<i class="ico i-' + k.replace(/_/g, '-') + (s > 1 ? ' ico-' + s : '') + (extra ? ' ' + extra : '') + '" aria-hidden="true"></i>';
+  };
   // Monochrome 24px-grid glyph (pixelarticons / pixelated brand marks), painted with currentColor.
   JOS.gl = (n, cls) => '<svg class="gl' + (cls ? ' ' + cls : '') + '" aria-hidden="true" focusable="false"><use href="#g-' + n + '"/></svg>';
   const hex = (h) => { h = h.replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.substr(i, 2), 16)); };
