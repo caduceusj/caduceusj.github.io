@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caduceusj.github.io/sitemap.xml
